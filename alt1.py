@@ -1,3 +1,19 @@
+# ALT Assignment 1
+# Agnes van Belle
+# Nikos Voskarides
+
+
+# usage:
+# python alt1.py 
+#   -a <alignments file> 
+#   -e <english sentence file> 
+#   -f <dutch sentence file> 
+#   -o <output dir for final file>
+#
+# example usage command:
+# python2.7 alt1.py -a /home/cmonz1/alt2013/dutch-english/web/web.aligned  -e /home/cmonz1/alt2013/dutch-english/web/web.en -f /home/cmonz1/alt2013/dutch-english/web/web.nl -o ./output_web
+
+
 import sys
 import os
 import math
@@ -6,25 +22,33 @@ import gc
 import itertools
 import copy
 import collections
-
-table_nl_file = 'table_nl.dat'
-table_en_file = 'table_en.dat'
-table_nl_en_file = 'table_nl_en.dat'
+import argparse
 
 
-writeRawFiles = True
 
-
-MAXIMUM_READ_SENTENCES = 1000 #10000 # for debug purposes
+MAXIMUM_READ_SENTENCES = 100000000 #10000 # for debug purposes
 
 gc.disable()
 
+""" 
+Some specific classes are used as dictionary entries, 
+for the dictionaries within the main "Extractor" class.
+First, for clarity, second, because tuples don't support item-assignment,
+while lists can't be pickled (not really necessary but might become so).
 
-# phrasePairTableEntry: used in the table table_nl_en
+See below:
+PhrasePairTableEntry
+LexicalTableEntry
+ConditionalTableEntry
+"""
+
+# phrasePairTableEntry: used in the table Extractor::table_nl_en
 # that goes from (phrase_nl, phrase_en ) -> phrasePairTableEntry
-# used because tuples don't support item-assignment,
-# while lists can't be pickled
-# class containing:
+
+# class contains the count of the phrase pair, and two dictionaries 
+# (for both directions) specifying the alignments and their frequency
+# of occurrance
+# 
 # ( <int> phrase-pair-count, 
 #   <dict: list to int> align_list_nl_en -> count, 
 #   <dict: list to int> align_list_en_nl -> count
@@ -45,14 +69,28 @@ class PhrasePairTableEntry(object) :
     self.phrasePairCount += 1
   
   def addNlLexAlignment(self, alignment) :
-    #print "adding alignment key %s to nlLexAlignment " % (alignment,)
     self.dictNlLex[alignment] += 1
-    #print "%d keys has nlLexAlignment now " % len(self.dictNlLex.keys())
   
   def addEnLexAlignment(self, alignment):
     self.dictEnLex[alignment] += 1
 
 
+# entry for the dictionaries Extractor::table_nl_lex and Extractor::table_en_lex
+# which are of the form: (source_phrase) -> LexicalTableEntry
+# 
+# holds a dict (wordCountDict) that has
+# "counts" of word in target language (target_word -> int) 
+# and the total count for the source word that this entry relates to
+# note the counts are weighted (by nr. of alignments), so not really counts
+# 
+# used in Extractor::table_nl_lex and Extractor::table_en_lex 
+# to calculate prob. of traget word given source word
+# e.g.
+#      print "p(wil|point):"
+#      print self.table_en_lex["point"].getTranslationProb("wil")
+#
+#      print "p(point|wil):"
+#      print self.table_nl_lex["wil"].getTranslationProb("point")
 class LexicalTableEntry (object) :
   
   def __init__(self, word_count_dict=None, total_count=0.0) :
@@ -79,21 +117,29 @@ class LexicalTableEntry (object) :
       print "\t%s : %3.2f" % (targetWord, count)
 
 
+
+# entry for the dictionary Extractor::prob_nl_en
+# which is of the form: (nl_phrase, en_phrase) -> ConditionalTableEntry
+#
+# holds final phrase- end lexical translation prob.s
 class ConditionalTableEntry (object) :
   def __init__(self, phrase_prob=0.0, lexical_prob=0.0) :
     self.phraseProb = phrase_prob
     self.lexicalProb = lexical_prob
-    
+
+
+
+# class that extract phrase pairs and computes phrase-translation and
+# lexical translation probabilities from the counts, and finally writes it to a file 
 class Extractor(object):
-  """
-    extract phrases
-    write tables to files
-  """
+
+  
+  # maximum phrase length
   maxPhraseLen = 7
 
-  def __init__(self, reader, tableDir ):
+  def __init__(self, reader, outputDir ):
     self.reader = reader
-    self.tablePath = os.path.abspath(tableDir) + '/'
+    self.tablePath = os.path.abspath(outputDir) + '/'
 
     self.table_nl = collections.defaultdict(int)
     self.table_en = collections.defaultdict(int)
@@ -102,6 +148,7 @@ class Extractor(object):
     self.table_nl_lex = collections.defaultdict(LexicalTableEntry) # nl -> en, p(en|nl)
     self.table_en_lex = collections.defaultdict(LexicalTableEntry) # en -> nl, p(nl|en)
     
+    # holds final phrase- end lexical translation prob.s
     self.prob_nl_en = collections.defaultdict(ConditionalTableEntry) # nl | en
     self.prob_en_nl = collections.defaultdict(ConditionalTableEntry) # en | nl
     
@@ -110,7 +157,6 @@ class Extractor(object):
     self.unique_nl_en = 0
 
     self.total_extracted = 0
-
 
     if not os.path.exists(self.tablePath):
       os.makedirs(self.tablePath)
@@ -129,58 +175,49 @@ class Extractor(object):
           self.parseSentencePair(self.reader.line_list_aligns, self.reader.line_nl_words, self.reader.line_en_words)
 
       # print stats
-      sys.stdout.write('\n')
-      sys.stdout.write('Extracted ' + str(self.total_extracted) + ' phrase pairs \n' +
-                        '\t unique phrases for nl: ' + str(self.unique_nl) + '\n'+
-                        '\t unique phrases for en: ' + str(self.unique_en) + '\n'+
-                        '\t unique pairs: ' + str(self.unique_nl_en) + '\n')
-
+      self.printStats()
+      
       # write stats to file
-      f = open( 'extraction_stats.txt', "a+b" )
-      f.write('Extracted ' + str(self.total_extracted) + ' phrase pairs  from tables in' + str(self.tablePath) + '\n'
-              '\t unique phrases for nl: ' + str(self.unique_nl) + '\n'+
-              '\t unique phrases for en: ' + str(self.unique_en) + '\n'+
-              '\t unique pairs: ' + str(self.unique_nl_en) + '\n\n')
-      f.close()
-
-      sys.stdout.write('Writing to files...\n')
-
-      self.normalizeTables() #make probabilities of the counts
-      #self.pickleTables()
-
-      #if writeRawFiles:
-      #  self.writeTables()
-
-      sys.stdout.write('Done writing to files.\n')
-
+      self.writeStatsToFile()
       
-      # test for lexical probabilities      
-      
-      """print " === table_nl_lex: ==="
-      for key, value in self.table_nl_lex.iteritems():
-        print "Word: %s" % key
-        print "Targets:" 
-        value.printEntry()
-      
-      print "=== table_en_lex: === "
-      for key, value in self.table_en_lex.iteritems():
-        print "Word: %s" % key
-        print "Targets:" 
-        value.printEntry()      
-       
-      print "p(wil|point):"
-      print self.table_en_lex["point"].getTranslationProb("wil")
+      sys.stdout.write('Computing probabilities and writing to files...\n')
 
-      print "p(point|wil):"
-      print self.table_nl_lex["wil"].getTranslationProb("point")
-      """
-
+      # infer probabilities from the counts, 
+      # phrase-translation prob.s as well as lexical prob.s
+      self.normalizeTables()
       
+   
+
+      sys.stdout.write('Done .\n')
+
+  # print stats
+  def printStats(self) :
+    sys.stdout.write('\n')
+    sys.stdout.write('Extracted ' + str(self.total_extracted) + ' phrase pairs \n' +
+                      '\t unique phrases for nl: ' + str(self.unique_nl) + '\n'+
+                      '\t unique phrases for en: ' + str(self.unique_en) + '\n'+
+                      '\t unique pairs: ' + str(self.unique_nl_en) + '\n' +
+                      '\t nr. nl words: ' + str(len(self.table_nl_lex.keys())) + '\n' +
+                      '\t nr. en words: ' + str(len(self.table_en_lex.keys())) + '\n\n' ) 
+                      
+    
+  # write stats to file
+  def writeStatsToFile(self) :
+    f = open( self.tablePath+'/extraction_stats.txt', "a+b" )
+    f.write('Extracted ' + str(self.total_extracted) + ' phrase pairs  from tables in' + str(self.tablePath) + '\n'
+            '\t unique phrases for nl: ' + str(self.unique_nl) + '\n'+
+            '\t unique phrases for en: ' + str(self.unique_en) + '\n'+
+            '\t unique pairs: ' + str(self.unique_nl_en) + '\n' + 
+            '\t nr. nl words: ' + str(len(self.table_nl_lex.keys())) + '\n' +
+            '\t nr. en words: ' + str(len(self.table_en_lex.keys())) + '\n\n'  )
+    f.close()
+
+
+  # get the most frequent alignments given a dict of alignment->count 
   def get_most_frequent_alignment(self, alignments):
     maxV = 0
     best_alignment = None
     for alignment, count in alignments.iteritems():
-      #print "count: %d, alignment: %s" %  (count,(alignment,))
       if count > maxV :
         best_alignment = alignment
         
@@ -188,16 +225,15 @@ class Extractor(object):
     return best_alignment
   
     
-  #compute (log) lexical probability 
+  # compute (log) lexical probability 
+  # based on self.table_en_nl or self.table_nl_en that are used to
+  # calculate the word translation probabilities
   def compute_lex_prob(self, nl, en, en_given_nl, best_alignment):
     
     (e,f) = (en, nl)
     if not en_given_nl:
-      (e,f) = (nl, en) 
+      (e,f) = (nl, en)     
     
-    
-    #print e
-    #print "sentence pair:\ne='%s'\nf='%s'\n" % (e, f)
     e_split = e.split()
     f_split = f.split()    
     len_e = len(e_split)
@@ -208,23 +244,12 @@ class Extractor(object):
     
     e_side_indices = map (lambda x: x[0], best_alignment)
     f_side_indices = map (lambda x: x[1], best_alignment)
-
-    #print "e_side_indices: %s" % e_side_indices
-    #print "f_side_indices: %s" % f_side_indices
-    
-
+   
     # for all e-side words
     for e_index in range(0, len(e_side_indices)):
       sub_prob = 0
       
-      #every word must be aligned to at least one word
-      """aligned_indexes = best_alignment[i]
-      
-      print "aligned_indexes: %s" % (aligned_indexes,)
-      print "%s aligned to %s" % (aligned_indexes[0],(aligned_indexes[1],))
-      aligned_indexes_num = len(aligned_indexes[1])
-      """
-      
+      #every e-word must be aligned to at least one f-word (cna both be NULL)
       if e_side_indices[e_index] == "NULL":
         en_word = "NULL"
       else :
@@ -232,7 +257,6 @@ class Extractor(object):
         
       aligned_indexes = f_side_indices[e_index]
       aligned_indexes_num = len(aligned_indexes)
-      #print "nr. aligned indexes of e_index %d, i.e. word '%s': %d (%s)" % (e_index, en_word, aligned_indexes_num, (aligned_indexes,))
       
       for j in range(0, len(aligned_indexes)):
         
@@ -241,40 +265,16 @@ class Extractor(object):
         else :
           f_word = f_split[aligned_indexes[j]]
           
-        #print "sub-alignment e->f: %s->%s" % (en_word, f_word)
-        """#w(e|f) = c(e,f) / c(f)
-        count_f = 0
-        count_e_f = 0
-        if en_given_nl:
-          count_f = table_nl[f]
-          count_e_f = table_nl_en[(f_split[j], e_split[i])][0]
-        else:
-          count_f = table_en[f]
-          count_e_f = table_nl_en[(e_split[i], f_split[j])][0]]
-
-        sub_prob += count_e_f / (float)count_f
-        """
-        #print "p(wil|point):"
-        #print self.table_en_lex["point"].getTranslationProb("wil")
+       
         if en_given_nl:
           sub_prob += self.table_nl_lex[f_word].getTranslationProb(en_word)
-          #print "pr(%s|%s): %2.2f" % ( en_word, f_word, self.table_nl_lex[f_word].getTranslationProb(en_word))
-        else:
-          #self.table_en_lex[f_word].printEntry()
-          
+        else:         
           sub_prob += self.table_en_lex[f_word].getTranslationProb(en_word)
-          #print "pr(%s|%s): %2.2f" % (en_word, f_word, self.table_en_lex[f_word].getTranslationProb(en_word))
-      
-      #if (e == "various"):
-      #  print "sub prob: %3.4f, aligned_indexes_num=%3.2f, sub_prob/aligned_indexes_num=%2.3f" % (sub_prob, aligned_indexes_num, sub_prob)
+     
       sub_prob = (sub_prob / float(aligned_indexes_num))
       sub_prob_log = math.log(sub_prob)
-      #if (e == "various"):
-      #  print "log(sub_prob): %2.2f" % sub_prob_log
+    
       lex_prob += sub_prob_log
-
-    #if (e == "various"):
-    #  print "lex prob: %2.2f" % lex_prob
   
 
     return lex_prob
@@ -315,8 +315,9 @@ class Extractor(object):
     return (lex_nl_en, lex_en_nl)
   
   
+  # write everything to a file in format
+  #  f ||| e ||| p(f|e) p(e|f) l(f|e) l(e|f) ||| freq(f) freq(e) freq(f,e) 
   def writeToFile(self, f1, nl_phrase, en_phrase) :
-
     pair = (nl_phrase, en_phrase)
     delimiter = " ||| "
     
@@ -338,12 +339,12 @@ class Extractor(object):
     f1.write(" ")
     f1.write(str(self.table_nl_en[pair].phrasePairCount))
     f1.write('\n')
-    
+  
+  
   # infers considition phrase and lexical probabilities from the frequency tables
   def normalizeTables(self):
     
     f1 = open( self.tablePath +  'final_file.txt', "wb" );
-
 
     # for each phrase pair in frequency+alignments table
     for pair, phrasePairTableEntry in self.table_nl_en.iteritems():
@@ -367,61 +368,21 @@ class Extractor(object):
       
       self.prob_nl_en[pair].lexicalProb = lex_nl_en_prob
       self.prob_en_nl[pair].lexicalProb = lex_en_nl_prob
-      
-      
+            
       
       self.writeToFile(f1, nl_phrase, en_phrase)
     
     f1.close()  
-    """
-    for nl, value in self.table_nl.iteritems():
-      value_new = math.log(value) - math.log(self.total_extracted)
-      self.table_nl[nl] = value_new
-
-    for en, value in self.table_en.iteritems():
-      value_new = math.log(value) - math.log(self.total_extracted)
-      self.table_en[en] = value_new
-    """
+ 
     
 
-  def pickleTables(self):
-    f1 = open( self.tablePath + table_nl_file, "wb" )
-    f2 = open( self.tablePath +  table_en_file, "wb" )
-    f3 = open( self.tablePath +  table_nl_en_file, "wb" )
+    
 
-    pickle.dump(self.table_nl, f1)
-    pickle.dump(self.table_en, f2)
-    pickle.dump(self.table_nl_en, f3)
-
-    f1.close()
-    f2.close()
-    f3.close()
-
-
-  def writeTables(self):
-
-    f1 = open( self.tablePath +  table_nl_file[:-4] + '_raw.txt', "wb" );
-    f2 = open( self.tablePath +  table_en_file[:-4] + '_raw.txt', "wb" );
-    f3 = open( self.tablePath +  table_nl_en_file[:-4] + '_raw.txt', "wb" );
-
-
-    for nl, value in self.table_nl.iteritems():
-      f1.write(str(value) + ' : ' + str(nl) + '\n')
-    for en, value in self.table_en.iteritems():
-      f2.write(str(value) + ' : ' + str(en) + '\n')
-    for pair, phrasePairTableEntry in self.table_nl_en.iteritems():      
-      f3.write(str(phrasePairTableEntry.phrasePairCount) + ' : ' + str(pair) + ' ')
-      f3.write('\n nl->en alignments: ')
-      for alignment, count in phrasePairTableEntry.dictNlLex.iteritems() :       
-        f3.write(str(alignment) + ': ' + str(count) + ' ')
-      f3.write('\n en->nl alignments: ')
-      for alignment, count in phrasePairTableEntry.dictEnLex.iteritems() :
-        f3.write(str(alignment) + ': ' + str(count) + ' ')
-      f3.write('\n')
-    f1.close()
-    f2.close()
-    f3.close()
-
+  # fill a lexical table with counts that are later used
+  # to compute the word-translation probabilities
+  # either self.table_en_lex or self.table_nl_lex
+  # also see class LexicalTableEntry
+  #
   # assume dutch word f_1 goes to english words e_1, e_2, e_3
   # then add 1/3 to table_en_lex[e_1][f_1] ( f_1 given e_1), 
   #     add 1/3 to table_en_lex[e_1][f_2] ( f_1 given e_2)
@@ -441,23 +402,23 @@ class Extractor(object):
         t_word = list_target[t_i]
       table_target_lex[t_word].addTargetWord(source_word, add_count)
   
-  
+  # based on function populateLexicalTable above
+  # except tailored to adding word-translation NULL given another word
   def populateLexicalTableNULL(self, target_words_indices,  list_target, table_target_lex) :
     
-    add_count = 1
- 
-    
+    add_count = 1     
     for t_i in target_words_indices :
       if t_i == "NULL":
         t_word = "NULL"
       else :
         t_word = list_target[t_i]
       table_target_lex[t_word].addTargetWord("NULL", add_count)
-        
+  
+  
+  
   #extract phrases from one sentence pair
   # used in Extractor.extract()
   def parseSentencePair(self, alignments, list_nl, list_en):
-
 
     totalExtractedThisPhrase = 0
 
@@ -493,42 +454,30 @@ class Extractor(object):
     nl_to_null = []
     en_to_null = []
     
+    
+    # put p( nl | en) and p (nl | NULL) in the "from english"-lexical table 
     for lex_index in range(0, len_list_nl) :
       if nl_to_en_lex[lex_index] == [] :
         nl_to_en_lex[lex_index] = ["NULL"]
-        #en_to_nl_lex["NULL"].append(lex_index)      
         nl_to_null.append(lex_index)
         
       self.populateLexicalTable(lex_index, list_nl, list_en, nl_to_en_lex, self.table_en_lex) # p(nl | en)
       
       
-
+    # put p( en | nl ) and p (en | NULL) in the "from dutch"- lexical table
     for lex_index in range(0, len_list_en) :
       if en_to_nl_lex[lex_index] == [] :
         en_to_nl_lex[lex_index] = ["NULL"]
-        #nl_to_en_lex["NULL"].append(lex_index)
         en_to_null.append(lex_index)
         
       self.populateLexicalTable(lex_index, list_en, list_nl, en_to_nl_lex, self.table_nl_lex) # p(en | nl)
-
     
    
-    
+    # put p ( NULL | x ) in lexical tables
     self.populateLexicalTableNULL( nl_to_null, list_nl, self.table_nl_lex) # p(NULL | nl)
     self.populateLexicalTableNULL( en_to_null, list_en, self.table_en_lex) # p(NULL | en)
     
-    """print "nl to en:"
-    for i in range(0, len(nl_to_en)):
-      print "%d: %s" % (i, nl_to_en[i])
-    print "en to nl:"% en_to_nl
-    for i in range(0, len(en_to_nl)):
-      print "%d: %s" % (i, en_to_nl[i])
-    """
-    #print nl_to_en_lex
-    #print en_to_nl_lex
-    
-    
-    #print ""
+   
 
     for nl_index1 in range(0, len_list_nl-1): # do not check as start-word the period at the end
 
@@ -559,16 +508,7 @@ class Extractor(object):
               if nlFromEnMin < nl_index1:
                 break
 
-              # nl-to-en-to-nl range maximum is above nl-range maximum
-      #        elif nlFromEnMax > nl_index2:
-              # this is erroreous, you can't skip over nl_range without updating the nl_to_en range etc.
-              #  print "nl_index1 is %s. going from nl_index2 %s to %s " % (nl_index1, nl_index2, nlFromEnMax)
-                # next nl end-word is the one on the nl-to-en-to-nl range maximum (if within range)
-             #   nl_index2 = nlFromEnMax
-       #         if nl_index2 - nl_index1 >= self.maxPhraseLen :                  
-        #          break
-              #  else :
-              #    break
+
 
               #####################################################################
               # nl-to-en-to-nl range is same as nl-to-en range: got consistent pair
@@ -652,8 +592,9 @@ class Extractor(object):
 
           nl_index2 +=1
         
-          
-  # get relative lexical alignments
+  
+  
+  # get relative (for phrase pair) lexical alignments
   def getLexicalAlignments(self, source_to_target_lex, start_source, end_source, start_target, end_target) :
     source_lex_list = []
     source_to_target_total = []
@@ -670,8 +611,7 @@ class Extractor(object):
         lex_tuple = (relative_lex_index, ("NULL",)) 
         
       source_lex_list.append(lex_tuple)
-      relative_lex_index = relative_lex_index + 1
-    
+      relative_lex_index = relative_lex_index + 1    
     
     source_lex_tuple = tuple(source_lex_list)
 
@@ -680,11 +620,10 @@ class Extractor(object):
     if null_to_target != []:
       source_lex_tuple = tuple(itertools.chain((("NULL", tuple(null_to_target)),), source_lex_tuple))
     
-    #source_targets_tuples = [tuple(x) for xe in source_lex_list for x in xe]
     return source_lex_tuple
   
   
-  
+  # add the found subphrase and its relevant information to relevant dictionaries
   def addPair(self, list_nl, list_en, start_nl, end_nl, start_en, end_en, en_to_nl_lex, nl_to_en_lex):
     self.total_extracted = self.total_extracted + 1
 
@@ -693,31 +632,15 @@ class Extractor(object):
     enEntry = self.getSubstring(list_en, range(start_en,end_en+1))
     nl_enEntry = (nlEntry , enEntry) #tuple
 
-    """
-    if (enEntry == "of all the"):
-      print "nl phrase: %s" % nlEntry
-      print "en phrase: %s" % enEntry
-      print "nl_to_en_lex: %s" % nl_to_en_lex
-      print "en to nl lex: %s" % en_to_nl_lex
-      print "start_nl: %d, start_en:%d" % (start_nl, start_en)
-    """
     nl_to_en_aligns = self.getLexicalAlignments(nl_to_en_lex, start_nl, end_nl, start_en, end_en) 
     en_to_nl_aligns = self.getLexicalAlignments(en_to_nl_lex, start_en, end_en, start_nl, end_nl) 
     
     
-    """if (enEntry == "of all the"):
-      print "nl to en aligns: %s " % (nl_to_en_aligns,)
-      print "en to nl aligns: %s " % (en_to_nl_aligns,)
-    
-    print "nl entry: '%s', en entry: '%s' " % (nlEntry, enEntry)
-    print "nl range: %s, en range: %s, lex list: %s " % ((start_nl, end_nl), (start_en, end_en), (nl_to_en_aligns,))
-    print "en range: %s, nl range: %s, lex list: %s " % ((start_en, end_en), (start_nl, end_nl), (en_to_nl_aligns,))
-    print ""
-    """
-    
     self.updateTables(nlEntry, enEntry, nl_enEntry, nl_to_en_aligns, en_to_nl_aligns)
 
-  # update the hash tables (phrase (pair) --> count)
+
+
+  # update the dictionaries
   def updateTables(self, nlString, enString, nl_enString, nl_to_en_aligns, en_to_nl_aligns):
 
     if not (nlString in self.table_nl):
@@ -727,30 +650,16 @@ class Extractor(object):
     if not(enString in self.table_en):
       self.unique_en += 1
     self.table_en[enString] = self.table_en[enString] + 1
-
   
     if not(nl_enString in self.table_nl_en):
       self.unique_nl_en += 1
 
-    self.table_nl_en[nl_enString].increasePhrasePairCount()
-    
+    self.table_nl_en[nl_enString].increasePhrasePairCount()    
     self.table_nl_en[nl_enString].addNlLexAlignment(nl_to_en_aligns)
     self.table_nl_en[nl_enString].addEnLexAlignment(en_to_nl_aligns)
     
-    
-    if  nlString == "ik wil een motie":
-      self.table_nl_en[nl_enString].increasePhrasePairCount()
-      self.table_nl_en[nl_enString].addNlLexAlignment(nl_to_en_aligns)
-      self.table_nl_en[nl_enString].addEnLexAlignment(en_to_nl_aligns)
       
-    """for key, value in self.table_nl_en.iteritems():
-      print key
-      print value.phrasePairCount
-      print value.dictNlLex
-      print value.dictEnLex
-      print ""
-    """
-    
+
   # get the words in the word-list "line_list" that the indices
   # in "aligned_list" point to
   # return them as a string
@@ -760,7 +669,7 @@ class Extractor(object):
 
 
 
-
+# reads a file line-by-line
 class Reader(object):
   """
     read relevant data line-wise from files
@@ -782,10 +691,10 @@ class Reader(object):
   line_nl_words = None
   line_en_words = None
 
-  def __init__(self, path, alignsFileName, nlFileName, enFileName):
-    self.aligns = path+alignsFileName
-    self.nl = path+nlFileName
-    self.en = path+enFileName
+  def __init__(self, alignsFileName, nlFileName, enFileName):
+    self.aligns = alignsFileName
+    self.nl = nlFileName
+    self.en = enFileName
 
 
   def load_data(self):
@@ -837,34 +746,28 @@ class Reader(object):
 
 
 def run():
+	parser = argparse.ArgumentParser(description = "Phrase extraction/probabilities")
+	parser.add_argument('-a', '--alignments', help='Alignments filepath', required=True)
+	parser.add_argument('-e', '--english', help='English sentences filepath', required=True)
+	parser.add_argument('-f', '--foreign', help='Foreign sentences filepath', required=True)
+	parser.add_argument('-o', '--output', help='Output folder', required=True)
+	args = parser.parse_args()
+	if not(args.alignments and args.english and args.foreign and args.output):
+		print 'Error: Please provide the files required'
+  
+	alignsFileName = args.alignments
+	nlFileName = args.foreign
+	enFileName = args.english
+	outputDir = args.output
 
-  alignDir = '/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/dutch-english/clean/'
-  alignsFileName = 'clean.aligned'
-  nlFileName = 'clean.nl'
-  enFileName = 'clean.en'
+	reader = Reader(alignsFileName, nlFileName, enFileName)
+	extractorOfCounts = Extractor(reader, outputDir )
 
-  tableDir = 'tables/'
-
-  reader = Reader(alignDir, alignsFileName, nlFileName, enFileName)
-  extractorOfCounts = Extractor(reader, tableDir )
-
-  extractorOfCounts.extract()
-
-  """
-  phraseTables = PhraseTables(tableDir)
-  initPhraseTables(self.phraseTables, alignDir, tableDir, alignsFileName, nlFileName, enFileName)
+	extractorOfCounts.extract()
 
 
-  # some example outputs
-  sys.stdout.write( 'Pr(\"en\" , \"and\") = ' + str(self.phraseTables.getConditionalProbabilityNl('en', 'and', False)) + '\n')
-  sys.stdout.write( 'Pr(\"universiteit\" , \"university\") = ' + str(self.phraseTables.getConditionalProbabilityNl('universiteit', 'university', False)) + '\n')
-  sys.stdout.write( 'Pr(\"gebrek aan transparantie bij\" , \"lack of transparency in\") = ' + str(self.phraseTables.getConditionalProbabilityNl('gebrek aan transparantie bij', 'lack of transparency in', False)) + '\n')
-  sys.stdout.write( 'Pr(\"economisch beleid\" , \"economic guidelines\") = ' + str(self.phraseTables.getConditionalProbabilityNl('economisch beleid', 'economic guidelines', False)) + '\n')
-
-  """
 
 if __name__ == '__main__': #if this file is called by python
-
   run()
 
 
