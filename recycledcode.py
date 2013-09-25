@@ -15,7 +15,7 @@ table_nl_en_file = 'table_nl_en.dat'
 writeRawFiles = True
 
 
-MAXIMUM_READ_SENTENCES = 8 #10000 # for debug purposes
+MAXIMUM_READ_SENTENCES = 1000 #10000 # for debug purposes
 
 gc.disable()
 
@@ -146,17 +146,17 @@ class Extractor(object):
       sys.stdout.write('Writing to files...\n')
 
       self.normalizeTables() #make probabilities of the counts
-      self.pickleTables()
+      #self.pickleTables()
 
-      if writeRawFiles:
-        self.writeTables()
+      #if writeRawFiles:
+      #  self.writeTables()
 
       sys.stdout.write('Done writing to files.\n')
 
       
       # test for lexical probabilities      
       
-      print " === table_nl_lex: ==="
+      """print " === table_nl_lex: ==="
       for key, value in self.table_nl_lex.iteritems():
         print "Word: %s" % key
         print "Targets:" 
@@ -173,14 +173,14 @@ class Extractor(object):
 
       print "p(point|wil):"
       print self.table_nl_lex["wil"].getTranslationProb("point")
-      
+      """
 
       
   def get_most_frequent_alignment(self, alignments):
     maxV = 0
     best_alignment = None
     for alignment, count in alignments.iteritems():
-      print "count: %d, alignment: %s" %  (count,(alignment,))
+      #print "count: %d, alignment: %s" %  (count,(alignment,))
       if count > maxV :
         best_alignment = alignment
         
@@ -195,7 +195,9 @@ class Extractor(object):
     if not en_given_nl:
       (e,f) = (nl, en) 
     
-    print "sentence pair:\ne='%s'\nf='%s'\n" % (e, f)
+    
+    #print e
+    #print "sentence pair:\ne='%s'\nf='%s'\n" % (e, f)
     e_split = e.split()
     f_split = f.split()    
     len_e = len(e_split)
@@ -204,25 +206,42 @@ class Extractor(object):
     
     best_alignment = best_alignment
     
+    e_side_indices = map (lambda x: x[0], best_alignment)
+    f_side_indices = map (lambda x: x[1], best_alignment)
+
+    #print "e_side_indices: %s" % e_side_indices
+    #print "f_side_indices: %s" % f_side_indices
+    
+
     # for all e-side words
-    for i in range (0, len_e):
+    for e_index in range(0, len(e_side_indices)):
       sub_prob = 0
       
       #every word must be aligned to at least one word
-      aligned_indexes = best_alignment[i]
+      """aligned_indexes = best_alignment[i]
       
       print "aligned_indexes: %s" % (aligned_indexes,)
       print "%s aligned to %s" % (aligned_indexes[0],(aligned_indexes[1],))
       aligned_indexes_num = len(aligned_indexes[1])
+      """
       
-      if aligned_indexes[0] == "NULL":
+      if e_side_indices[e_index] == "NULL":
         en_word = "NULL"
       else :
-        en_word = e_split[i] 
-      print "nr. aligned indexes of i (%d, %s): %d" % (i, en_word, aligned_indexes_num)
-      for j in aligned_indexes[1]:
+        en_word = e_split[e_side_indices[e_index]] 
         
-        print "sub-alignment e->f: %s->%s" % (aligned_indexes[0], f_split[j])
+      aligned_indexes = f_side_indices[e_index]
+      aligned_indexes_num = len(aligned_indexes)
+      #print "nr. aligned indexes of e_index %d, i.e. word '%s': %d (%s)" % (e_index, en_word, aligned_indexes_num, (aligned_indexes,))
+      
+      for j in range(0, len(aligned_indexes)):
+        
+        if aligned_indexes[j] == "NULL":
+          f_word = "NULL"
+        else :
+          f_word = f_split[aligned_indexes[j]]
+          
+        #print "sub-alignment e->f: %s->%s" % (en_word, f_word)
         """#w(e|f) = c(e,f) / c(f)
         count_f = 0
         count_e_f = 0
@@ -238,16 +257,25 @@ class Extractor(object):
         #print "p(wil|point):"
         #print self.table_en_lex["point"].getTranslationProb("wil")
         if en_given_nl:
-          sub_prob += self.table_nl_lex[f_split[j]].getTranslationProb(en_word)
-          print "pr(%s|%s): %2.2f" % ( en_word, f_split[j], self.table_nl_lex[f_split[j]].getTranslationProb(en_word))
+          sub_prob += self.table_nl_lex[f_word].getTranslationProb(en_word)
+          #print "pr(%s|%s): %2.2f" % ( en_word, f_word, self.table_nl_lex[f_word].getTranslationProb(en_word))
         else:
-          self.table_en_lex[f_split[j]].printEntry()
+          #self.table_en_lex[f_word].printEntry()
           
-          sub_prob += self.table_en_lex[f_split[j]].getTranslationProb(en_word)
-          print "pr(%s|%s): %2.2f" % (en_word, f_split[j], self.table_en_lex[f_split[j]].getTranslationProb(en_word))
-          
-      sub_prob = math.log(sub_prob / float(aligned_indexes_num))
-      lex_prob += sub_prob
+          sub_prob += self.table_en_lex[f_word].getTranslationProb(en_word)
+          #print "pr(%s|%s): %2.2f" % (en_word, f_word, self.table_en_lex[f_word].getTranslationProb(en_word))
+      
+      #if (e == "various"):
+      #  print "sub prob: %3.4f, aligned_indexes_num=%3.2f, sub_prob/aligned_indexes_num=%2.3f" % (sub_prob, aligned_indexes_num, sub_prob)
+      sub_prob = (sub_prob / float(aligned_indexes_num))
+      sub_prob_log = math.log(sub_prob)
+      #if (e == "various"):
+      #  print "log(sub_prob): %2.2f" % sub_prob_log
+      lex_prob += sub_prob_log
+
+    #if (e == "various"):
+    #  print "lex prob: %2.2f" % lex_prob
+  
 
     return lex_prob
 
@@ -277,8 +305,8 @@ class Extractor(object):
 
     if self.is_length_one(nl, en):
       #lexical probability is directly from lexical w(en|nl) or w(nl|en) table
-      lex_nl_en = self.table_en_lex[en].getTranslationProb(nl) # p(nl|en)
-      lex_en_nl = self.table_nl_lex[nl].getTranslationProb(en)    
+      lex_nl_en = math.log(self.table_en_lex[en].getTranslationProb(nl)) # p(nl|en)
+      lex_en_nl = math.log(self.table_nl_lex[nl].getTranslationProb(en))    
       
     else:
       lex_nl_en = self.lexical_weighting(nl, en,  en_given_nl=False)
@@ -287,8 +315,35 @@ class Extractor(object):
     return (lex_nl_en, lex_en_nl)
   
   
+  def writeToFile(self, f1, nl_phrase, en_phrase) :
+
+    pair = (nl_phrase, en_phrase)
+    delimiter = " ||| "
+    
+    f1.write(str(nl_phrase) + delimiter + str(en_phrase) + delimiter)
+    
+    f1.write(str(self.prob_nl_en[pair].phraseProb ))
+    f1.write(" ")
+    f1.write(str(self.prob_en_nl[pair].phraseProb ))
+    f1.write(" ")
+    f1.write(str(self.prob_nl_en[pair].lexicalProb ))
+    f1.write(" ")
+    f1.write(str(self.prob_en_nl[pair].lexicalProb ))
+    
+    f1.write(delimiter)
+    
+    f1.write(str(self.table_nl[nl_phrase]))
+    f1.write(" ")
+    f1.write(str(self.table_en[en_phrase]))
+    f1.write(" ")
+    f1.write(str(self.table_nl_en[pair].phrasePairCount))
+    f1.write('\n')
+    
   # infers considition phrase and lexical probabilities from the frequency tables
   def normalizeTables(self):
+    
+    f1 = open( self.tablePath +  'final_file.txt', "wb" );
+
 
     # for each phrase pair in frequency+alignments table
     for pair, phrasePairTableEntry in self.table_nl_en.iteritems():
@@ -313,8 +368,11 @@ class Extractor(object):
       self.prob_nl_en[pair].lexicalProb = lex_nl_en_prob
       self.prob_en_nl[pair].lexicalProb = lex_en_nl_prob
       
-      # TODO: write to file here?
       
+      
+      self.writeToFile(f1, nl_phrase, en_phrase)
+    
+    f1.close()  
     """
     for nl, value in self.table_nl.iteritems():
       value_new = math.log(value) - math.log(self.total_extracted)
@@ -459,13 +517,18 @@ class Extractor(object):
     self.populateLexicalTableNULL( nl_to_null, list_nl, self.table_nl_lex) # p(NULL | nl)
     self.populateLexicalTableNULL( en_to_null, list_en, self.table_en_lex) # p(NULL | en)
     
-    print nl_to_en
-    print en_to_nl
+    """print "nl to en:"
+    for i in range(0, len(nl_to_en)):
+      print "%d: %s" % (i, nl_to_en[i])
+    print "en to nl:"% en_to_nl
+    for i in range(0, len(en_to_nl)):
+      print "%d: %s" % (i, en_to_nl[i])
+    """
+    #print nl_to_en_lex
+    #print en_to_nl_lex
     
-    print nl_to_en_lex
-    print en_to_nl_lex
-
-    print ""
+    
+    #print ""
 
     for nl_index1 in range(0, len_list_nl-1): # do not check as start-word the period at the end
 
@@ -488,21 +551,22 @@ class Extractor(object):
 
             if (enRange[1] - enRange[0] < self.maxPhraseLen):
               # update the nl-to-en-to-nl range
-              nlFromEnMin = min(nlFromEnMin, en_to_nl[enRange[0]][0], en_to_nl[enRange[1]][0])
-              nlFromEnMax = max(nlFromEnMax, en_to_nl[enRange[0]][1], en_to_nl[enRange[1]][1])
+              for  enIndex in range(enRange[0], enRange[1]+1):
+                nlFromEnMin = min(nlFromEnMin, en_to_nl[enIndex][0], en_to_nl[enIndex][1])
+                nlFromEnMax = max(nlFromEnMax, en_to_nl[enIndex][0], en_to_nl[enIndex][1])
 
               # nl-to-en-to-nl range minimum is below nl-range minimum
               if nlFromEnMin < nl_index1:
                 break
 
               # nl-to-en-to-nl range maximum is above nl-range maximum
-              elif nlFromEnMax > nl_index2:
+      #        elif nlFromEnMax > nl_index2:
               # this is erroreous, you can't skip over nl_range without updating the nl_to_en range etc.
               #  print "nl_index1 is %s. going from nl_index2 %s to %s " % (nl_index1, nl_index2, nlFromEnMax)
                 # next nl end-word is the one on the nl-to-en-to-nl range maximum (if within range)
              #   nl_index2 = nlFromEnMax
-                if nl_index2 - nl_index1 >= self.maxPhraseLen :                  
-                  break
+       #         if nl_index2 - nl_index1 >= self.maxPhraseLen :                  
+        #          break
               #  else :
               #    break
 
@@ -629,16 +693,28 @@ class Extractor(object):
     enEntry = self.getSubstring(list_en, range(start_en,end_en+1))
     nl_enEntry = (nlEntry , enEntry) #tuple
 
-
+    """
+    if (enEntry == "of all the"):
+      print "nl phrase: %s" % nlEntry
+      print "en phrase: %s" % enEntry
+      print "nl_to_en_lex: %s" % nl_to_en_lex
+      print "en to nl lex: %s" % en_to_nl_lex
+      print "start_nl: %d, start_en:%d" % (start_nl, start_en)
+    """
     nl_to_en_aligns = self.getLexicalAlignments(nl_to_en_lex, start_nl, end_nl, start_en, end_en) 
     en_to_nl_aligns = self.getLexicalAlignments(en_to_nl_lex, start_en, end_en, start_nl, end_nl) 
-
- 
+    
+    
+    """if (enEntry == "of all the"):
+      print "nl to en aligns: %s " % (nl_to_en_aligns,)
+      print "en to nl aligns: %s " % (en_to_nl_aligns,)
+    
     print "nl entry: '%s', en entry: '%s' " % (nlEntry, enEntry)
     print "nl range: %s, en range: %s, lex list: %s " % ((start_nl, end_nl), (start_en, end_en), (nl_to_en_aligns,))
     print "en range: %s, nl range: %s, lex list: %s " % ((start_en, end_en), (start_nl, end_nl), (en_to_nl_aligns,))
     print ""
-
+    """
+    
     self.updateTables(nlEntry, enEntry, nl_enEntry, nl_to_en_aligns, en_to_nl_aligns)
 
   # update the hash tables (phrase (pair) --> count)
