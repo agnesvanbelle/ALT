@@ -15,7 +15,7 @@ table_nl_en_file = 'table_nl_en.dat'
 writeRawFiles = True
 
 
-MAXIMUM_READ_SENTENCES = 1000 #10000 # for debug purposes
+MAXIMUM_READ_SENTENCES = 10000 #10000 # for debug purposes
 
 gc.disable()
 
@@ -136,14 +136,14 @@ class Extractor(object):
                         '\t unique pairs: ' + str(self.unique_nl_en) + '\n')
 
       # write stats to file
-      f = open( 'extraction_stats.txt', "a+b" )
+      f = open( self.tablePath+'/extraction_stats.txt', "a+b" )
       f.write('Extracted ' + str(self.total_extracted) + ' phrase pairs  from tables in' + str(self.tablePath) + '\n'
               '\t unique phrases for nl: ' + str(self.unique_nl) + '\n'+
               '\t unique phrases for en: ' + str(self.unique_en) + '\n'+
               '\t unique pairs: ' + str(self.unique_nl_en) + '\n\n')
       f.close()
 
-      sys.stdout.write('Writing to files...\n')
+      sys.stdout.write('Computing probabilities and writing to files...\n')
 
       self.normalizeTables() #make probabilities of the counts
       #self.pickleTables()
@@ -782,10 +782,10 @@ class Reader(object):
   line_nl_words = None
   line_en_words = None
 
-  def __init__(self, path, alignsFileName, nlFileName, enFileName):
-    self.aligns = path+alignsFileName
-    self.nl = path+nlFileName
-    self.en = path+enFileName
+  def __init__(self, alignsFileName, nlFileName, enFileName):
+    self.aligns = alignsFileName
+    self.nl = nlFileName
+    self.en = enFileName
 
 
   def load_data(self):
@@ -835,22 +835,29 @@ class Reader(object):
     return line.split()
 
 
+import argparse
 
 def run():
+	parser = argparse.ArgumentParser(description = "Phrase extraction/probabilities")
+	parser.add_argument('-a', '--alignments', help='Alignments filepath', required=True)
+	parser.add_argument('-e', '--english', help='English sentences filepath', required=True)
+	parser.add_argument('-f', '--foreign', help='Foreign sentences filepath', required=True)
+	parser.add_argument('-o', '--output', help='Output folder', required=True)
+	args = parser.parse_args()
+	if not(args.alignments and args.english and args.foreign and args.output):
+		print 'Error: Please provide the files required'
+  
+	alignsFileName = args.alignments
+	nlFileName = args.foreign
+	enFileName = args.english
+	tableDir = args.output
 
-  alignDir = '/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/dutch-english/clean/'
-  alignsFileName = 'clean.aligned'
-  nlFileName = 'clean.nl'
-  enFileName = 'clean.en'
+	reader = Reader(alignsFileName, nlFileName, enFileName)
+	extractorOfCounts = Extractor(reader, tableDir )
 
-  tableDir = 'tables/'
+	extractorOfCounts.extract()
 
-  reader = Reader(alignDir, alignsFileName, nlFileName, enFileName)
-  extractorOfCounts = Extractor(reader, tableDir )
-
-  extractorOfCounts.extract()
-
-  """
+	"""
   phraseTables = PhraseTables(tableDir)
   initPhraseTables(self.phraseTables, alignDir, tableDir, alignsFileName, nlFileName, enFileName)
 
@@ -861,7 +868,7 @@ def run():
   sys.stdout.write( 'Pr(\"gebrek aan transparantie bij\" , \"lack of transparency in\") = ' + str(self.phraseTables.getConditionalProbabilityNl('gebrek aan transparantie bij', 'lack of transparency in', False)) + '\n')
   sys.stdout.write( 'Pr(\"economisch beleid\" , \"economic guidelines\") = ' + str(self.phraseTables.getConditionalProbabilityNl('economisch beleid', 'economic guidelines', False)) + '\n')
 
-  """
+	"""
 
 if __name__ == '__main__': #if this file is called by python
 
