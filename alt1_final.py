@@ -26,11 +26,7 @@ import argparse
 
 
 
-<<<<<<< HEAD
 MAXIMUM_READ_SENTENCES = 100000000 #10000 # for debug purposes
-=======
-MAXIMUM_READ_SENTENCES = 10000 #10000 # for debug purposes
->>>>>>> 03c8dec1807c6becaddd8dd66d4172047ad76c85
 
 gc.disable()
 
@@ -179,36 +175,7 @@ class Extractor(object):
           self.parseSentencePair(self.reader.line_list_aligns, self.reader.line_nl_words, self.reader.line_en_words)
 
       # print stats
-<<<<<<< HEAD
       self.printStats()
-=======
-      sys.stdout.write('\n')
-      sys.stdout.write('Extracted ' + str(self.total_extracted) + ' phrase pairs \n' +
-                        '\t unique phrases for nl: ' + str(self.unique_nl) + '\n'+
-                        '\t unique phrases for en: ' + str(self.unique_en) + '\n'+
-                        '\t unique pairs: ' + str(self.unique_nl_en) + '\n')
-
-      # write stats to file
-      f = open( self.tablePath+'/extraction_stats.txt', "a+b" )
-      f.write('Extracted ' + str(self.total_extracted) + ' phrase pairs  from tables in' + str(self.tablePath) + '\n'
-              '\t unique phrases for nl: ' + str(self.unique_nl) + '\n'+
-              '\t unique phrases for en: ' + str(self.unique_en) + '\n'+
-              '\t unique pairs: ' + str(self.unique_nl_en) + '\n\n')
-      f.close()
-
-      sys.stdout.write('Computing probabilities and writing to files...\n')
-
-      self.normalizeTables() #make probabilities of the counts
-      #self.pickleTables()
-
-      #if writeRawFiles:
-      #  self.writeTables()
-
-      sys.stdout.write('Done writing to files.\n')
-
-      
-      # test for lexical probabilities      
->>>>>>> 03c8dec1807c6becaddd8dd66d4172047ad76c85
       
       # write stats to file
       self.writeStatsToFile()
@@ -777,7 +744,6 @@ class Reader(object):
     return line.split()
 
 
-import argparse
 
 def run():
 	parser = argparse.ArgumentParser(description = "Phrase extraction/probabilities")
@@ -792,7 +758,6 @@ def run():
 	alignsFileName = args.alignments
 	nlFileName = args.foreign
 	enFileName = args.english
-<<<<<<< HEAD
 	outputDir = args.output
 
 	reader = Reader(alignsFileName, nlFileName, enFileName)
@@ -801,27 +766,6 @@ def run():
 	extractorOfCounts.extract()
 
 
-=======
-	tableDir = args.output
-
-	reader = Reader(alignsFileName, nlFileName, enFileName)
-	extractorOfCounts = Extractor(reader, tableDir )
-
-	extractorOfCounts.extract()
-
-	"""
-  phraseTables = PhraseTables(tableDir)
-  initPhraseTables(self.phraseTables, alignDir, tableDir, alignsFileName, nlFileName, enFileName)
-
-
-  # some example outputs
-  sys.stdout.write( 'Pr(\"en\" , \"and\") = ' + str(self.phraseTables.getConditionalProbabilityNl('en', 'and', False)) + '\n')
-  sys.stdout.write( 'Pr(\"universiteit\" , \"university\") = ' + str(self.phraseTables.getConditionalProbabilityNl('universiteit', 'university', False)) + '\n')
-  sys.stdout.write( 'Pr(\"gebrek aan transparantie bij\" , \"lack of transparency in\") = ' + str(self.phraseTables.getConditionalProbabilityNl('gebrek aan transparantie bij', 'lack of transparency in', False)) + '\n')
-  sys.stdout.write( 'Pr(\"economisch beleid\" , \"economic guidelines\") = ' + str(self.phraseTables.getConditionalProbabilityNl('economisch beleid', 'economic guidelines', False)) + '\n')
-
-	"""
->>>>>>> 03c8dec1807c6becaddd8dd66d4172047ad76c85
 
 if __name__ == '__main__': #if this file is called by python
   run()
