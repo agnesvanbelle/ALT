@@ -19,10 +19,10 @@ def is_length_one(nl, en):
 
 
 def get_most_frequent_alignment(alignments):
-	max = 0
+	maxV = 0
 	best_alignment = None
 	for alignment, count in alignments.items():
-		if count > max :
+		if count > maxV :
 			best_alignment = alignment
 	return best_alignment
 
@@ -65,7 +65,7 @@ def compute_lex_prob(nl, en, table_nl, table_en, table_nl_en, direct, best_align
 			sub_prob += count_e_f / (float)count_f
 
 		sub_prob = math.log(sub_prob/(float)aligned_indexes_num)
-		lex_prob += sub_prob
+		lex_prob *= sub_prob
 
 	return lex_prob
 
@@ -74,9 +74,9 @@ def compute_lex_prob(nl, en, table_nl, table_en, table_nl_en, direct, best_align
 def lexical_weighting(nl, en, table_nl, table_en, table_nl_en, direct):
 
 	if direct:
-		alignments = table_nl_en[(nl,en)][2]
+		alignments = table_nl_en[(nl,en)][2] # dictEnLex
 	else:
-		alignments = table_en_nl[(nl,en)][1]
+		alignments = table_nl_en[(nl,en)][1] # dictNlLex
 		
 	best_alignment = get_most_frequent_alignment(alignments)
 
@@ -86,6 +86,7 @@ def lexical_weighting(nl, en, table_nl, table_en, table_nl_en, direct):
 
 def compute_probabilities(table_nl, table_en, table_nl_en):
 	for (nl, en) in table_nl_en.keys():
+    
 		#compute translation probabilities 
 	
 		trans_nl_en = math.log(table_nl_en[(nl,en)][0] / float(table_en[en]))

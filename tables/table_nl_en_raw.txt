@@ -1,0 +1,1701 @@
+1 : ('natuurrampen getroffen .', 'of natural disasters that truly were dreadful .') 
+ nl->en alignments: (('NULL', (0, 3, 4, 5, 6)), (0, (1, 2)), (1, ('NULL',)), (2, (7,))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, ('NULL',)), (1, (0,)), (2, (0,)), (3, ('NULL',)), (4, (-3,)), (5, (-4,)), (6, (-1,)), (7, (2,))): 1 
+1 : ('een gelukkig nieuwjaar', 'a happy new year') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (1, 2, 3))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1, 2)), (2, (2,)), (3, (2,))): 1 
+1 : ('door', 'suffered') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('een goede', 'a pleasant') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('vrijdag 17 december werd', 'friday 17 december 1999') 
+ nl->en alignments: (('NULL', (3,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (3,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, ('NULL',))): 1 
+1 : ('doel hiermee met name', 'all the victims concerned , particularly') 
+ nl->en alignments: (('NULL', (1, 2, 3, 4)), (0, ('NULL',)), (1, (0,)), (2, (5,)), (3, (5,))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, (1,)), (1, (-4,)), (2, (-3,)), (3, ('NULL',)), (4, (-2,)), (5, (2, 3))): 1 
+1 : ('ik graag', ', i') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, ('NULL',)), (1, (0,))): 1 
+1 : ('de zitting van het europees', 'the session of the european') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (4,))): 1 
+1 : ('u heeft aangegeven', 'you have requested') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+1 : ('dat u', 'in the') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, (0,)), (1, ('NULL',))): 1 
+1 : ('van een', 'in a') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : (', die op vrijdag 17 december', 'adjourned on friday 17 december') 
+ nl->en alignments: ((0, (0,)), (1, (0,)), (2, (1,)), (3, (2,)), (4, (3,)), (5, (4,))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, (2,)), (2, (3,)), (3, (4,)), (4, (5,))): 1 
+1 : ('van de slachtoffers', 'of all the victims concerned') 
+ nl->en alignments: (('NULL', (1, 4)), (0, (0,)), (1, (2,)), (2, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (6,)), (2, (1,)), (3, (2,)), (4, ('NULL',))): 1 
+1 : ('hoop dat u', 'hope that you') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+1 : ("collega ' s", 'members have') 
+ nl->en alignments: ((0, (0,)), (1, (0,)), (2, (0, 1))): 1 
+ en->nl alignments: ((0, (0, 1, 2)), (1, (2,))): 1 
+1 : (', die op vrijdag 17', 'adjourned on friday 17') 
+ nl->en alignments: ((0, (0,)), (1, (0,)), (2, (1,)), (3, (2,)), (4, (3,))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, (2,)), (2, (3,)), (3, (4,))): 1 
+1 : ('heeft kunnen constateren , is de grote', 'will have seen , the dreaded') 
+ nl->en alignments: ((0, (1,)), (1, (0, 2)), (2, (1, 2)), (3, (3,)), (4, (3,)), (5, (4,)), (6, (5,))): 1 
+ en->nl alignments: ((0, (1,)), (1, (0, 2)), (2, (1, 2)), (3, (3, 4)), (4, (5,)), (5, (6,))): 1 
+1 : ('dat u', 'that you') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('deze minuut', ', then , for this minute') 
+ nl->en alignments: (('NULL', (0, 1, 2, 3)), (0, (4,)), (1, (5,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, ('NULL',)), (3, ('NULL',)), (4, (0,)), (5, (1,))): 1 
+1 : ('ik wil een motie van', 'on a point of') 
+ nl->en alignments: ((0, (0,)), (1, (2,)), (2, (1,)), (3, (2,)), (4, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (2,)), (2, (1, 3)), (3, (4,))): 1 
+1 : ('het parlement neemt staande een', 'the house rose and observed a') 
+ nl->en alignments: (('NULL', (3,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (2, 4)), (4, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2, 3)), (3, ('NULL',)), (4, (3,)), (5, (4,))): 1 
+1 : (', die op vrijdag 17 december', 'adjourned on friday 17 december 1999') 
+ nl->en alignments: (('NULL', (5,)), (0, (0,)), (1, (0,)), (2, (1,)), (3, (2,)), (4, (3,)), (5, (4,))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, (2,)), (2, (3,)), (3, (4,)), (4, (5,)), (5, ('NULL',))): 1 
+1 : ('verschillende', 'various') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('europees parlement , die op vrijdag 17', 'european parliament adjourned on friday 17') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (2,)), (4, (3,)), (5, (4,)), (6, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2, 3)), (3, (4,)), (4, (5,)), (5, (6,))): 1 
+1 : ('de burgers', 'still the people') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, (2,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (1,))): 1 
+1 : ('slachtoffers', 'victims concerned') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',))): 1 
+1 : ('17 december werd onderbroken', '17 december') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, ('NULL',)), (3, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (2, 3)), (0, (0,)), (1, (1,))): 1 
+1 : ('onze', 'a series of') 
+ nl->en alignments: (('NULL', (1, 2)), (0, (0,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',)), (2, ('NULL',))): 1 
+1 : ('zoals u heeft kunnen constateren , is', ', as you will have seen ,') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, (2,)), (2, (4,)), (3, (3, 5)), (4, (4, 5)), (5, (6,)), (6, (6,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (1,)), (3, (3,)), (4, (2, 4)), (5, (3, 4)), (6, (5, 6))): 1 
+1 : (', ik wil een motie', ', on a point') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (3,)), (3, (2,)), (4, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (3,)), (3, (2, 4))): 1 
+1 : ('heeft kunnen constateren , is de', 'will have seen , the') 
+ nl->en alignments: ((0, (1,)), (1, (0, 2)), (2, (1, 2)), (3, (3,)), (4, (3,)), (5, (4,))): 1 
+ en->nl alignments: ((0, (1,)), (1, (0, 2)), (2, (1, 2)), (3, (3, 4)), (4, (5,))): 1 
+1 : (', ik wil een motie van orde', ', on a point of order') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (3,)), (3, (2,)), (4, (3,)), (5, (4,)), (6, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (3,)), (3, (2, 4)), (4, (5,)), (5, (6,))): 1 
+1 : ('verklaar de zitting', 'declare resumed the session') 
+ nl->en alignments: ((0, (0, 1)), (1, (2,)), (2, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (0,)), (2, (1,)), (3, (2,))): 1 
+1 : ('verzoek van een', ', as a number of members have requested') 
+ nl->en alignments: (('NULL', (0, 1, 3, 4, 5, 6)), (0, (7,)), (1, ('NULL',)), (2, (2,))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, ('NULL',)), (1, ('NULL',)), (2, (2,)), (3, (3,)), (4, (3,)), (5, (4, 5, 6)), (6, (6,)), (7, (0,))): 1 
+1 : ('europees parlement', 'european parliament') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('de burgers van', 'the people in') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+1 : ('europees', 'european') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('ik graag', 'meantime , i') 
+ nl->en alignments: (('NULL', (0, 1)), (0, (2,)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, ('NULL',)), (1, ('NULL',)), (2, (0,))): 1 
+1 : ('heeft kunnen constateren', 'will have seen') 
+ nl->en alignments: ((0, (1,)), (1, (0, 2)), (2, (1, 2))): 1 
+ en->nl alignments: ((0, (1,)), (1, (0, 2)), (2, (1, 2))): 1 
+1 : ('zitting van het europees parlement , die', 'session of the european parliament adjourned') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (4,)), (5, (5,)), (6, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (4,)), (5, (5, 6))): 1 
+1 : ('daarentegen', 'truly') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('nu wil ik', 'meantime , i should like to') 
+ nl->en alignments: (('NULL', (0, 1)), (0, ('NULL',)), (1, (3, 4, 5)), (2, (2,))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, ('NULL',)), (1, ('NULL',)), (2, (2,)), (3, (1,)), (4, (1,)), (5, (1,))): 1 
+1 : ('aantal van onze', 'number of countries suffered a series') 
+ nl->en alignments: (('NULL', (2, 3, 5)), (0, (0, 1)), (1, (1,)), (2, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (0, 1)), (2, (3,)), (3, (6,)), (4, (2,)), (5, ('NULL',))): 1 
+1 : ('de', 'still the') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,))): 1 
+1 : ('europees parlement , die op vrijdag', 'european parliament adjourned on friday') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (2,)), (4, (3,)), (5, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2, 3)), (3, (4,)), (4, (5,))): 1 
+1 : ('van orde', 'of order') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('u een goede vakantie heeft gehad .', 'you enjoyed a pleasant festive period .') 
+ nl->en alignments: (('NULL', (1, 5)), (0, (0,)), (1, (2,)), (2, (3,)), (3, (4,)), (4, (4,)), (5, (4,)), (6, (6,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',)), (2, (1,)), (3, (2,)), (4, (3, 4, 5)), (5, ('NULL',)), (6, (6,))): 1 
+1 : ('ik wil u vragen', 'please rise , then ,') 
+ nl->en alignments: (('NULL', (1, 2, 3, 4)), (0, (0,)), (1, (0,)), (2, (0,)), (3, (0,))): 1 
+ en->nl alignments: ((0, (0, 1, 2, 3)), (1, ('NULL',)), (2, ('NULL',)), (3, ('NULL',)), (4, ('NULL',))): 1 
+1 : ('ik', 'meantime , i') 
+ nl->en alignments: (('NULL', (0, 1)), (0, (2,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,))): 1 
+1 : ('hoop dat u', 'the hope that you') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, (2,)), (2, (3,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (1,)), (3, (2,))): 1 
+1 : ('de slachtoffers . ik', 'the victims concerned ,') 
+ nl->en alignments: (('NULL', (2,)), (0, (0,)), (1, (1,)), (2, (3,)), (3, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (3,)), (0, (0,)), (1, (1,)), (2, ('NULL',)), (3, (2,))): 1 
+1 : ('verzoek van een', 'a number of members have requested') 
+ nl->en alignments: (('NULL', (1, 2, 3, 4)), (0, (5,)), (1, ('NULL',)), (2, (0,))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, (2,)), (1, (3,)), (2, (3,)), (3, (4, 5, 6)), (4, (6,)), (5, (0,))): 1 
+1 : ('dat', 'that') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('dat u', 'in') 
+ nl->en alignments: ((0, (0,)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, (0,))): 1 
+1 : ('zoals u heeft kunnen constateren , is', 'as you will have seen ,') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (3,)), (3, (2, 4)), (4, (3, 4)), (5, (5,)), (6, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (3,)), (3, (2, 4)), (4, (3, 4)), (5, (5, 6))): 1 
+1 : ('neemt staande een', 'rose and observed a') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, (0, 2)), (2, (3,))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, ('NULL',)), (2, (1,)), (3, (2,))): 1 
+1 : ('van een aantal van', 'in a number of') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2, 3)), (3, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (2, 3))): 1 
+1 : ('orde stellen .', 'order .') 
+ nl->en alignments: ((0, (0,)), (1, ('NULL',)), (2, (1,))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, (0,)), (1, (2,))): 1 
+1 : ('natuurrampen', 'series of natural disasters that') 
+ nl->en alignments: (('NULL', (0, 1, 4)), (0, (2, 3))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, (0,)), (4, ('NULL',))): 1 
+1 : ('u allen een gelukkig nieuwjaar en', 'you a happy new year in the') 
+ nl->en alignments: (('NULL', (6,)), (0, (0,)), (1, (0,)), (2, (1,)), (3, (2,)), (4, (2, 3, 4)), (5, (5,))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, (2,)), (2, (3, 4)), (3, (4,)), (4, (4,)), (5, (5,)), (6, ('NULL',))): 1 
+1 : ('17 december werd onderbroken ,', '17 december 1999 ,') 
+ nl->en alignments: (('NULL', (2,)), (0, (0,)), (1, (1,)), (2, ('NULL',)), (3, ('NULL',)), (4, (3,))): 1 
+ en->nl alignments: (('NULL', (2, 3)), (0, (0,)), (1, (1,)), (2, ('NULL',)), (3, (4,))): 1 
+1 : ('zitting van', 'session of') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('de zitting van het', 'the session of the') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,))): 1 
+1 : ('het europees parlement , die op vrijdag', 'the european parliament adjourned on friday') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (3,)), (5, (4,)), (6, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3, 4)), (4, (5,)), (5, (6,))): 1 
+1 : ('orde', 'order') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('ik graag op', 'in the meantime , i') 
+ nl->en alignments: (('NULL', (1, 2, 3)), (0, (4,)), (1, ('NULL',)), (2, (0,))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, (2,)), (1, (31,)), (2, ('NULL',)), (3, ('NULL',)), (4, (0,))): 1 
+1 : ('onderbroken , te zijn hervat', ',') 
+ nl->en alignments: ((0, ('NULL',)), (1, (0,)), (2, ('NULL',)), (3, ('NULL',)), (4, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (0, 2, 3, 4)), (0, (1,))): 1 
+1 : ('parlement , die op vrijdag 17 december', 'parliament adjourned on friday 17 december 1999') 
+ nl->en alignments: (('NULL', (6,)), (0, (0,)), (1, (1,)), (2, (1,)), (3, (2,)), (4, (3,)), (5, (4,)), (6, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1, 2)), (2, (3,)), (3, (4,)), (4, (5,)), (5, (6,)), (6, ('NULL',))): 1 
+1 : ('ik', ', i') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,))): 1 
+1 : ('zoals', 'as') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('stilte staande in acht te nemen .', "'s silence .") 
+ nl->en alignments: ((0, (0, 1)), (1, (1,)), (2, (1,)), (3, (1,)), (4, (1,)), (5, (1,)), (6, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (0, 1, 2, 3, 4, 5)), (2, (6,))): 1 
+1 : ('op vrijdag 17 december werd onderbroken ,', 'on friday 17 december 1999 ,') 
+ nl->en alignments: (('NULL', (4,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, ('NULL',)), (5, ('NULL',)), (6, (5,))): 1 
+ en->nl alignments: (('NULL', (4, 5)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, ('NULL',)), (5, (6,))): 1 
+1 : (', te zijn hervat', '1999 ,') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, ('NULL',)), (2, ('NULL',)), (3, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1, 2, 3)), (0, ('NULL',)), (1, (0,))): 1 
+1 : ('een gelukkig nieuwjaar en', 'a happy new year in') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (1, 2, 3)), (3, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1, 2)), (2, (2,)), (3, (2,)), (4, (3,))): 1 
+1 : ('op vrijdag 17', 'on friday 17') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+7 : ('de', 'the') 
+ nl->en alignments: ((0, (0,)),): 7 
+ en->nl alignments: ((0, (0,)),): 7 
+1 : ('aantal van', 'number of') 
+ nl->en alignments: ((0, (0, 1)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (0, 1))): 1 
+1 : ('wil ik', ', i should like to') 
+ nl->en alignments: (('NULL', (0,)), (0, (2, 3, 4)), (1, (1,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (1,)), (2, (0,)), (3, (0,)), (4, (0,))): 1 
+1 : ('een minuut', 'a minute') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('een debat', 'a debate') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('deze minuut', 'then , for this minute') 
+ nl->en alignments: (('NULL', (0, 1, 2)), (0, (3,)), (1, (4,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, ('NULL',)), (3, (0,)), (4, (1,))): 1 
+1 : ('. de burgers van een', ', still the people in a') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, (2,)), (2, (3,)), (3, (4,)), (4, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',)), (2, (1,)), (3, (2,)), (4, (3,)), (5, (4,))): 1 
+1 : ('onderbroken , te', '1999 ,') 
+ nl->en alignments: (('NULL', (0,)), (0, ('NULL',)), (1, (1,)), (2, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (0, 2)), (0, ('NULL',)), (1, (1,))): 1 
+1 : ('. de burgers van', ', still the people in') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, (2,)), (2, (3,)), (3, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',)), (2, (1,)), (3, (2,)), (4, (3,))): 1 
+1 : ('de voorzitter , ik', 'president , on') 
+ nl->en alignments: ((0, (0,)), (1, (0,)), (2, (1,)), (3, (2,))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, (2,)), (2, (3,))): 1 
+1 : ('werd onderbroken , te zijn hervat .', '1999 , and') 
+ nl->en alignments: (('NULL', (0,)), (0, ('NULL',)), (1, ('NULL',)), (2, (1,)), (3, ('NULL',)), (4, ('NULL',)), (5, ('NULL',)), (6, (2,))): 1 
+ en->nl alignments: (('NULL', (0, 1, 3, 4, 5)), (0, ('NULL',)), (1, (2,)), (2, (6,))): 1 
+1 : ('de voorzitter ,', 'president ,') 
+ nl->en alignments: ((0, (0,)), (1, (0,)), (2, (1,))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, (2,))): 1 
+1 : ('ik verklaar de', 'i declare resumed the') 
+ nl->en alignments: ((0, (0,)), (1, (1, 2)), (2, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (1,)), (3, (2,))): 1 
+1 : ('hoop dat u', 'the hope that you enjoyed') 
+ nl->en alignments: (('NULL', (0, 4)), (0, (1,)), (1, (2,)), (2, (3,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (1,)), (3, (2,)), (4, ('NULL',))): 1 
+1 : ('van de zitting', 'of the session') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+1 : ('mevrouw', 'madam') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('wens', 'would like once again to wish') 
+ nl->en alignments: (('NULL', (2, 3, 4)), (0, (0, 1, 5))): 1 
+ en->nl alignments: ((0, (0,)), (1, (0,)), (2, ('NULL',)), (3, ('NULL',)), (4, ('NULL',)), (5, (0,))): 1 
+2 : ('deze', 'this') 
+ nl->en alignments: ((0, (0,)),): 2 
+ en->nl alignments: ((0, (0,)),): 2 
+1 : ('gelukkig nieuwjaar', 'happy new year') 
+ nl->en alignments: ((0, (0,)), (1, (0, 1, 2))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, (1,)), (2, (1,))): 1 
+1 : ('verschrikkelijke natuurrampen getroffen', 'natural disasters that truly were dreadful') 
+ nl->en alignments: (('NULL', (2, 3, 4)), (0, (5,)), (1, (0, 1)), (2, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (2,)), (0, (1,)), (1, (1,)), (2, ('NULL',)), (3, (-2,)), (4, (-3,)), (5, (0,))): 1 
+1 : ('kunnen constateren', 'will have seen') 
+ nl->en alignments: ((0, (0, 2)), (1, (1, 2))): 1 
+ en->nl alignments: ((0, (0,)), (1, (-1, 1)), (2, (0, 1))): 1 
+1 : ('hoop dat', 'hope that') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('vrijdag 17 december werd onderbroken', 'friday 17 december 1999') 
+ nl->en alignments: (('NULL', (3,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, ('NULL',)), (4, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (3, 4)), (0, (0,)), (1, (1,)), (2, (2,)), (3, ('NULL',))): 1 
+1 : ('u allen een gelukkig nieuwjaar en', 'you a happy new year in') 
+ nl->en alignments: ((0, (0,)), (1, (0,)), (2, (1,)), (3, (2,)), (4, (2, 3, 4)), (5, (5,))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, (2,)), (2, (3, 4)), (3, (4,)), (4, (4,)), (5, (5,))): 1 
+1 : ('de slachtoffers . ik doel hiermee', 'all the victims concerned ,') 
+ nl->en alignments: (('NULL', (3,)), (0, (1,)), (1, (2,)), (2, (4,)), (3, ('NULL',)), (4, ('NULL',)), (5, (0,))): 1 
+ en->nl alignments: (('NULL', (3, 4)), (0, (5,)), (1, (0,)), (2, (1,)), (3, ('NULL',)), (4, (2,))): 1 
+1 : ('een goede vakantie heeft gehad', 'a pleasant festive') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (2,)), (4, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2, 3, 4))): 1 
+1 : ('natuurrampen', 'of natural disasters') 
+ nl->en alignments: (('NULL', (0,)), (0, (1, 2))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (0,))): 1 
+1 : ('verklaar de zitting van het', 'declare resumed the session of the') 
+ nl->en alignments: ((0, (0, 1)), (1, (2,)), (2, (3,)), (3, (4,)), (4, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (0,)), (2, (1,)), (3, (2,)), (4, (3,)), (5, (4,))): 1 
+1 : ('dat', 'in the course of') 
+ nl->en alignments: (('NULL', (1, 2, 3)), (0, (0,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',)), (2, ('NULL',)), (3, ('NULL',))): 1 
+1 : ('millenniumbug " uitgebleven', "millennium bug ' failed to") 
+ nl->en alignments: (('NULL', (4,)), (0, (0, 1)), (1, (2,)), (2, (1, 3))): 1 
+ en->nl alignments: ((0, (0,)), (1, (0, 2)), (2, (1,)), (3, (2,)), (4, ('NULL',))): 1 
+1 : ('wil ik graag', 'i should like to') 
+ nl->en alignments: ((0, (1, 2, 3)), (1, (0,)), (2, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (2,)), (0, (1,)), (1, (0,)), (2, (0,)), (3, (0,))): 1 
+1 : ('.', 'and') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('december', 'december 1999') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',))): 1 
+1 : ('slachtoffers . ik', 'victims concerned ,') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, (2,)), (2, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (2,)), (0, (0,)), (1, ('NULL',)), (2, (1,))): 1 
+1 : ('. ik', 'concerned ,') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, ('NULL',)), (1, (0,))): 1 
+1 : ('wil een motie van orde', 'a point of order') 
+ nl->en alignments: ((0, (1,)), (1, (0,)), (2, (1,)), (3, (2,)), (4, (3,))): 1 
+ en->nl alignments: ((0, (1,)), (1, (0, 2)), (2, (3,)), (3, (4,))): 1 
+1 : ('lidstaten van de unie', 'countries of the european union') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3, 4))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (3,))): 1 
+1 : ('. de burgers van een', 'materialise , still the people in a') 
+ nl->en alignments: (('NULL', (0, 2)), (0, (1,)), (1, (3,)), (2, (4,)), (3, (5,)), (4, (6,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, ('NULL',)), (3, (1,)), (4, (2,)), (5, (3,)), (6, (4,))): 1 
+1 : ('verzoek van een', 'a number of members have requested ,') 
+ nl->en alignments: (('NULL', (1, 2, 3, 4, 6)), (0, (5,)), (1, ('NULL',)), (2, (0,))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, (2,)), (1, (3,)), (2, (3,)), (3, (4, 5, 6)), (4, (6,)), (5, (0,)), (6, ('NULL',))): 1 
+1 : ('verschrikkelijke natuurrampen getroffen', 'of natural disasters that truly were dreadful') 
+ nl->en alignments: (('NULL', (0, 3, 4, 5)), (0, (6,)), (1, (1, 2)), (2, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (2,)), (0, ('NULL',)), (1, (1,)), (2, (1,)), (3, ('NULL',)), (4, (-2,)), (5, (-3,)), (6, (0,))): 1 
+1 : ('natuurrampen getroffen', 'series of natural disasters') 
+ nl->en alignments: (('NULL', (0, 1)), (0, (2, 3)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, (0,))): 1 
+1 : ('het europees parlement , die', 'the european parliament adjourned') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3, 4))): 1 
+1 : ('onderbroken , te zijn', '1999 ,') 
+ nl->en alignments: (('NULL', (0,)), (0, ('NULL',)), (1, (1,)), (2, ('NULL',)), (3, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (0, 2, 3)), (0, ('NULL',)), (1, (1,))): 1 
+1 : ('het', 'the meantime') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',))): 1 
+1 : ('van het europees parlement', 'of the european parliament') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,))): 1 
+1 : ('noodweer', 'terrible storms ,') 
+ nl->en alignments: (('NULL', (2,)), (0, (0, 1))): 1 
+ en->nl alignments: ((0, (0,)), (1, (0,)), (2, ('NULL',))): 1 
+1 : ('daarentegen', 'that truly') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,))): 1 
+1 : ('hoop dat u een goede', 'hope that you enjoyed a pleasant') 
+ nl->en alignments: (('NULL', (3,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (4,)), (4, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, ('NULL',)), (4, (3,)), (5, (4,))): 1 
+1 : ('natuurrampen', 'series of natural disasters') 
+ nl->en alignments: (('NULL', (0, 1)), (0, (2, 3))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, (0,))): 1 
+1 : ('verschrikkelijke natuurrampen getroffen', 'series of natural disasters that truly were dreadful') 
+ nl->en alignments: (('NULL', (0, 1, 4, 5, 6)), (0, (7,)), (1, (2, 3)), (2, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (2,)), (0, ('NULL',)), (1, ('NULL',)), (2, (1,)), (3, (1,)), (4, ('NULL',)), (5, (-2,)), (6, (-3,)), (7, (0,))): 1 
+1 : ('. ik', ',') 
+ nl->en alignments: ((0, (0,)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, (0,))): 1 
+1 : ('" millenniumbug " uitgebleven', "' millennium bug ' failed to") 
+ nl->en alignments: (('NULL', (5,)), (0, (0,)), (1, (1, 2)), (2, (3,)), (3, (2, 4))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (1, 3)), (3, (2,)), (4, (3,)), (5, ('NULL',))): 1 
+1 : (', die', 'adjourned') 
+ nl->en alignments: ((0, (0,)), (1, (0,))): 1 
+ en->nl alignments: ((0, (0, 1)),): 1 
+1 : ('.', 'materialise , still') 
+ nl->en alignments: (('NULL', (0, 2)), (0, (1,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, ('NULL',))): 1 
+1 : ('unie heeft geteisterd', 'european union') 
+ nl->en alignments: ((0, (0, 1)), (1, ('NULL',)), (2, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1, 2)), (0, (0,)), (1, (0,))): 1 
+1 : ('vrijdag 17 december werd onderbroken ,', 'friday 17 december 1999 ,') 
+ nl->en alignments: (('NULL', (3,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, ('NULL',)), (4, ('NULL',)), (5, (4,))): 1 
+ en->nl alignments: (('NULL', (3, 4)), (0, (0,)), (1, (1,)), (2, (2,)), (3, ('NULL',)), (4, (5,))): 1 
+1 : ('mevrouw de voorzitter ,', 'madam president ,') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (1,)), (3, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1, 2)), (2, (3,))): 1 
+1 : ('vakantie heeft gehad', 'festive') 
+ nl->en alignments: ((0, (0,)), (1, (0,)), (2, (0,))): 1 
+ en->nl alignments: ((0, (0, 1, 2)),): 1 
+1 : ('(', '(') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('. de', 'materialise , still the') 
+ nl->en alignments: (('NULL', (0, 2)), (0, (1,)), (1, (3,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, ('NULL',)), (3, (1,))): 1 
+1 : ('vrijdag 17 december werd onderbroken , te', 'friday 17 december 1999 ,') 
+ nl->en alignments: (('NULL', (3,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, ('NULL',)), (4, ('NULL',)), (5, (4,)), (6, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (3, 4, 6)), (0, (0,)), (1, (1,)), (2, (2,)), (3, ('NULL',)), (4, (5,))): 1 
+1 : ('stilte staande in acht te nemen', "'s silence") 
+ nl->en alignments: ((0, (0, 1)), (1, (1,)), (2, (1,)), (3, (1,)), (4, (1,)), (5, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (0, 1, 2, 3, 4, 5))): 1 
+1 : ('unie heeft', 'european union') 
+ nl->en alignments: ((0, (0, 1)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, (0,)), (1, (0,))): 1 
+2 : ('lidstaten', 'countries') 
+ nl->en alignments: ((0, (0,)),): 2 
+ en->nl alignments: ((0, (0,)),): 2 
+1 : ('dat u', 'that you enjoyed') 
+ nl->en alignments: (('NULL', (2,)), (0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, ('NULL',))): 1 
+1 : ('over', 'on') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('17 december werd', '17 december 1999') 
+ nl->en alignments: (('NULL', (2,)), (0, (0,)), (1, (1,)), (2, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (2,)), (0, (0,)), (1, (1,)), (2, ('NULL',))): 1 
+1 : ('ik wil een motie van orde stellen', 'on a point of order') 
+ nl->en alignments: ((0, (0,)), (1, (2,)), (2, (1,)), (3, (2,)), (4, (3,)), (5, (4,)), (6, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (6,)), (0, (0,)), (1, (2,)), (2, (1, 3)), (3, (4,)), (4, (5,))): 1 
+1 : ('gelukkig nieuwjaar en hoop dat', 'happy new year in the hope that') 
+ nl->en alignments: (('NULL', (4,)), (0, (0,)), (1, (0, 1, 2)), (2, (3,)), (3, (5,)), (4, (6,))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, (1,)), (2, (1,)), (3, (2,)), (4, ('NULL',)), (5, (3,)), (6, (4,))): 1 
+1 : ('hoop dat u', 'hope that you enjoyed') 
+ nl->en alignments: (('NULL', (3,)), (0, (0,)), (1, (1,)), (2, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, ('NULL',))): 1 
+1 : ('een goede vakantie heeft gehad .', 'enjoyed a pleasant festive period .') 
+ nl->en alignments: (('NULL', (0, 4)), (0, (1,)), (1, (2,)), (2, (3,)), (3, (3,)), (4, (3,)), (5, (5,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (1,)), (3, (2, 3, 4)), (4, ('NULL',)), (5, (5,))): 1 
+1 : ('van een', 'a') 
+ nl->en alignments: ((0, ('NULL',)), (1, (0,))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, (1,))): 1 
+1 : ('vrijdag', 'friday') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('een goede vakantie heeft gehad .', 'a pleasant festive period .') 
+ nl->en alignments: (('NULL', (3,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (2,)), (4, (2,)), (5, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2, 3, 4)), (3, ('NULL',)), (4, (5,))): 1 
+1 : ('dat', 'in the') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',))): 1 
+1 : ('debat wilt', 'debate') 
+ nl->en alignments: ((0, (0,)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, (0,))): 1 
+1 : (', ik', ', on') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('ik wil u vragen', 'please rise , then , for') 
+ nl->en alignments: (('NULL', (1, 2, 3, 4, 5)), (0, (0,)), (1, (0,)), (2, (0,)), (3, (0,))): 1 
+ en->nl alignments: ((0, (0, 1, 2, 3)), (1, ('NULL',)), (2, ('NULL',)), (3, ('NULL',)), (4, ('NULL',)), (5, ('NULL',))): 1 
+1 : ('een aantal van', 'a number of') 
+ nl->en alignments: ((0, (0,)), (1, (1, 2)), (2, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (1, 2))): 1 
+1 : ('en hoop', 'in the hope') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',)), (2, (1,))): 1 
+1 : ('ik verklaar de zitting van', 'i declare resumed the session of') 
+ nl->en alignments: ((0, (0,)), (1, (1, 2)), (2, (3,)), (3, (4,)), (4, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (1,)), (3, (2,)), (4, (3,)), (5, (4,))): 1 
+1 : ('onderbroken , te zijn', ',') 
+ nl->en alignments: ((0, ('NULL',)), (1, (0,)), (2, ('NULL',)), (3, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (0, 2, 3)), (0, (1,))): 1 
+1 : ('dat u', 'in the course') 
+ nl->en alignments: (('NULL', (1, 2)), (0, (0,)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, (0,)), (1, ('NULL',)), (2, ('NULL',))): 1 
+1 : (', te', '1999 ,') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, ('NULL',)), (1, (0,))): 1 
+1 : ('hoop dat u een', 'hope that you enjoyed a') 
+ nl->en alignments: (('NULL', (3,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, ('NULL',)), (4, (3,))): 1 
+1 : ('deze minuut', ', for this minute') 
+ nl->en alignments: (('NULL', (0, 1)), (0, (2,)), (1, (3,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, (1,))): 1 
+1 : ('goede vakantie heeft gehad', 'pleasant festive period') 
+ nl->en alignments: (('NULL', (2,)), (0, (0,)), (1, (1,)), (2, (1,)), (3, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1, 2, 3)), (2, ('NULL',))): 1 
+1 : ('natuurrampen getroffen', 'natural disasters that') 
+ nl->en alignments: (('NULL', (2,)), (0, (0, 1)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, (0,)), (1, (0,)), (2, ('NULL',))): 1 
+1 : ('u heeft kunnen constateren , is', 'you will have seen ,') 
+ nl->en alignments: ((0, (0,)), (1, (2,)), (2, (1, 3)), (3, (2, 3)), (4, (4,)), (5, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (2,)), (2, (1, 3)), (3, (2, 3)), (4, (4, 5))): 1 
+1 : ('. de burgers van een', 'to materialise , still the people in a') 
+ nl->en alignments: (('NULL', (0, 1, 3)), (0, (2,)), (1, (4,)), (2, (5,)), (3, (6,)), (4, (7,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, ('NULL',)), (4, (1,)), (5, (2,)), (6, (3,)), (7, (4,))): 1 
+1 : ('een gelukkig nieuwjaar en', 'a happy new year in the') 
+ nl->en alignments: (('NULL', (5,)), (0, (0,)), (1, (1,)), (2, (1, 2, 3)), (3, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1, 2)), (2, (2,)), (3, (2,)), (4, (3,)), (5, ('NULL',))): 1 
+2 : ('van de', 'of the') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 2 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 2 
+1 : ('op vrijdag 17 december', 'on friday 17 december') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,))): 1 
+1 : ('u deze vergaderperiode', ', during this part - session') 
+ nl->en alignments: (('NULL', (0,)), (0, ('NULL',)), (1, (2,)), (2, (1, 3, 4, 5))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, ('NULL',)), (1, (2,)), (2, (1,)), (3, (2,)), (4, (2,)), (5, (2,))): 1 
+1 : ('parlement , die op vrijdag', 'parliament adjourned on friday') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (1,)), (3, (2,)), (4, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1, 2)), (2, (3,)), (3, (4,))): 1 
+1 : ('en', 'in the') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',))): 1 
+1 : ('debat', 'debate') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('verklaar de', 'declare resumed the') 
+ nl->en alignments: ((0, (0, 1)), (1, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (0,)), (2, (1,))): 1 
+1 : ('grote "', "dreaded '") 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('natuurrampen', 'natural disasters') 
+ nl->en alignments: ((0, (0, 1)),): 1 
+ en->nl alignments: ((0, (0,)), (1, (0,))): 1 
+1 : ('van orde stellen .', 'of order .') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, ('NULL',)), (3, (2,))): 1 
+ en->nl alignments: (('NULL', (2,)), (0, (0,)), (1, (1,)), (2, (3,))): 1 
+1 : ('de burgers', 'the people') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('op', ', in') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,))): 1 
+1 : ('burgers van een aantal van', 'people in a number of') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3, 4)), (4, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (3, 4))): 1 
+1 : ('u heeft kunnen constateren , is de', 'you will have seen , the') 
+ nl->en alignments: ((0, (0,)), (1, (2,)), (2, (1, 3)), (3, (2, 3)), (4, (4,)), (5, (4,)), (6, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (2,)), (2, (1, 3)), (3, (2, 3)), (4, (4, 5)), (5, (6,))): 1 
+1 : ('werd onderbroken ,', ',') 
+ nl->en alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,))): 1 
+ en->nl alignments: (('NULL', (0, 1)), (0, (2,))): 1 
+1 : ('noodweer dat', 'the terrible storms') 
+ nl->en alignments: ((0, (1, 2)), (1, (0,))): 1 
+ en->nl alignments: ((0, (1,)), (1, (0,)), (2, (0,))): 1 
+1 : ('een', ', as a') 
+ nl->en alignments: (('NULL', (0, 1)), (0, (2,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,))): 1 
+1 : ('de slachtoffers', 'the victims concerned') 
+ nl->en alignments: (('NULL', (2,)), (0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, ('NULL',))): 1 
+1 : ('minuut stilte in acht )', "minute 's silence )") 
+ nl->en alignments: ((0, (0,)), (1, (1, 2)), (2, (2,)), (3, (2,)), (4, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (1, 2, 3)), (3, (4,))): 1 
+1 : ('en', 'in') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('mevrouw de voorzitter', 'madam president') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1, 2))): 1 
+1 : ('millenniumbug " uitgebleven .', "millennium bug ' failed to materialise ,") 
+ nl->en alignments: (('NULL', (4, 5)), (0, (0, 1)), (1, (2,)), (2, (1, 3)), (3, (6,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (0, 2)), (2, (1,)), (3, (2,)), (4, ('NULL',)), (5, ('NULL',)), (6, (3,))): 1 
+1 : ('het europees parlement', 'the european parliament') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+1 : ('dat verschillende', 'the terrible storms , in the various') 
+ nl->en alignments: (('NULL', (1, 2, 3, 4, 5)), (0, (0,)), (1, (6,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (-1,)), (2, (-1,)), (3, ('NULL',)), (4, (-6,)), (5, (-5,)), (6, (1,))): 1 
+1 : ('kunnen constateren , is de', 'will have seen , the') 
+ nl->en alignments: ((0, (0, 2)), (1, (1, 2)), (2, (3,)), (3, (3,)), (4, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (-1, 1)), (2, (0, 1)), (3, (2, 3)), (4, (4,))): 1 
+1 : ('nu wil ik graag', 'i should like to') 
+ nl->en alignments: ((0, ('NULL',)), (1, (1, 2, 3)), (2, (0,)), (3, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (0, 3)), (0, (2,)), (1, (1,)), (2, (1,)), (3, (1,))): 1 
+1 : ('de voorzitter , ik wil een motie', 'president , on a point') 
+ nl->en alignments: ((0, (0,)), (1, (0,)), (2, (1,)), (3, (2,)), (4, (4,)), (5, (3,)), (6, (4,))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, (2,)), (2, (3,)), (3, (5,)), (4, (4, 6))): 1 
+1 : ('aangegeven dat', 'requested a debate on this subject in') 
+ nl->en alignments: (('NULL', (1, 2, 3, 4, 5)), (0, (0,)), (1, (6,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (5,)), (2, (6,)), (3, (8,)), (4, (9,)), (5, (10,)), (6, (1,))): 1 
+1 : ('zoals u heeft kunnen constateren', 'as you will have seen') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (3,)), (3, (2, 4)), (4, (3, 4))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (3,)), (3, (2, 4)), (4, (3, 4))): 1 
+1 : ('de zitting van', 'the session of') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+1 : ('deze', 'rise , then , for this') 
+ nl->en alignments: (('NULL', (0, 1, 2, 3, 4)), (0, (5,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, ('NULL',)), (3, ('NULL',)), (4, ('NULL',)), (5, (0,))): 1 
+1 : ('de slachtoffers', 'the victims') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('dat', 'in') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('17 december werd onderbroken , te zijn', '17 december 1999 ,') 
+ nl->en alignments: (('NULL', (2,)), (0, (0,)), (1, (1,)), (2, ('NULL',)), (3, ('NULL',)), (4, (3,)), (5, ('NULL',)), (6, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (2, 3, 5, 6)), (0, (0,)), (1, (1,)), (2, ('NULL',)), (3, (4,))): 1 
+1 : ('parlement', 'parliament') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('het europees', 'the european') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('verzoek', 'requested') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : (', die op vrijdag 17 december werd', 'adjourned on friday 17 december') 
+ nl->en alignments: ((0, (0,)), (1, (0,)), (2, (1,)), (3, (2,)), (4, (3,)), (5, (4,)), (6, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (6,)), (0, (0, 1)), (1, (2,)), (2, (3,)), (3, (4,)), (4, (5,))): 1 
+1 : ('werd onderbroken , te', ',') 
+ nl->en alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (0, 1, 3)), (0, (2,))): 1 
+1 : ('hiermee', 'all') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('stilte in acht', "'s silence") 
+ nl->en alignments: ((0, (0, 1)), (1, (1,)), (2, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (0, 1, 2))): 1 
+1 : ('een aantal', ', as a number of') 
+ nl->en alignments: (('NULL', (0, 1)), (0, (2,)), (1, (3, 4))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, (1,)), (4, (1,))): 1 
+2 : ('de zitting', 'the session') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 2 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 2 
+1 : ('een goede vakantie heeft gehad', 'a pleasant festive period') 
+ nl->en alignments: (('NULL', (3,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (2,)), (4, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2, 3, 4)), (3, ('NULL',))): 1 
+1 : ('zoals', 'although , as') 
+ nl->en alignments: (('NULL', (0, 1)), (0, (2,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,))): 1 
+1 : ('van het europees', 'of the european') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+1 : ('. de', 'to materialise , still the') 
+ nl->en alignments: (('NULL', (0, 1, 3)), (0, (2,)), (1, (4,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, ('NULL',)), (4, (1,))): 1 
+1 : ('wil een motie van orde stellen', 'a point of order') 
+ nl->en alignments: ((0, (1,)), (1, (0,)), (2, (1,)), (3, (2,)), (4, (3,)), (5, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (5,)), (0, (1,)), (1, (0, 2)), (2, (3,)), (3, (4,))): 1 
+1 : ('zoals u', 'as you') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : (', die op vrijdag', 'adjourned on friday') 
+ nl->en alignments: ((0, (0,)), (1, (0,)), (2, (1,)), (3, (2,))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, (2,)), (2, (3,))): 1 
+1 : ('een goede vakantie heeft gehad', 'enjoyed a pleasant festive period') 
+ nl->en alignments: (('NULL', (0, 4)), (0, (1,)), (1, (2,)), (2, (3,)), (3, (3,)), (4, (3,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (1,)), (3, (2, 3, 4)), (4, ('NULL',))): 1 
+1 : ('van de', 'of all the') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (6,)), (2, (1,))): 1 
+1 : (', is', ',') 
+ nl->en alignments: ((0, (0,)), (1, (0,))): 1 
+ en->nl alignments: ((0, (0, 1)),): 1 
+1 : ('onze lidstaten', 'countries suffered a series') 
+ nl->en alignments: (('NULL', (1, 3)), (0, (2,)), (1, (0,))): 1 
+ en->nl alignments: ((0, (1,)), (1, (4,)), (2, (0,)), (3, ('NULL',))): 1 
+1 : ('parlement , die', 'parliament adjourned') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1, 2))): 1 
+1 : ('deze', 'for this') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,))): 1 
+1 : ('.', 'to materialise , still') 
+ nl->en alignments: (('NULL', (0, 1, 3)), (0, (2,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, ('NULL',))): 1 
+1 : ('gelukkig nieuwjaar en', 'happy new year in') 
+ nl->en alignments: ((0, (0,)), (1, (0, 1, 2)), (2, (3,))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, (1,)), (2, (1,)), (3, (2,))): 1 
+1 : ('onderbroken , te zijn hervat . ik', ', and i') 
+ nl->en alignments: ((0, ('NULL',)), (1, (0,)), (2, ('NULL',)), (3, ('NULL',)), (4, ('NULL',)), (5, (1,)), (6, (2,))): 1 
+ en->nl alignments: (('NULL', (0, 2, 3, 4)), (0, (1,)), (1, (5,)), (2, (6,))): 1 
+1 : ('lidstaten van de', 'countries of the') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+1 : (',', '1999 ,') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,))): 1 
+1 : ('natuurrampen', 'of natural disasters that') 
+ nl->en alignments: (('NULL', (0, 3)), (0, (1, 2))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (0,)), (3, ('NULL',))): 1 
+1 : ('hervat .', 'and') 
+ nl->en alignments: ((0, ('NULL',)), (1, (0,))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, (1,))): 1 
+1 : ('een minuut stilte in acht )', "a minute 's silence )") 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2, 3)), (3, (3,)), (4, (3,)), (5, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (2, 3, 4)), (4, (5,))): 1 
+1 : ('goede', 'pleasant') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('een debat wilt', 'a debate') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (2,)), (0, (0,)), (1, (1,))): 1 
+1 : ('aantal', 'number of') 
+ nl->en alignments: ((0, (0, 1)),): 1 
+ en->nl alignments: ((0, (0,)), (1, (0,))): 1 
+1 : ('te zijn hervat . ik', 'and i') 
+ nl->en alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, ('NULL',)), (3, (0,)), (4, (1,))): 1 
+ en->nl alignments: (('NULL', (0, 1, 2)), (0, (3,)), (1, (4,))): 1 
+1 : ("van een aantal collega ' s", 'a number of members have') 
+ nl->en alignments: ((0, ('NULL',)), (1, (0,)), (2, (1, 2)), (3, (3,)), (4, (3,)), (5, (3, 4))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, (1,)), (1, (2,)), (2, (2,)), (3, (3, 4, 5)), (4, (5,))): 1 
+1 : ('en hoop dat u een', 'in the hope that you enjoyed a') 
+ nl->en alignments: (('NULL', (1, 5)), (0, (0,)), (1, (2,)), (2, (3,)), (3, (4,)), (4, (6,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',)), (2, (1,)), (3, (2,)), (4, (3,)), (5, ('NULL',)), (6, (4,))): 1 
+1 : ('te zijn hervat .', 'and') 
+ nl->en alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, ('NULL',)), (3, (0,))): 1 
+ en->nl alignments: (('NULL', (0, 1, 2)), (0, (3,))): 1 
+1 : (', is de', ', the') 
+ nl->en alignments: ((0, (0,)), (1, (0,)), (2, (1,))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, (2,))): 1 
+1 : ('onderbroken ,', '1999 ,') 
+ nl->en alignments: (('NULL', (0,)), (0, ('NULL',)), (1, (1,))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, ('NULL',)), (1, (1,))): 1 
+1 : ('van de slachtoffers . ik doel', 'of all the victims concerned ,') 
+ nl->en alignments: (('NULL', (1, 4)), (0, (0,)), (1, (2,)), (2, (3,)), (3, (5,)), (4, ('NULL',)), (5, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (4, 5)), (0, (0,)), (1, (6,)), (2, (1,)), (3, (2,)), (4, ('NULL',)), (5, (3,))): 1 
+1 : ('ik verklaar de zitting', 'i declare resumed the session') 
+ nl->en alignments: ((0, (0,)), (1, (1, 2)), (2, (3,)), (3, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (1,)), (3, (2,)), (4, (3,))): 1 
+1 : ('. de burgers van', 'to materialise , still the people in') 
+ nl->en alignments: (('NULL', (0, 1, 3)), (0, (2,)), (1, (4,)), (2, (5,)), (3, (6,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, ('NULL',)), (4, (1,)), (5, (2,)), (6, (3,))): 1 
+1 : ('aantal van onze', 'number of countries suffered a') 
+ nl->en alignments: (('NULL', (2, 3)), (0, (0, 1)), (1, (1,)), (2, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (0, 1)), (2, (3,)), (3, (6,)), (4, (2,))): 1 
+1 : ("aantal collega ' s", 'number of members have') 
+ nl->en alignments: ((0, (0, 1)), (1, (2,)), (2, (2,)), (3, (2, 3))): 1 
+ en->nl alignments: ((0, (0,)), (1, (0,)), (2, (1, 2, 3)), (3, (3,))): 1 
+1 : ('dat u', 'in the course of') 
+ nl->en alignments: (('NULL', (1, 2, 3)), (0, (0,)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, (0,)), (1, ('NULL',)), (2, ('NULL',)), (3, ('NULL',))): 1 
+1 : ('ik wil u vragen', 'please rise , then') 
+ nl->en alignments: (('NULL', (1, 2, 3)), (0, (0,)), (1, (0,)), (2, (0,)), (3, (0,))): 1 
+ en->nl alignments: ((0, (0, 1, 2, 3)), (1, ('NULL',)), (2, ('NULL',)), (3, ('NULL',))): 1 
+3 : ('ik', 'i') 
+ nl->en alignments: ((0, (0,)),): 3 
+ en->nl alignments: ((0, (0,)),): 3 
+1 : ('onderbroken ,', ',') 
+ nl->en alignments: ((0, ('NULL',)), (1, (0,))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, (1,))): 1 
+1 : ('. ik doel', ',') 
+ nl->en alignments: ((0, (0,)), (1, ('NULL',)), (2, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1, 2)), (0, (0,))): 1 
+1 : ('de grote " millenniumbug " uitgebleven', "the dreaded ' millennium bug ' failed") 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3, 4)), (4, (5,)), (5, (4, 6))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (3, 5)), (5, (4,)), (6, (5,))): 1 
+1 : ('dat u een', 'that you enjoyed a') 
+ nl->en alignments: (('NULL', (2,)), (0, (0,)), (1, (1,)), (2, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, ('NULL',)), (3, (2,))): 1 
+1 : ('ik wil een motie van orde', 'on a point of order') 
+ nl->en alignments: ((0, (0,)), (1, (2,)), (2, (1,)), (3, (2,)), (4, (3,)), (5, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (2,)), (2, (1, 3)), (3, (4,)), (4, (5,))): 1 
+1 : ('de burgers van een', 'still the people in a') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, (2,)), (2, (3,)), (3, (4,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (1,)), (3, (2,)), (4, (3,))): 1 
+1 : ('u een goede', 'you enjoyed a pleasant') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, (2,)), (2, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',)), (2, (1,)), (3, (2,))): 1 
+1 : ('van een aantal', ', as a number of') 
+ nl->en alignments: (('NULL', (0, 1)), (0, ('NULL',)), (1, (2,)), (2, (3, 4))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, ('NULL',)), (1, ('NULL',)), (2, (1,)), (3, (2,)), (4, (2,))): 1 
+1 : ('hoop dat u een goede', 'the hope that you enjoyed a pleasant') 
+ nl->en alignments: (('NULL', (0, 4)), (0, (1,)), (1, (2,)), (2, (3,)), (3, (5,)), (4, (6,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (1,)), (3, (2,)), (4, ('NULL',)), (5, (3,)), (6, (4,))): 1 
+1 : ('verschillende lidstaten', 'various countries') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('zoals u', 'although , as you') 
+ nl->en alignments: (('NULL', (0, 1)), (0, (2,)), (1, (3,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, (1,))): 1 
+1 : ('van orde stellen', 'of order') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (2,)), (0, (0,)), (1, (1,))): 1 
+1 : ('op vrijdag 17 december', 'on friday 17 december 1999') 
+ nl->en alignments: (('NULL', (4,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, ('NULL',))): 1 
+1 : ('ik verklaar de zitting van het', 'i declare resumed the session of the') 
+ nl->en alignments: ((0, (0,)), (1, (1, 2)), (2, (3,)), (3, (4,)), (4, (5,)), (5, (6,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (1,)), (3, (2,)), (4, (3,)), (5, (4,)), (6, (5,))): 1 
+1 : ('. ik doel', 'concerned ,') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, ('NULL',)), (2, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1, 2)), (0, ('NULL',)), (1, (0,))): 1 
+1 : ('verzoek van', 'requested') 
+ nl->en alignments: ((0, (0,)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, (0,))): 1 
+1 : (', ik wil een motie van', ', on a point of') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (3,)), (3, (2,)), (4, (3,)), (5, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (3,)), (3, (2, 4)), (4, (5,))): 1 
+1 : ('werd onderbroken , te zijn hervat .', ', and') 
+ nl->en alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, ('NULL',)), (4, ('NULL',)), (5, ('NULL',)), (6, (1,))): 1 
+ en->nl alignments: (('NULL', (0, 1, 3, 4, 5)), (0, (2,)), (1, (6,))): 1 
+1 : ('zijn daarentegen', 'that truly were') 
+ nl->en alignments: (('NULL', (0,)), (0, (2,)), (1, (1,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (1,)), (2, (0,))): 1 
+1 : ('zoals u heeft kunnen constateren', ', as you will have seen') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, (2,)), (2, (4,)), (3, (3, 5)), (4, (4, 5))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (1,)), (3, (3,)), (4, (2, 4)), (5, (3, 4))): 1 
+1 : ('heeft', 'have') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('. ik doel hiermee', 'all the victims concerned ,') 
+ nl->en alignments: (('NULL', (1, 2, 3)), (0, (4,)), (1, ('NULL',)), (2, ('NULL',)), (3, (0,))): 1 
+ en->nl alignments: (('NULL', (1, 2)), (0, (3,)), (1, (-2,)), (2, (-1,)), (3, ('NULL',)), (4, (0,))): 1 
+1 : ('december werd', 'december 1999') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, (0,)), (1, ('NULL',))): 1 
+1 : ('u heeft kunnen constateren', 'you will have seen') 
+ nl->en alignments: ((0, (0,)), (1, (2,)), (2, (1, 3)), (3, (2, 3))): 1 
+ en->nl alignments: ((0, (0,)), (1, (2,)), (2, (1, 3)), (3, (2, 3))): 1 
+1 : ('de burgers van een', 'the people in a') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,))): 1 
+1 : ("een aantal collega ' s", 'a number of members have') 
+ nl->en alignments: ((0, (0,)), (1, (1, 2)), (2, (3,)), (3, (3,)), (4, (3, 4))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (1,)), (3, (2, 3, 4)), (4, (4,))): 1 
+1 : ('minuut stilte in acht', "minute 's silence") 
+ nl->en alignments: ((0, (0,)), (1, (1, 2)), (2, (2,)), (3, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (1, 2, 3))): 1 
+1 : ('.', ', still') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',))): 1 
+1 : ('het parlement', 'the house') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('de zitting van het europees parlement', 'the session of the european parliament') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (4,)), (5, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (4,)), (5, (5,))): 1 
+1 : ('doel hiermee', 'all') 
+ nl->en alignments: ((0, ('NULL',)), (1, (0,))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, (1,))): 1 
+1 : ('grote " millenniumbug " uitgebleven', "dreaded ' millennium bug ' failed to") 
+ nl->en alignments: (('NULL', (6,)), (0, (0,)), (1, (1,)), (2, (2, 3)), (3, (4,)), (4, (3, 5))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (2, 4)), (4, (3,)), (5, (4,)), (6, ('NULL',))): 1 
+1 : ('grote', 'dreaded') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('orde stellen', 'order') 
+ nl->en alignments: ((0, (0,)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, (0,))): 1 
+1 : ('ik doel hiermee', 'all') 
+ nl->en alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,))): 1 
+ en->nl alignments: (('NULL', (0, 1)), (0, (2,))): 1 
+1 : ('december werd onderbroken , te', 'december 1999 ,') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, ('NULL',)), (2, ('NULL',)), (3, (2,)), (4, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1, 2, 4)), (0, (0,)), (1, ('NULL',)), (2, (3,))): 1 
+1 : ('de burgers van een aantal van', 'still the people in a number of') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, (2,)), (2, (3,)), (3, (4,)), (4, (5, 6)), (5, (6,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (1,)), (3, (2,)), (4, (3,)), (5, (4,)), (6, (4, 5))): 1 
+1 : ('slachtoffers', 'those') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : (', te zijn', '1999 ,') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, ('NULL',)), (2, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1, 2)), (0, ('NULL',)), (1, (0,))): 1 
+1 : ('u allen een', 'you a') 
+ nl->en alignments: ((0, (0,)), (1, (0,)), (2, (1,))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, (2,))): 1 
+1 : ('natuurrampen getroffen', 'series of natural disasters that') 
+ nl->en alignments: (('NULL', (0, 1, 4)), (0, (2, 3)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, (0,)), (4, ('NULL',))): 1 
+1 : ('een', 'as a') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,))): 1 
+1 : ('hervatting van de zitting', 'resumption of the session') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,))): 1 
+1 : ('.', 'to materialise ,') 
+ nl->en alignments: (('NULL', (0, 1)), (0, (2,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,))): 1 
+1 : ('goede vakantie heeft gehad .', 'pleasant festive period .') 
+ nl->en alignments: (('NULL', (2,)), (0, (0,)), (1, (1,)), (2, (1,)), (3, (1,)), (4, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1, 2, 3)), (2, ('NULL',)), (3, (4,))): 1 
+1 : ('deze minuut', 'for this minute') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, (2,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (1,))): 1 
+1 : ('ik wil u vragen', 'please rise') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, (0,)), (2, (0,)), (3, (0,))): 1 
+ en->nl alignments: ((0, (0, 1, 2, 3)), (1, ('NULL',))): 1 
+1 : ('de voorzitter', 'president') 
+ nl->en alignments: ((0, (0,)), (1, (0,))): 1 
+ en->nl alignments: ((0, (0, 1)),): 1 
+1 : ('van de slachtoffers', 'of all the victims') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, (2,)), (2, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (6,)), (2, (1,)), (3, (2,))): 1 
+1 : ('onderbroken , te', ',') 
+ nl->en alignments: ((0, ('NULL',)), (1, (0,)), (2, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (0, 2)), (0, (1,))): 1 
+1 : ('werd onderbroken , te zijn hervat', ',') 
+ nl->en alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, ('NULL',)), (4, ('NULL',)), (5, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (0, 1, 3, 4, 5)), (0, (2,))): 1 
+1 : ('het europees parlement , die op', 'the european parliament adjourned on') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (3,)), (5, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3, 4)), (4, (5,))): 1 
+1 : ('op vrijdag 17 december werd', 'on friday 17 december') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (4,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (3,))): 1 
+1 : ('verschrikkelijke natuurrampen', 'of natural disasters that truly were dreadful') 
+ nl->en alignments: (('NULL', (0, 3, 4, 5)), (0, (6,)), (1, (1, 2))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (1,)), (2, (1,)), (3, ('NULL',)), (4, (-2,)), (5, (-3,)), (6, (0,))): 1 
+1 : ('vrijdag 17', 'friday 17') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('goede vakantie heeft gehad', 'pleasant festive') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (1,)), (3, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1, 2, 3))): 1 
+1 : ('werd onderbroken , te zijn', '1999 ,') 
+ nl->en alignments: (('NULL', (0,)), (0, ('NULL',)), (1, ('NULL',)), (2, (1,)), (3, ('NULL',)), (4, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (0, 1, 3, 4)), (0, ('NULL',)), (1, (2,))): 1 
+1 : ('onze lidstaten', 'countries suffered a series of') 
+ nl->en alignments: (('NULL', (1, 3, 4)), (0, (2,)), (1, (0,))): 1 
+ en->nl alignments: ((0, (1,)), (1, (4,)), (2, (0,)), (3, ('NULL',)), (4, ('NULL',))): 1 
+1 : ('slachtoffers . ik doel', 'victims concerned ,') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, (2,)), (2, ('NULL',)), (3, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (2, 3)), (0, (0,)), (1, ('NULL',)), (2, (1,))): 1 
+1 : ('een aantal van onze', 'a number of countries suffered a') 
+ nl->en alignments: (('NULL', (3, 4)), (0, (0,)), (1, (1, 2)), (2, (2,)), (3, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (1, 2)), (3, (4,)), (4, (7,)), (5, (3,))): 1 
+1 : ('aangegeven', 'requested') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('verschillende lidstaten van de unie', 'various countries of the european union') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (4, 5))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (4,)), (5, (4,))): 1 
+1 : ('natuurrampen getroffen .', 'natural disasters that truly were dreadful .') 
+ nl->en alignments: (('NULL', (2, 3, 4, 5)), (0, (0, 1)), (1, ('NULL',)), (2, (6,))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, (0,)), (1, (0,)), (2, ('NULL',)), (3, (-3,)), (4, (-4,)), (5, (-1,)), (6, (2,))): 1 
+1 : ('onze', 'a') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('verschrikkelijke natuurrampen getroffen .', 'of natural disasters that truly were dreadful .') 
+ nl->en alignments: (('NULL', (0, 3, 4, 5)), (0, (6,)), (1, (1, 2)), (2, ('NULL',)), (3, (7,))): 1 
+ en->nl alignments: (('NULL', (2,)), (0, ('NULL',)), (1, (1,)), (2, (1,)), (3, ('NULL',)), (4, (-2,)), (5, (-3,)), (6, (0,)), (7, (3,))): 1 
+1 : ('gelukkig nieuwjaar en', 'happy new year in the') 
+ nl->en alignments: (('NULL', (4,)), (0, (0,)), (1, (0, 1, 2)), (2, (3,))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, (1,)), (2, (1,)), (3, (2,)), (4, ('NULL',))): 1 
+1 : ('zoals u heeft kunnen constateren', 'although , as you will have seen') 
+ nl->en alignments: (('NULL', (0, 1)), (0, (2,)), (1, (3,)), (2, (5,)), (3, (4, 6)), (4, (5, 6))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, (1,)), (4, (3,)), (5, (2, 4)), (6, (3, 4))): 1 
+1 : ('slachtoffers', 'victims') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('kunnen constateren , is', 'will have seen ,') 
+ nl->en alignments: ((0, (0, 2)), (1, (1, 2)), (2, (3,)), (3, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (-1, 1)), (2, (0, 1)), (3, (2, 3))): 1 
+1 : ('millenniumbug " uitgebleven', "millennium bug ' failed to materialise") 
+ nl->en alignments: (('NULL', (4, 5)), (0, (0, 1)), (1, (2,)), (2, (1, 3))): 1 
+ en->nl alignments: ((0, (0,)), (1, (0, 2)), (2, (1,)), (3, (2,)), (4, ('NULL',)), (5, ('NULL',))): 1 
+1 : ('slachtoffers .', 'victims concerned ,') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',)), (2, (1,))): 1 
+1 : ('met name', 'particularly') 
+ nl->en alignments: ((0, (0,)), (1, (0,))): 1 
+ en->nl alignments: ((0, (0, 1)),): 1 
+3 : ('het', 'the') 
+ nl->en alignments: ((0, (0,)),): 3 
+ en->nl alignments: ((0, (0,)),): 3 
+1 : ('lidstaten van', 'countries of') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : (', te zijn hervat', ',') 
+ nl->en alignments: ((0, (0,)), (1, ('NULL',)), (2, ('NULL',)), (3, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1, 2, 3)), (0, (0,))): 1 
+1 : ('wil ik', 'i should like to') 
+ nl->en alignments: ((0, (1, 2, 3)), (1, (0,))): 1 
+ en->nl alignments: ((0, (1,)), (1, (0,)), (2, (0,)), (3, (0,))): 1 
+1 : ('vrijdag 17 december', 'friday 17 december') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+1 : ('op vrijdag 17 december werd', 'on friday 17 december 1999') 
+ nl->en alignments: (('NULL', (4,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (4,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, ('NULL',))): 1 
+1 : ('europees parlement , die', 'european parliament adjourned') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2, 3))): 1 
+1 : ('natuurrampen', 'natural disasters that') 
+ nl->en alignments: (('NULL', (2,)), (0, (0, 1))): 1 
+ en->nl alignments: ((0, (0,)), (1, (0,)), (2, ('NULL',))): 1 
+1 : (', die op', 'adjourned on') 
+ nl->en alignments: ((0, (0,)), (1, (0,)), (2, (1,))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, (2,))): 1 
+1 : ('deze vergaderperiode', 'during this part - session') 
+ nl->en alignments: ((0, (1,)), (1, (0, 2, 3, 4))): 1 
+ en->nl alignments: ((0, (1,)), (1, (0,)), (2, (1,)), (3, (1,)), (4, (1,))): 1 
+1 : ('een', 'enjoyed a') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,))): 1 
+1 : ('noodweer dat', 'the terrible storms ,') 
+ nl->en alignments: (('NULL', (3,)), (0, (1, 2)), (1, (0,))): 1 
+ en->nl alignments: ((0, (1,)), (1, (0,)), (2, (0,)), (3, ('NULL',))): 1 
+1 : ('zijn hervat .', 'and') 
+ nl->en alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,))): 1 
+ en->nl alignments: (('NULL', (0, 1)), (0, (2,))): 1 
+1 : ('verschillende lidstaten van', 'various countries of') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+1 : ('hiermee met name', 'all the victims concerned , particularly') 
+ nl->en alignments: (('NULL', (1, 2, 3, 4)), (0, (0,)), (1, (5,)), (2, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (-5,)), (2, (-4,)), (3, ('NULL',)), (4, (-3,)), (5, (1, 2))): 1 
+1 : ('burgers van', 'people in') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('verschillende lidstaten van de', 'various countries of the') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,))): 1 
+1 : ('deze', ', for this') 
+ nl->en alignments: (('NULL', (0, 1)), (0, (2,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,))): 1 
+1 : ('van de unie', 'of the european union') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2, 3))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (2,))): 1 
+1 : ('deze', 'this subject in the course of the') 
+ nl->en alignments: (('NULL', (1, 2, 3, 4, 5)), (0, (0, 6))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (-8,)), (3, ('NULL',)), (4, ('NULL',)), (5, ('NULL',)), (6, (0,))): 1 
+1 : ('werd onderbroken , te zijn hervat . ik', ', and i') 
+ nl->en alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, ('NULL',)), (4, ('NULL',)), (5, ('NULL',)), (6, (1,)), (7, (2,))): 1 
+ en->nl alignments: (('NULL', (0, 1, 3, 4, 5)), (0, (2,)), (1, (6,)), (2, (7,))): 1 
+1 : ('slachtoffers . ik doel hiermee met name', 'all the victims concerned , particularly') 
+ nl->en alignments: (('NULL', (1, 3)), (0, (2,)), (1, (4,)), (2, ('NULL',)), (3, ('NULL',)), (4, (0,)), (5, (5,)), (6, (5,))): 1 
+ en->nl alignments: (('NULL', (2, 3)), (0, (4,)), (1, (-1,)), (2, (0,)), (3, ('NULL',)), (4, (1,)), (5, (5, 6))): 1 
+1 : ('de burgers van een aantal van', 'the people in a number of') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (4, 5)), (5, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (4,)), (5, (4, 5))): 1 
+1 : ('de unie heeft', 'the european union') 
+ nl->en alignments: ((0, (0,)), (1, (1, 2)), (2, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (2,)), (0, (0,)), (1, (1,)), (2, (1,))): 1 
+1 : ('zijn daarentegen', 'truly were') 
+ nl->en alignments: ((0, (1,)), (1, (0,))): 1 
+ en->nl alignments: ((0, (1,)), (1, (0,))): 1 
+1 : ('. de burgers', ', still the people') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, (2,)), (2, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',)), (2, (1,)), (3, (2,))): 1 
+1 : ('u deze vergaderperiode', 'during this part - session') 
+ nl->en alignments: ((0, ('NULL',)), (1, (1,)), (2, (0, 2, 3, 4))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, (2,)), (1, (1,)), (2, (2,)), (3, (2,)), (4, (2,))): 1 
+1 : ('verklaar de zitting van', 'declare resumed the session of') 
+ nl->en alignments: ((0, (0, 1)), (1, (2,)), (2, (3,)), (3, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (0,)), (2, (1,)), (3, (2,)), (4, (3,))): 1 
+1 : ('het parlement neemt staande', 'the house rose and observed') 
+ nl->en alignments: (('NULL', (3,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (2, 4))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2, 3)), (3, ('NULL',)), (4, (3,))): 1 
+1 : ('aangegeven dat u', 'requested a debate on this subject in') 
+ nl->en alignments: (('NULL', (1, 2, 3, 4, 5)), (0, (0,)), (1, (6,)), (2, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (2,)), (0, (0,)), (1, (5,)), (2, (6,)), (3, (8,)), (4, (9,)), (5, (10,)), (6, (1,))): 1 
+1 : ('van het', 'of the') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('het', 'the meantime ,') 
+ nl->en alignments: (('NULL', (1, 2)), (0, (0,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',)), (2, ('NULL',))): 1 
+1 : ('wil', 'should like to') 
+ nl->en alignments: ((0, (0, 1, 2)),): 1 
+ en->nl alignments: ((0, (0,)), (1, (0,)), (2, (0,))): 1 
+1 : ('ik graag', 'i') 
+ nl->en alignments: ((0, (0,)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, (0,))): 1 
+1 : ('van het europees parlement , die op', 'of the european parliament adjourned on') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (4,)), (5, (4,)), (6, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (4, 5)), (5, (6,))): 1 
+1 : ('dat', 'in the course') 
+ nl->en alignments: (('NULL', (1, 2)), (0, (0,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',)), (2, ('NULL',))): 1 
+1 : ('van een', ', as a') 
+ nl->en alignments: (('NULL', (0, 1)), (0, ('NULL',)), (1, (2,))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, ('NULL',)), (1, ('NULL',)), (2, (1,))): 1 
+1 : ('een aantal van onze', 'a number of countries suffered a series') 
+ nl->en alignments: (('NULL', (3, 4, 6)), (0, (0,)), (1, (1, 2)), (2, (2,)), (3, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (1, 2)), (3, (4,)), (4, (7,)), (5, (3,)), (6, ('NULL',))): 1 
+1 : (', die op vrijdag 17 december werd', 'adjourned on friday 17 december 1999') 
+ nl->en alignments: (('NULL', (5,)), (0, (0,)), (1, (0,)), (2, (1,)), (3, (2,)), (4, (3,)), (5, (4,)), (6, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (6,)), (0, (0, 1)), (1, (2,)), (2, (3,)), (3, (4,)), (4, (5,)), (5, ('NULL',))): 1 
+1 : ('de grote', 'the dreaded') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('( het parlement neemt staande een', '( the house rose and observed a') 
+ nl->en alignments: (('NULL', (4,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (3, 5)), (5, (6,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3, 4)), (4, ('NULL',)), (5, (4,)), (6, (5,))): 1 
+1 : ("van een aantal collega ' s", 'as a number of members have') 
+ nl->en alignments: (('NULL', (0,)), (0, ('NULL',)), (1, (1,)), (2, (2, 3)), (3, (4,)), (4, (4,)), (5, (4, 5))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, ('NULL',)), (1, (1,)), (2, (2,)), (3, (2,)), (4, (3, 4, 5)), (5, (5,))): 1 
+1 : ('van een aantal van onze', 'in a number of countries suffered a') 
+ nl->en alignments: (('NULL', (4, 5)), (0, (0,)), (1, (1,)), (2, (2, 3)), (3, (3,)), (4, (6,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (2, 3)), (4, (5,)), (5, (8,)), (6, (4,))): 1 
+6 : ('van', 'of') 
+ nl->en alignments: ((0, (0,)),): 6 
+ en->nl alignments: ((0, (0,)),): 6 
+1 : ('stilte in acht )', "'s silence )") 
+ nl->en alignments: ((0, (0, 1)), (1, (1,)), (2, (1,)), (3, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (0, 1, 2)), (2, (3,))): 1 
+1 : ('werd onderbroken , te', '1999 ,') 
+ nl->en alignments: (('NULL', (0,)), (0, ('NULL',)), (1, ('NULL',)), (2, (1,)), (3, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (0, 1, 3)), (0, ('NULL',)), (1, (2,))): 1 
+1 : ('van de slachtoffers . ik', 'of all the victims concerned ,') 
+ nl->en alignments: (('NULL', (1, 4)), (0, (0,)), (1, (2,)), (2, (3,)), (3, (5,)), (4, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (4,)), (0, (0,)), (1, (6,)), (2, (1,)), (3, (2,)), (4, ('NULL',)), (5, (3,))): 1 
+1 : ('u allen', 'you') 
+ nl->en alignments: ((0, (0,)), (1, (0,))): 1 
+ en->nl alignments: ((0, (0, 1)),): 1 
+1 : ('nu wil', 'should like to') 
+ nl->en alignments: ((0, ('NULL',)), (1, (0, 1, 2))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, (1,)), (1, (1,)), (2, (1,))): 1 
+1 : ('verschrikkelijke', 'dreadful') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('deze minuut', 'this minute') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('vakantie heeft gehad', 'festive period') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, (0,)), (2, (0,))): 1 
+ en->nl alignments: ((0, (0, 1, 2)), (1, ('NULL',))): 1 
+1 : ('en hoop dat', 'in the hope that') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, (2,)), (2, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',)), (2, (1,)), (3, (2,))): 1 
+1 : ('17', '17') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('neemt staande', 'rose and observed') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, (0, 2))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, ('NULL',)), (2, (1,))): 1 
+1 : ('op vrijdag 17 december werd onderbroken', 'on friday 17 december 1999') 
+ nl->en alignments: (('NULL', (4,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, ('NULL',)), (5, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (4, 5)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, ('NULL',))): 1 
+1 : ('slachtoffers . ik doel hiermee', 'all the victims concerned ,') 
+ nl->en alignments: (('NULL', (1, 3)), (0, (2,)), (1, (4,)), (2, ('NULL',)), (3, ('NULL',)), (4, (0,))): 1 
+ en->nl alignments: (('NULL', (2, 3)), (0, (4,)), (1, (-1,)), (2, (0,)), (3, ('NULL',)), (4, (1,))): 1 
+1 : ('17 december werd onderbroken', '17 december 1999') 
+ nl->en alignments: (('NULL', (2,)), (0, (0,)), (1, (1,)), (2, ('NULL',)), (3, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (2, 3)), (0, (0,)), (1, (1,)), (2, ('NULL',))): 1 
+1 : ('. ik doel hiermee met name', 'all the victims concerned , particularly') 
+ nl->en alignments: (('NULL', (1, 2, 3)), (0, (4,)), (1, ('NULL',)), (2, ('NULL',)), (3, (0,)), (4, (5,)), (5, (5,))): 1 
+ en->nl alignments: (('NULL', (1, 2)), (0, (3,)), (1, (-2,)), (2, (-1,)), (3, ('NULL',)), (4, (0,)), (5, (4, 5))): 1 
+1 : ('hoop', 'the hope') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,))): 1 
+1 : ('u een goede vakantie heeft gehad', 'you enjoyed a pleasant festive period') 
+ nl->en alignments: (('NULL', (1, 5)), (0, (0,)), (1, (2,)), (2, (3,)), (3, (4,)), (4, (4,)), (5, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',)), (2, (1,)), (3, (2,)), (4, (3, 4, 5)), (5, ('NULL',))): 1 
+1 : ('parlement , die op', 'parliament adjourned on') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (1,)), (3, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1, 2)), (2, (3,))): 1 
+1 : ('millenniumbug " uitgebleven', "millennium bug ' failed") 
+ nl->en alignments: ((0, (0, 1)), (1, (2,)), (2, (1, 3))): 1 
+ en->nl alignments: ((0, (0,)), (1, (0, 2)), (2, (1,)), (3, (2,))): 1 
+1 : ('burgers', 'people') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('verzoek van een', 'as a number of members have requested') 
+ nl->en alignments: (('NULL', (0, 2, 3, 4, 5)), (0, (6,)), (1, ('NULL',)), (2, (1,))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, ('NULL',)), (1, (2,)), (2, (3,)), (3, (3,)), (4, (4, 5, 6)), (5, (6,)), (6, (0,))): 1 
+1 : ('zitting van het europees', 'session of the european') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,))): 1 
+1 : ('" millenniumbug " uitgebleven', "' millennium bug ' failed") 
+ nl->en alignments: ((0, (0,)), (1, (1, 2)), (2, (3,)), (3, (2, 4))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (1, 3)), (3, (2,)), (4, (3,))): 1 
+1 : ('ik verklaar', 'i declare resumed') 
+ nl->en alignments: ((0, (0,)), (1, (1, 2))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (1,))): 1 
+1 : (', te zijn hervat . ik', ', and i') 
+ nl->en alignments: ((0, (0,)), (1, ('NULL',)), (2, ('NULL',)), (3, ('NULL',)), (4, (1,)), (5, (2,))): 1 
+ en->nl alignments: (('NULL', (1, 2, 3)), (0, (0,)), (1, (4,)), (2, (5,))): 1 
+1 : ('wilt over', 'on') 
+ nl->en alignments: ((0, ('NULL',)), (1, (0,))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, (1,))): 1 
+1 : ('u heeft', 'you have') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ("een aantal collega ' s", 'as a number of members have') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, (2, 3)), (2, (4,)), (3, (4,)), (4, (4, 5))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (1,)), (3, (1,)), (4, (2, 3, 4)), (5, (4,))): 1 
+1 : ('ik doel hiermee met name', 'all the victims concerned , particularly') 
+ nl->en alignments: (('NULL', (1, 2, 3, 4)), (0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, (5,)), (4, (5,))): 1 
+ en->nl alignments: (('NULL', (0, 1)), (0, (2,)), (1, (-3,)), (2, (-2,)), (3, ('NULL',)), (4, (-1,)), (5, (3, 4))): 1 
+1 : ('ik wens', 'i would like once again to wish') 
+ nl->en alignments: (('NULL', (3, 4, 5)), (0, (0,)), (1, (1, 2, 6))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (1,)), (3, ('NULL',)), (4, ('NULL',)), (5, ('NULL',)), (6, (1,))): 1 
+1 : ('zoals u', ', as you') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, (2,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (1,))): 1 
+1 : ('december werd onderbroken , te zijn hervat', 'december 1999 ,') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, ('NULL',)), (2, ('NULL',)), (3, (2,)), (4, ('NULL',)), (5, ('NULL',)), (6, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1, 2, 4, 5, 6)), (0, (0,)), (1, ('NULL',)), (2, (3,))): 1 
+1 : ('u', 'you enjoyed') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',))): 1 
+1 : ('heeft aangegeven', 'have requested') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('de grote "', "the dreaded '") 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+1 : ('zoals', ', as') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,))): 1 
+1 : ('een aantal', 'as a number of') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, (2, 3))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (1,)), (3, (1,))): 1 
+1 : ('neemt staande een minuut stilte in acht', "rose and observed a minute 's silence") 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, (0, 2)), (2, (3,)), (3, (4,)), (4, (5, 6)), (5, (6,)), (6, (6,))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, ('NULL',)), (2, (1,)), (3, (2,)), (4, (3,)), (5, (4,)), (6, (4, 5, 6))): 1 
+1 : ('ik wil u vragen', 'please rise ,') 
+ nl->en alignments: (('NULL', (1, 2)), (0, (0,)), (1, (0,)), (2, (0,)), (3, (0,))): 1 
+ en->nl alignments: ((0, (0, 1, 2, 3)), (1, ('NULL',)), (2, ('NULL',))): 1 
+1 : ('ik wil u vragen', 'please') 
+ nl->en alignments: ((0, (0,)), (1, (0,)), (2, (0,)), (3, (0,))): 1 
+ en->nl alignments: ((0, (0, 1, 2, 3)),): 1 
+1 : ('( het parlement neemt staande', '( the house rose and observed') 
+ nl->en alignments: (('NULL', (4,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (3, 5))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3, 4)), (4, ('NULL',)), (5, (4,))): 1 
+1 : ('parlement neemt staande', 'house rose and observed') 
+ nl->en alignments: (('NULL', (2,)), (0, (0,)), (1, (1,)), (2, (1, 3))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1, 2)), (2, ('NULL',)), (3, (2,))): 1 
+1 : ('vrijdag 17 december werd', 'friday 17 december') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (3,)), (0, (0,)), (1, (1,)), (2, (2,))): 1 
+1 : ('vergaderperiode', ', during this part - session') 
+ nl->en alignments: (('NULL', (0, 2)), (0, (1, 3, 4, 5))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (-1,)), (3, (0,)), (4, (0,)), (5, (0,))): 1 
+1 : ('van de unie heeft', 'of the european union') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2, 3)), (3, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (3,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (2,))): 1 
+1 : ('u een', 'you enjoyed a') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',)), (2, (1,))): 1 
+1 : ('ik', 'on') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+2 : ('ik wil een motie', 'on a point') 
+ nl->en alignments: ((0, (0,)), (1, (2,)), (2, (1,)), (3, (2,))): 2 
+ en->nl alignments: ((0, (0,)), (1, (2,)), (2, (1, 3))): 2 
+1 : ('gelukkig nieuwjaar en hoop', 'happy new year in the hope') 
+ nl->en alignments: (('NULL', (4,)), (0, (0,)), (1, (0, 1, 2)), (2, (3,)), (3, (5,))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, (1,)), (2, (1,)), (3, (2,)), (4, ('NULL',)), (5, (3,))): 1 
+1 : ('kunnen constateren , is de grote', 'will have seen , the dreaded') 
+ nl->en alignments: ((0, (0, 2)), (1, (1, 2)), (2, (3,)), (3, (3,)), (4, (4,)), (5, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (-1, 1)), (2, (0, 1)), (3, (2, 3)), (4, (4,)), (5, (5,))): 1 
+1 : ('( het', '( the') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('onderbroken , te zijn hervat .', ', and') 
+ nl->en alignments: ((0, ('NULL',)), (1, (0,)), (2, ('NULL',)), (3, ('NULL',)), (4, ('NULL',)), (5, (1,))): 1 
+ en->nl alignments: (('NULL', (0, 2, 3, 4)), (0, (1,)), (1, (5,))): 1 
+1 : ('de unie heeft geteisterd', 'the european union') 
+ nl->en alignments: ((0, (0,)), (1, (1, 2)), (2, ('NULL',)), (3, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (2, 3)), (0, (0,)), (1, (1,)), (2, (1,))): 1 
+1 : ('onderbroken , te zijn hervat . ik', '1999 , and i') 
+ nl->en alignments: (('NULL', (0,)), (0, ('NULL',)), (1, (1,)), (2, ('NULL',)), (3, ('NULL',)), (4, ('NULL',)), (5, (2,)), (6, (3,))): 1 
+ en->nl alignments: (('NULL', (0, 2, 3, 4)), (0, ('NULL',)), (1, (1,)), (2, (5,)), (3, (6,))): 1 
+1 : ('wil ik graag', 'meantime , i should like to') 
+ nl->en alignments: (('NULL', (0, 1)), (0, (3, 4, 5)), (1, (2,)), (2, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (2,)), (0, ('NULL',)), (1, ('NULL',)), (2, (1,)), (3, (0,)), (4, (0,)), (5, (0,))): 1 
+1 : ('hoop dat', 'the hope that') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, (2,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (1,))): 1 
+1 : ('de burgers van', 'still the people in') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, (2,)), (2, (3,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (1,)), (3, (2,))): 1 
+1 : ('en hoop dat u', 'in the hope that you enjoyed') 
+ nl->en alignments: (('NULL', (1, 5)), (0, (0,)), (1, (2,)), (2, (3,)), (3, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',)), (2, (1,)), (3, (2,)), (4, (3,)), (5, ('NULL',))): 1 
+1 : ('verschrikkelijke natuurrampen getroffen .', 'series of natural disasters that truly were dreadful .') 
+ nl->en alignments: (('NULL', (0, 1, 4, 5, 6)), (0, (7,)), (1, (2, 3)), (2, ('NULL',)), (3, (8,))): 1 
+ en->nl alignments: (('NULL', (2,)), (0, ('NULL',)), (1, ('NULL',)), (2, (1,)), (3, (1,)), (4, ('NULL',)), (5, (-2,)), (6, (-3,)), (7, (0,)), (8, (3,))): 1 
+1 : ('17 december werd', '17 december') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (2,)), (0, (0,)), (1, (1,))): 1 
+1 : ('hervat . ik', 'and i') 
+ nl->en alignments: ((0, ('NULL',)), (1, (0,)), (2, (1,))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, (1,)), (1, (2,))): 1 
+1 : ('hoop dat u een', 'the hope that you enjoyed a') 
+ nl->en alignments: (('NULL', (0, 4)), (0, (1,)), (1, (2,)), (2, (3,)), (3, (5,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (1,)), (3, (2,)), (4, ('NULL',)), (5, (3,))): 1 
+1 : ('onze lidstaten', 'countries suffered a') 
+ nl->en alignments: (('NULL', (1,)), (0, (2,)), (1, (0,))): 1 
+ en->nl alignments: ((0, (1,)), (1, (4,)), (2, (0,))): 1 
+1 : ('neemt staande een minuut', 'rose and observed a minute') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, (0, 2)), (2, (3,)), (3, (4,))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, ('NULL',)), (2, (1,)), (3, (2,)), (4, (3,))): 1 
+1 : ('wil een motie van orde stellen .', 'a point of order .') 
+ nl->en alignments: ((0, (1,)), (1, (0,)), (2, (1,)), (3, (2,)), (4, (3,)), (5, ('NULL',)), (6, (4,))): 1 
+ en->nl alignments: (('NULL', (5,)), (0, (1,)), (1, (0, 2)), (2, (3,)), (3, (4,)), (4, (6,))): 1 
+1 : ('werd onderbroken , te zijn', ',') 
+ nl->en alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, ('NULL',)), (4, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (0, 1, 3, 4)), (0, (2,))): 1 
+1 : ('een minuut stilte in acht', "a minute 's silence") 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2, 3)), (3, (3,)), (4, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (2, 3, 4))): 1 
+1 : ('wil een motie', 'a point') 
+ nl->en alignments: ((0, (1,)), (1, (0,)), (2, (1,))): 1 
+ en->nl alignments: ((0, (1,)), (1, (0, 2))): 1 
+2 : (',', ',') 
+ nl->en alignments: ((0, (0,)),): 2 
+ en->nl alignments: ((0, (0,)),): 2 
+1 : ('. de burgers', 'materialise , still the people') 
+ nl->en alignments: (('NULL', (0, 2)), (0, (1,)), (1, (3,)), (2, (4,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, ('NULL',)), (3, (1,)), (4, (2,))): 1 
+1 : ('van het europees parlement , die', 'of the european parliament adjourned') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (4,)), (5, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (4, 5))): 1 
+1 : ('de unie heeft geteisterd .', 'the european union .') 
+ nl->en alignments: ((0, (0,)), (1, (1, 2)), (2, ('NULL',)), (3, ('NULL',)), (4, (3,))): 1 
+ en->nl alignments: (('NULL', (2, 3)), (0, (0,)), (1, (1,)), (2, (1,)), (3, (4,))): 1 
+1 : ('verzoek van', 'requested ,') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, (0,)), (1, ('NULL',))): 1 
+1 : ('onderbroken , te zijn hervat', '1999 ,') 
+ nl->en alignments: (('NULL', (0,)), (0, ('NULL',)), (1, (1,)), (2, ('NULL',)), (3, ('NULL',)), (4, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (0, 2, 3, 4)), (0, ('NULL',)), (1, (1,))): 1 
+1 : ('. de burgers', 'to materialise , still the people') 
+ nl->en alignments: (('NULL', (0, 1, 3)), (0, (2,)), (1, (4,)), (2, (5,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, ('NULL',)), (4, (1,)), (5, (2,))): 1 
+1 : ('een aantal', 'a number of') 
+ nl->en alignments: ((0, (0,)), (1, (1, 2))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (1,))): 1 
+1 : ('de slachtoffers . ik doel', 'the victims concerned ,') 
+ nl->en alignments: (('NULL', (2,)), (0, (0,)), (1, (1,)), (2, (3,)), (3, ('NULL',)), (4, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (3, 4)), (0, (0,)), (1, (1,)), (2, ('NULL',)), (3, (2,))): 1 
+1 : ('vakantie heeft gehad .', 'festive period .') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, (0,)), (2, (0,)), (3, (2,))): 1 
+ en->nl alignments: ((0, (0, 1, 2)), (1, ('NULL',)), (2, (3,))): 1 
+1 : ('een goede', 'enjoyed a pleasant') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, (2,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (1,))): 1 
+1 : ('december werd onderbroken', 'december 1999') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, ('NULL',)), (2, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1, 2)), (0, (0,)), (1, ('NULL',))): 1 
+1 : ('parlement , die op vrijdag 17 december', 'parliament adjourned on friday 17 december') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (1,)), (3, (2,)), (4, (3,)), (5, (4,)), (6, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1, 2)), (2, (3,)), (3, (4,)), (4, (5,)), (5, (6,))): 1 
+1 : ('verschrikkelijke natuurrampen getroffen .', 'natural disasters that truly were dreadful .') 
+ nl->en alignments: (('NULL', (2, 3, 4)), (0, (5,)), (1, (0, 1)), (2, ('NULL',)), (3, (6,))): 1 
+ en->nl alignments: (('NULL', (2,)), (0, (1,)), (1, (1,)), (2, ('NULL',)), (3, (-2,)), (4, (-3,)), (5, (0,)), (6, (3,))): 1 
+1 : ('nu wil ik graag', ', i should like to') 
+ nl->en alignments: (('NULL', (0,)), (0, ('NULL',)), (1, (2, 3, 4)), (2, (1,)), (3, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (0, 3)), (0, ('NULL',)), (1, (2,)), (2, (1,)), (3, (1,)), (4, (1,))): 1 
+1 : ('van een aantal', 'a number of') 
+ nl->en alignments: ((0, ('NULL',)), (1, (0,)), (2, (1, 2))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, (1,)), (1, (2,)), (2, (2,))): 1 
+1 : ('dat', 'the') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('verschrikkelijke natuurrampen', 'natural disasters that truly were dreadful') 
+ nl->en alignments: (('NULL', (2, 3, 4)), (0, (5,)), (1, (0, 1))): 1 
+ en->nl alignments: ((0, (1,)), (1, (1,)), (2, ('NULL',)), (3, (-2,)), (4, (-3,)), (5, (0,))): 1 
+2 : ('.', ',') 
+ nl->en alignments: ((0, (0,)),): 2 
+ en->nl alignments: ((0, (0,)),): 2 
+1 : ('kunnen constateren , is de grote "', "will have seen , the dreaded '") 
+ nl->en alignments: ((0, (0, 2)), (1, (1, 2)), (2, (3,)), (3, (3,)), (4, (4,)), (5, (5,)), (6, (6,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (-1, 1)), (2, (0, 1)), (3, (2, 3)), (4, (4,)), (5, (5,)), (6, (6,))): 1 
+1 : ('werd onderbroken , te zijn hervat', '1999 ,') 
+ nl->en alignments: (('NULL', (0,)), (0, ('NULL',)), (1, ('NULL',)), (2, (1,)), (3, ('NULL',)), (4, ('NULL',)), (5, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (0, 1, 3, 4, 5)), (0, ('NULL',)), (1, (2,))): 1 
+1 : ('grote " millenniumbug " uitgebleven', "dreaded ' millennium bug ' failed") 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2, 3)), (3, (4,)), (4, (3, 5))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (2, 4)), (4, (3,)), (5, (4,))): 1 
+1 : ('onze', 'a series') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',))): 1 
+1 : ('verzoek', 'requested ,') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',))): 1 
+1 : ('lidstaten van de unie heeft', 'countries of the european union') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3, 4)), (4, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (4,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (3,))): 1 
+1 : ('van de unie heeft geteisterd .', 'of the european union .') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2, 3)), (3, ('NULL',)), (4, ('NULL',)), (5, (4,))): 1 
+ en->nl alignments: (('NULL', (3, 4)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (2,)), (4, (5,))): 1 
+1 : ('natuurrampen getroffen .', 'series of natural disasters that truly were dreadful .') 
+ nl->en alignments: (('NULL', (0, 1, 4, 5, 6, 7)), (0, (2, 3)), (1, ('NULL',)), (2, (8,))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, (0,)), (4, ('NULL',)), (5, (-3,)), (6, (-4,)), (7, (-1,)), (8, (2,))): 1 
+1 : ('noodweer dat verschillende', 'the terrible storms , in the various') 
+ nl->en alignments: (('NULL', (3, 4, 5)), (0, (1, 2)), (1, (0,)), (2, (6,))): 1 
+ en->nl alignments: ((0, (1,)), (1, (0,)), (2, (0,)), (3, ('NULL',)), (4, (-5,)), (5, (-4,)), (6, (2,))): 1 
+1 : ('op', 'on') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('de unie', 'the european union') 
+ nl->en alignments: ((0, (0,)), (1, (1, 2))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (1,))): 1 
+1 : ('verklaar de zitting van het europees', 'declare resumed the session of the european') 
+ nl->en alignments: ((0, (0, 1)), (1, (2,)), (2, (3,)), (3, (4,)), (4, (5,)), (5, (6,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (0,)), (2, (1,)), (3, (2,)), (4, (3,)), (5, (4,)), (6, (5,))): 1 
+1 : ('de slachtoffers .', 'the victims concerned ,') 
+ nl->en alignments: (('NULL', (2,)), (0, (0,)), (1, (1,)), (2, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, ('NULL',)), (3, (2,))): 1 
+1 : ('nu wil ik graag', 'meantime , i should like to') 
+ nl->en alignments: (('NULL', (0, 1)), (0, ('NULL',)), (1, (3, 4, 5)), (2, (2,)), (3, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (0, 3)), (0, ('NULL',)), (1, ('NULL',)), (2, (2,)), (3, (1,)), (4, (1,)), (5, (1,))): 1 
+1 : ('hervatting van de', 'resumption of the') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+1 : ('wil ik graag', ', i should like to') 
+ nl->en alignments: (('NULL', (0,)), (0, (2, 3, 4)), (1, (1,)), (2, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (2,)), (0, ('NULL',)), (1, (1,)), (2, (0,)), (3, (0,)), (4, (0,))): 1 
+1 : ('december', 'december') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('december werd onderbroken , te zijn', 'december 1999 ,') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, ('NULL',)), (2, ('NULL',)), (3, (2,)), (4, ('NULL',)), (5, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1, 2, 4, 5)), (0, (0,)), (1, ('NULL',)), (2, (3,))): 1 
+1 : ('.', 'concerned ,') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,))): 1 
+1 : ("van een aantal collega ' s", ', as a number of members have') 
+ nl->en alignments: (('NULL', (0, 1)), (0, ('NULL',)), (1, (2,)), (2, (3, 4)), (3, (5,)), (4, (5,)), (5, (5, 6))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, ('NULL',)), (1, ('NULL',)), (2, (1,)), (3, (2,)), (4, (2,)), (5, (3, 4, 5)), (6, (5,))): 1 
+1 : ('17 december', '17 december') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('graag op', 'in') 
+ nl->en alignments: ((0, ('NULL',)), (1, (0,))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, (1,))): 1 
+1 : ('u deze', 'this') 
+ nl->en alignments: ((0, ('NULL',)), (1, (0,))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, (1,))): 1 
+1 : ('parlement neemt staande een minuut', 'house rose and observed a minute') 
+ nl->en alignments: (('NULL', (2,)), (0, (0,)), (1, (1,)), (2, (1, 3)), (3, (4,)), (4, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1, 2)), (2, ('NULL',)), (3, (2,)), (4, (3,)), (5, (4,))): 1 
+1 : ('parlement neemt staande een', 'house rose and observed a') 
+ nl->en alignments: (('NULL', (2,)), (0, (0,)), (1, (1,)), (2, (1, 3)), (3, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1, 2)), (2, ('NULL',)), (3, (2,)), (4, (3,))): 1 
+1 : ('.', 'materialise ,') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,))): 1 
+8 : ('een', 'a') 
+ nl->en alignments: ((0, (0,)),): 8 
+ en->nl alignments: ((0, (0,)),): 8 
+1 : ('zijn hervat . ik', 'and i') 
+ nl->en alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, (1,))): 1 
+ en->nl alignments: (('NULL', (0, 1)), (0, (2,)), (1, (3,))): 1 
+1 : ("een aantal collega ' s", ', as a number of members have') 
+ nl->en alignments: (('NULL', (0, 1)), (0, (2,)), (1, (3, 4)), (2, (5,)), (3, (5,)), (4, (5, 6))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, (1,)), (4, (1,)), (5, (2, 3, 4)), (6, (4,))): 1 
+1 : ('. de', ', still the') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',)), (2, (1,))): 1 
+1 : ('natuurrampen getroffen', 'of natural disasters') 
+ nl->en alignments: (('NULL', (0,)), (0, (1, 2)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, ('NULL',)), (1, (0,)), (2, (0,))): 1 
+1 : ('lidstaten van de unie heeft geteisterd .', 'countries of the european union .') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3, 4)), (4, ('NULL',)), (5, ('NULL',)), (6, (5,))): 1 
+ en->nl alignments: (('NULL', (4, 5)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (3,)), (5, (6,))): 1 
+1 : ('hervatting', 'resumption') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('u een goede vakantie heeft gehad', 'you enjoyed a pleasant festive') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, (2,)), (2, (3,)), (3, (4,)), (4, (4,)), (5, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',)), (2, (1,)), (3, (2,)), (4, (3, 4, 5))): 1 
+1 : ('hervatting van', 'resumption of') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('verschillende lidstaten van de unie heeft', 'various countries of the european union') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (4, 5)), (5, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (5,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (4,)), (5, (4,))): 1 
+1 : ('dat u een goede vakantie heeft gehad', 'that you enjoyed a pleasant festive period') 
+ nl->en alignments: (('NULL', (2, 6)), (0, (0,)), (1, (1,)), (2, (3,)), (3, (4,)), (4, (5,)), (5, (5,)), (6, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, ('NULL',)), (3, (2,)), (4, (3,)), (5, (4, 5, 6)), (6, ('NULL',))): 1 
+1 : ('zijn', 'were') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('vrijdag 17 december', 'friday 17 december 1999') 
+ nl->en alignments: (('NULL', (3,)), (0, (0,)), (1, (1,)), (2, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, ('NULL',))): 1 
+1 : ('deze', 'then , for this') 
+ nl->en alignments: (('NULL', (0, 1, 2)), (0, (3,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, ('NULL',)), (3, (0,))): 1 
+1 : ('parlement , die op vrijdag 17', 'parliament adjourned on friday 17') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (1,)), (3, (2,)), (4, (3,)), (5, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1, 2)), (2, (3,)), (3, (4,)), (4, (5,))): 1 
+1 : ('verschrikkelijke natuurrampen', 'series of natural disasters that truly were dreadful') 
+ nl->en alignments: (('NULL', (0, 1, 4, 5, 6)), (0, (7,)), (1, (2, 3))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (1,)), (3, (1,)), (4, ('NULL',)), (5, (-2,)), (6, (-3,)), (7, (0,))): 1 
+1 : ('17 december', '17 december 1999') 
+ nl->en alignments: (('NULL', (2,)), (0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, ('NULL',))): 1 
+1 : ('een gelukkig nieuwjaar en hoop', 'a happy new year in the hope') 
+ nl->en alignments: (('NULL', (5,)), (0, (0,)), (1, (1,)), (2, (1, 2, 3)), (3, (4,)), (4, (6,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1, 2)), (2, (2,)), (3, (2,)), (4, (3,)), (5, ('NULL',)), (6, (4,))): 1 
+1 : ('zitting', 'session') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('minuut', 'observe a minute') 
+ nl->en alignments: (('NULL', (1,)), (0, (0, 2))): 1 
+ en->nl alignments: ((0, (0,)), (1, (-1,)), (2, (0,))): 1 
+1 : ('van de unie heeft geteisterd', 'of the european union') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2, 3)), (3, ('NULL',)), (4, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (3, 4)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (2,))): 1 
+1 : ('natuurrampen getroffen', 'of natural disasters that') 
+ nl->en alignments: (('NULL', (0, 3)), (0, (1, 2)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, ('NULL',)), (1, (0,)), (2, (0,)), (3, ('NULL',))): 1 
+1 : ('. de burgers van', 'materialise , still the people in') 
+ nl->en alignments: (('NULL', (0, 2)), (0, (1,)), (1, (3,)), (2, (4,)), (3, (5,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, ('NULL',)), (3, (1,)), (4, (2,)), (5, (3,))): 1 
+1 : ('zitting van het', 'session of the') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+1 : ('nu wil ik', 'i should like to') 
+ nl->en alignments: ((0, ('NULL',)), (1, (1, 2, 3)), (2, (0,))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, (2,)), (1, (1,)), (2, (1,)), (3, (1,))): 1 
+1 : ('heeft kunnen constateren , is', 'will have seen ,') 
+ nl->en alignments: ((0, (1,)), (1, (0, 2)), (2, (1, 2)), (3, (3,)), (4, (3,))): 1 
+ en->nl alignments: ((0, (1,)), (1, (0, 2)), (2, (1, 2)), (3, (3, 4))): 1 
+1 : ('( het parlement', '( the house') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+2 : ('minuut', 'minute') 
+ nl->en alignments: ((0, (0,)),): 2 
+ en->nl alignments: ((0, (0,)),): 2 
+1 : ('deze', ', then , for this') 
+ nl->en alignments: (('NULL', (0, 1, 2, 3)), (0, (4,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, ('NULL',)), (3, ('NULL',)), (4, (0,))): 1 
+1 : ('17 december werd onderbroken , te', '17 december 1999 ,') 
+ nl->en alignments: (('NULL', (2,)), (0, (0,)), (1, (1,)), (2, ('NULL',)), (3, ('NULL',)), (4, (3,)), (5, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (2, 3, 5)), (0, (0,)), (1, (1,)), (2, ('NULL',)), (3, (4,))): 1 
+1 : ('unie', 'european union') 
+ nl->en alignments: ((0, (0, 1)),): 1 
+ en->nl alignments: ((0, (0,)), (1, (0,))): 1 
+1 : ('december werd', 'december') 
+ nl->en alignments: ((0, (0,)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, (0,))): 1 
+1 : ('parlement', 'house') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('het parlement neemt staande een minuut', 'the house rose and observed a minute') 
+ nl->en alignments: (('NULL', (3,)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (2, 4)), (4, (5,)), (5, (6,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2, 3)), (3, ('NULL',)), (4, (3,)), (5, (4,)), (6, (5,))): 1 
+1 : ('van een', 'as a') 
+ nl->en alignments: (('NULL', (0,)), (0, ('NULL',)), (1, (1,))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, ('NULL',)), (1, (1,))): 1 
+1 : ('wil een motie van', 'a point of') 
+ nl->en alignments: ((0, (1,)), (1, (0,)), (2, (1,)), (3, (2,))): 1 
+ en->nl alignments: ((0, (1,)), (1, (0, 2)), (2, (3,))): 1 
+1 : ('zitting van het europees parlement', 'session of the european parliament') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (4,))): 1 
+1 : ('werd onderbroken , te zijn hervat . ik', '1999 , and i') 
+ nl->en alignments: (('NULL', (0,)), (0, ('NULL',)), (1, ('NULL',)), (2, (1,)), (3, ('NULL',)), (4, ('NULL',)), (5, ('NULL',)), (6, (2,)), (7, (3,))): 1 
+ en->nl alignments: (('NULL', (0, 1, 3, 4, 5)), (0, ('NULL',)), (1, (2,)), (2, (6,)), (3, (7,))): 1 
+1 : ('verschillende lidstaten van de unie heeft geteisterd', 'various countries of the european union') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (4, 5)), (5, ('NULL',)), (6, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (5, 6)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (4,)), (5, (4,))): 1 
+1 : (', is de grote "', ", the dreaded '") 
+ nl->en alignments: ((0, (0,)), (1, (0,)), (2, (1,)), (3, (2,)), (4, (3,))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, (2,)), (2, (3,)), (3, (4,))): 1 
+1 : ('. ik', 'and i') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('dat u een goede vakantie heeft gehad', 'that you enjoyed a pleasant festive') 
+ nl->en alignments: (('NULL', (2,)), (0, (0,)), (1, (1,)), (2, (3,)), (3, (4,)), (4, (5,)), (5, (5,)), (6, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, ('NULL',)), (3, (2,)), (4, (3,)), (5, (4, 5, 6))): 1 
+1 : ('debat wilt over', 'debate on') 
+ nl->en alignments: ((0, (0,)), (1, ('NULL',)), (2, (1,))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, (0,)), (1, (2,))): 1 
+1 : ('hoop', 'hope') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : (', te zijn hervat .', '1999 , and') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, ('NULL',)), (2, ('NULL',)), (3, ('NULL',)), (4, (2,))): 1 
+ en->nl alignments: (('NULL', (1, 2, 3)), (0, ('NULL',)), (1, (0,)), (2, (4,))): 1 
+1 : ('van', 'in') 
+ nl->en alignments: ((0, (0,)),): 1 
+ en->nl alignments: ((0, (0,)),): 1 
+1 : ('vergaderperiode', 'during this part - session') 
+ nl->en alignments: (('NULL', (1,)), (0, (0, 2, 3, 4))): 1 
+ en->nl alignments: ((0, (0,)), (1, (-1,)), (2, (0,)), (3, (0,)), (4, (0,))): 1 
+1 : ('mevrouw de voorzitter , ik', 'madam president , on') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (1,)), (3, (2,)), (4, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1, 2)), (2, (3,)), (3, (4,))): 1 
+1 : ('en hoop dat u', 'in the hope that you') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, (2,)), (2, (3,)), (3, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, ('NULL',)), (2, (1,)), (3, (2,)), (4, (3,))): 1 
+3 : ('u', 'you') 
+ nl->en alignments: ((0, (0,)),): 3 
+ en->nl alignments: ((0, (0,)),): 3 
+1 : ('deze vergaderperiode', ', during this part - session') 
+ nl->en alignments: (('NULL', (0,)), (0, (2,)), (1, (1, 3, 4, 5))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (1,)), (2, (0,)), (3, (1,)), (4, (1,)), (5, (1,))): 1 
+1 : ('" millenniumbug " uitgebleven', "' millennium bug ' failed to materialise") 
+ nl->en alignments: (('NULL', (5, 6)), (0, (0,)), (1, (1, 2)), (2, (3,)), (3, (2, 4))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (1, 3)), (3, (2,)), (4, (3,)), (5, ('NULL',)), (6, ('NULL',))): 1 
+1 : (', te zijn hervat . ik', '1999 , and i') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, ('NULL',)), (2, ('NULL',)), (3, ('NULL',)), (4, (2,)), (5, (3,))): 1 
+ en->nl alignments: (('NULL', (1, 2, 3)), (0, ('NULL',)), (1, (0,)), (2, (4,)), (3, (5,))): 1 
+1 : ('verklaar', 'declare resumed') 
+ nl->en alignments: ((0, (0, 1)),): 1 
+ en->nl alignments: ((0, (0,)), (1, (0,))): 1 
+1 : ('u allen een gelukkig nieuwjaar', 'you a happy new year') 
+ nl->en alignments: ((0, (0,)), (1, (0,)), (2, (1,)), (3, (2,)), (4, (2, 3, 4))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, (2,)), (2, (3, 4)), (3, (4,)), (4, (4,))): 1 
+1 : ('nu wil ik', ', i should like to') 
+ nl->en alignments: (('NULL', (0,)), (0, ('NULL',)), (1, (2, 3, 4)), (2, (1,))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, ('NULL',)), (1, (2,)), (2, (1,)), (3, (1,)), (4, (1,))): 1 
+1 : ('burgers van een', 'people in a') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2,))): 1 
+1 : ('december werd onderbroken ,', 'december 1999 ,') 
+ nl->en alignments: (('NULL', (1,)), (0, (0,)), (1, ('NULL',)), (2, ('NULL',)), (3, (2,))): 1 
+ en->nl alignments: (('NULL', (1, 2)), (0, (0,)), (1, ('NULL',)), (2, (3,))): 1 
+1 : ('lidstaten van de unie heeft geteisterd', 'countries of the european union') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3, 4)), (4, ('NULL',)), (5, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (4, 5)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, (3,))): 1 
+1 : (', is de grote', ', the dreaded') 
+ nl->en alignments: ((0, (0,)), (1, (0,)), (2, (1,)), (3, (2,))): 1 
+ en->nl alignments: ((0, (0, 1)), (1, (2,)), (2, (3,))): 1 
+1 : ('aantal van onze', 'number of countries suffered a series of') 
+ nl->en alignments: (('NULL', (2, 3, 5, 6)), (0, (0, 1)), (1, (1,)), (2, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (0, 1)), (2, (3,)), (3, (6,)), (4, (2,)), (5, ('NULL',)), (6, ('NULL',))): 1 
+1 : ('wens u allen', 'would like once again to wish you') 
+ nl->en alignments: (('NULL', (2, 3, 4)), (0, (0, 1, 5)), (1, (6,)), (2, (6,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (0,)), (2, ('NULL',)), (3, ('NULL',)), (4, ('NULL',)), (5, (0,)), (6, (1, 2))): 1 
+1 : ('ik wil u vragen deze', 'please rise , then , for this') 
+ nl->en alignments: (('NULL', (1, 2, 3, 4, 5)), (0, (0,)), (1, (0,)), (2, (0,)), (3, (0,)), (4, (6,))): 1 
+ en->nl alignments: ((0, (0, 1, 2, 3)), (1, ('NULL',)), (2, ('NULL',)), (3, ('NULL',)), (4, ('NULL',)), (5, ('NULL',)), (6, (4,))): 1 
+1 : ('op de', 'in the') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('werd onderbroken ,', '1999 ,') 
+ nl->en alignments: (('NULL', (0,)), (0, ('NULL',)), (1, ('NULL',)), (2, (1,))): 1 
+ en->nl alignments: (('NULL', (0, 1)), (0, ('NULL',)), (1, (2,))): 1 
+1 : ('noodweer', 'terrible storms') 
+ nl->en alignments: ((0, (0, 1)),): 1 
+ en->nl alignments: ((0, (0,)), (1, (0,))): 1 
+1 : ('europees parlement , die op', 'european parliament adjourned on') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (2,)), (4, (3,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (2, 3)), (3, (4,))): 1 
+1 : ('deze minuut', 'rise , then , for this minute') 
+ nl->en alignments: (('NULL', (0, 1, 2, 3, 4)), (0, (5,)), (1, (6,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, ('NULL',)), (3, ('NULL',)), (4, ('NULL',)), (5, (0,)), (6, (1,))): 1 
+1 : ('wil ik', 'meantime , i should like to') 
+ nl->en alignments: (('NULL', (0, 1)), (0, (3, 4, 5)), (1, (2,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (1,)), (3, (0,)), (4, (0,)), (5, (0,))): 1 
+1 : ('zoals u heeft kunnen constateren , is', 'although , as you will have seen ,') 
+ nl->en alignments: (('NULL', (0, 1)), (0, (2,)), (1, (3,)), (2, (5,)), (3, (4, 6)), (4, (5, 6)), (5, (7,)), (6, (7,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, ('NULL',)), (2, (0,)), (3, (1,)), (4, (3,)), (5, (2, 4)), (6, (3, 4)), (7, (5, 6))): 1 
+1 : ('vrijdag 17 december werd onderbroken', 'friday 17 december') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, ('NULL',)), (4, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (3, 4)), (0, (0,)), (1, (1,)), (2, (2,))): 1 
+1 : (', te zijn hervat .', ', and') 
+ nl->en alignments: ((0, (0,)), (1, ('NULL',)), (2, ('NULL',)), (3, ('NULL',)), (4, (1,))): 1 
+ en->nl alignments: (('NULL', (1, 2, 3)), (0, (0,)), (1, (4,))): 1 
+1 : ('unie heeft geteisterd .', 'european union .') 
+ nl->en alignments: ((0, (0, 1)), (1, ('NULL',)), (2, ('NULL',)), (3, (2,))): 1 
+ en->nl alignments: (('NULL', (1, 2)), (0, (0,)), (1, (0,)), (2, (3,))): 1 
+1 : ('van een aantal', 'as a number of') 
+ nl->en alignments: (('NULL', (0,)), (0, ('NULL',)), (1, (1,)), (2, (2, 3))): 1 
+ en->nl alignments: (('NULL', (0,)), (0, ('NULL',)), (1, (1,)), (2, (2,)), (3, (2,))): 1 
+1 : ('slachtoffers van', 'those of') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : ('onderbroken , te zijn hervat .', '1999 , and') 
+ nl->en alignments: (('NULL', (0,)), (0, ('NULL',)), (1, (1,)), (2, ('NULL',)), (3, ('NULL',)), (4, ('NULL',)), (5, (2,))): 1 
+ en->nl alignments: (('NULL', (0, 2, 3, 4)), (0, ('NULL',)), (1, (1,)), (2, (5,))): 1 
+1 : ('natuurrampen getroffen', 'natural disasters') 
+ nl->en alignments: ((0, (0, 1)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, (0,)), (1, (0,))): 1 
+1 : ('op vrijdag 17 december werd onderbroken', 'on friday 17 december') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, (2,)), (3, (3,)), (4, ('NULL',)), (5, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (4, 5)), (0, (0,)), (1, (1,)), (2, (2,)), (3, (3,))): 1 
+1 : ('minuut stilte staande in acht te nemen', "minute 's silence") 
+ nl->en alignments: ((0, (0,)), (1, (1, 2)), (2, (2,)), (3, (2,)), (4, (2,)), (5, (2,)), (6, (2,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, (1, 2, 3, 4, 5, 6))): 1 
+1 : ('op de', ', in the') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, (2,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (1,))): 1 
+1 : ('december werd onderbroken', 'december') 
+ nl->en alignments: ((0, (0,)), (1, ('NULL',)), (2, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1, 2)), (0, (0,))): 1 
+1 : ('een goede vakantie heeft gehad', 'enjoyed a pleasant festive') 
+ nl->en alignments: (('NULL', (0,)), (0, (1,)), (1, (2,)), (2, (3,)), (3, (3,)), (4, (3,))): 1 
+ en->nl alignments: ((0, ('NULL',)), (1, (0,)), (2, (1,)), (3, (2, 3, 4))): 1 
+1 : ('op vrijdag', 'on friday') 
+ nl->en alignments: ((0, (0,)), (1, (1,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,))): 1 
+1 : (', te', ',') 
+ nl->en alignments: ((0, (0,)), (1, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1,)), (0, (0,))): 1 
+2 : ('op', 'in') 
+ nl->en alignments: ((0, (0,)),): 2 
+ en->nl alignments: ((0, (0,)),): 2 
+2 : ('"', "'") 
+ nl->en alignments: ((0, (0,)),): 2 
+ en->nl alignments: ((0, (0,)),): 2 
+1 : ('van de slachtoffers .', 'of all the victims concerned ,') 
+ nl->en alignments: (('NULL', (1, 4)), (0, (0,)), (1, (2,)), (2, (3,)), (3, (5,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (6,)), (2, (1,)), (3, (2,)), (4, ('NULL',)), (5, (3,))): 1 
+1 : ('een debat wilt over', 'a debate on') 
+ nl->en alignments: ((0, (0,)), (1, (1,)), (2, ('NULL',)), (3, (2,))): 1 
+ en->nl alignments: (('NULL', (2,)), (0, (0,)), (1, (1,)), (2, (3,))): 1 
+1 : ('dat u een goede', 'that you enjoyed a pleasant') 
+ nl->en alignments: (('NULL', (2,)), (0, (0,)), (1, (1,)), (2, (3,)), (3, (4,))): 1 
+ en->nl alignments: ((0, (0,)), (1, (1,)), (2, ('NULL',)), (3, (2,)), (4, (3,))): 1 
+1 : (', te zijn', ',') 
+ nl->en alignments: ((0, (0,)), (1, ('NULL',)), (2, ('NULL',))): 1 
+ en->nl alignments: (('NULL', (1, 2)), (0, (0,))): 1 
+1 : ('een minuut', 'observe a minute') 
+ nl->en alignments: ((0, (1,)), (1, (0, 2))): 1 
+ en->nl alignments: ((0, (1,)), (1, (0,)), (2, (1,))): 1 

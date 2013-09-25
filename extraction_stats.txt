@@ -1,0 +1,700 @@
+Extracted 3616137 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables
+	 unique phrases for nl: 1022093
+	 unique phrases for en: 980866
+	 unique pairs: 2265474
+
+Extracted 76466 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 32395
+	 unique phrases for en: 32021
+	 unique pairs: 57967
+
+Extracted 199 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 129
+	 unique phrases for en: 145
+	 unique pairs: 189
+
+Extracted 199 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 129
+	 unique phrases for en: 145
+	 unique pairs: 189
+
+Extracted 199 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 129
+	 unique phrases for en: 145
+	 unique pairs: 189
+
+Extracted 199 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 129
+	 unique phrases for en: 145
+	 unique pairs: 189
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 244
+	 unique pairs: 345
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 20 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 20
+	 unique phrases for en: 18
+	 unique pairs: 20
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 243
+	 unique pairs: 345
+
+Extracted 378 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 221
+	 unique phrases for en: 243
+	 unique pairs: 345
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 31 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 31
+	 unique phrases for en: 27
+	 unique pairs: 31
+
+Extracted 31 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 31
+	 unique phrases for en: 27
+	 unique pairs: 31
+
+Extracted 31 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 31
+	 unique phrases for en: 27
+	 unique pairs: 31
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
+Extracted 600 phrase pairs  from tables in/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/ass1/git/tables/
+	 unique phrases for nl: 372
+	 unique phrases for en: 400
+	 unique pairs: 567
+
