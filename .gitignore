@@ -2,3 +2,4 @@
 tables/
 output_clean/
 output_web/
+*.txt
