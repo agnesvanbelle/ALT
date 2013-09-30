@@ -4,10 +4,10 @@
 
 
 # usage:
-# python alt1.py 
-#   -a <alignments file> 
-#   -e <english sentence file> 
-#   -f <dutch sentence file> 
+# python alt1.py
+#   -a <alignments file>
+#   -e <english sentence file>
+#   -f <dutch sentence file>
 #   -o <output dir for final file>
 #
 # example usage command:
@@ -45,41 +45,43 @@ class DirectionName :
 #   - a dict from Orientation -> count
 #   - a total count (over all Orientations)
 class Direction (object):
-  
+
   def __init__(self, orientations_dict=None, total_orientations=0):
     self.totalOrientations = total_orientations
-    
+
     if (orientations_dict == None):
       self.orientationsDict = collections.defaultdict(int)
     else :
       self.orientationsDict = orientations_dict
-      
-  
+
+
   def increaseOrientation(self, o) :
     self.orientationsDict[o] += 1
     self.totalOrientations += 1
     
+  
+
 # class containing:
-#  directionLR : 
+#  directionLR :
 #     total count + a dict from Direction->count
-#  directionRL : 
+#  directionRL :
 #     total count + a dict from Direction->count
-class PhrasePairTableEntry(object) :    
-  
-  
+class PhrasePairTableEntry(object) :
+
+
   def __init__(self, phrase_pair_count=0, direction_lr = None, direction_rl = None):
     self.phrasePairCount = phrase_pair_count
-    
+
     if (direction_lr == None) :
       self.directionLR = Direction()
     else :
       self.directionLR = direction_lr
-      
+
     if (direction_rl == None):
       self.directionRL = Direction()
     else :
       self.directionRL = direction_rl
-  
+
   def increaseOrientation(self,  d,  o) :
     if d == DirectionName.LEFT_TO_RIGHT:
       self.directionLR.increaseOrientation(o)
@@ -87,43 +89,40 @@ class PhrasePairTableEntry(object) :
       self.directionRL.increaseOrientation(o)
     else:
       raise ValueError("pass a DirectionName")
-      
+
 
 
 
 # class that extract phrase pairs and computes phrase-translation and
-# lexical translation probabilities from the counts, and finally writes it to a file 
+# lexical translation probabilities from the counts, and finally writes it to a file
 class Extractor(object):
 
-  
+
   # maximum phrase length
-  maxPhraseLen = 7
+  maxPhraseLen = 1
 
   def __init__(self, reader, outputDir ):
     self.reader = reader
     self.tablePath = os.path.abspath(outputDir) + '/'
 
-    self.table_nl = collections.defaultdict(int)
-    self.table_en = collections.defaultdict(int)
-    self.table_nl_en = collections.defaultdict(PhrasePairTableEntry)
+    
+    self.table_nl_en_phraseBased = collections.defaultdict(PhrasePairTableEntry)
+    self.table_nl_en_wordBased = collections.defaultdict(PhrasePairTableEntry)
 
-
-    self.unique_nl = 0
-    self.unique_en = 0
     self.unique_nl_en = 0
 
     self.total_extracted = 0
-    
+
     # for both directions (l->r and r->l),
     # keep track of all orientation
     # counts for all phrase pairs
-    self.directionLR = Direction() 
+    self.directionLR = Direction()
     self.directionRL = Direction()
 
     if not os.path.exists(self.tablePath):
       os.makedirs(self.tablePath)
 
-  
+
   # increase global orientation count
   def increaseOrientation(self,  d,  o) :
     if d == DirectionName.LEFT_TO_RIGHT:
@@ -132,14 +131,14 @@ class Extractor(object):
       self.directionRL.increaseOrientation(o)
     else:
       raise ValueError("pass a DirectionName")
-      
+
 
 
   # extract phrases for all sentence pairs  (provided by the "Reader")
   def extract(self):
       self.reader.line_list_aligns = "Meaningless init value because python has no do..while"
       while (self.reader.line_list_aligns != None and self.reader.counter < MAXIMUM_READ_SENTENCES): # the fixed limit is only for debug
-   
+
         if (self.reader.counter > 0 and self.reader.counter % 500 == 0):
           sys.stdout.write('Reached line ' + str(self.reader.counter) + ' \n')
         self.reader.load_next_line()
@@ -149,48 +148,43 @@ class Extractor(object):
 
       # print stats
       self.printStats()
-      
-      # write stats to file
-      self.writeStatsToFile()
-      
-      sys.stdout.write('Computing probabilities and writing to files...\n')
 
-      # infer probabilities from the counts, 
-      # phrase-translation prob.s as well as lexical prob.s
-      self.normalizeTables()
-      
-   
+      # write stats to file
+      #self.writeStatsToFile()
 
       sys.stdout.write('Done .\n')
+      
+      te =  self.table_nl_en_phraseBased[("het", "the")]
+      teLR =  self.table_nl_en_phraseBased[("het", "the")].directionLR
+      for o, c in teLR.orientationsDict.iteritems() :
+        print "orientation: %s, count: %d" % (o, c)
+      print "total # of orientations LR: %d" % teLR.totalOrientations
+      
+      teRL =  self.table_nl_en_phraseBased[("het", "the")].directionRL
+      for o, c in teRL.orientationsDict.iteritems() :
+        print "orientation: %s, count: %d" % (o, c)
+      print "total # of orientations LR: %d" % teRL.totalOrientations
+      
+      
 
   # print stats
   def printStats(self) :
     sys.stdout.write('\n')
     sys.stdout.write('Extracted ' + str(self.total_extracted) + ' phrase pairs \n' +
-                      '\t unique phrases for nl: ' + str(self.unique_nl) + '\n'+
-                      '\t unique phrases for en: ' + str(self.unique_en) + '\n'+
-                      '\t unique pairs: ' + str(self.unique_nl_en) + '\n' ) 
-                      
-    
-  # write stats to file
-  def writeStatsToFile(self) :
-    f = open( self.tablePath+'/extraction_stats.txt', "a+b" )
-    f.write('Extracted ' + str(self.total_extracted) + ' phrase pairs  from tables in' + str(self.tablePath) + '\n'
-            '\t unique phrases for nl: ' + str(self.unique_nl) + '\n'+
-            '\t unique phrases for en: ' + str(self.unique_en) + '\n'+
-            '\t unique pairs: ' + str(self.unique_nl_en) + '\n'  )
-    f.close()
+                      '\t unique pairs: ' + str(self.unique_nl_en) + '\n' )
 
-  
+
+
+
   """
   # write everything to a file in format
-  #  f ||| e ||| p(f|e) p(e|f) l(f|e) l(e|f) ||| freq(f) freq(e) freq(f,e) 
+  #  f ||| e ||| p(f|e) p(e|f) l(f|e) l(e|f) ||| freq(f) freq(e) freq(f,e)
   def writeToFile(self, f1, nl_phrase, en_phrase) :
     pair = (nl_phrase, en_phrase)
     delimiter = " ||| "
-    
+
     f1.write(str(nl_phrase) + delimiter + str(en_phrase) + delimiter)
-    
+
     f1.write(str(self.prob_nl_en[pair].phraseProb ))
     f1.write(" ")
     f1.write(str(self.prob_en_nl[pair].phraseProb ))
@@ -198,9 +192,9 @@ class Extractor(object):
     f1.write(str(self.prob_nl_en[pair].lexicalProb ))
     f1.write(" ")
     f1.write(str(self.prob_en_nl[pair].lexicalProb ))
-    
+
     f1.write(delimiter)
-    
+
     f1.write(str(self.table_nl[nl_phrase]))
     f1.write(" ")
     f1.write(str(self.table_en[en_phrase]))
@@ -208,43 +202,12 @@ class Extractor(object):
     f1.write(str(self.table_nl_en[pair].phrasePairCount))
     f1.write('\n')
   """
-  
-  # infers considition phrase and lexical probabilities from the frequency tables
-  def normalizeTables(self):
-    
-    f1 = open( self.tablePath +  'final_file.txt', "wb" );
 
-    # for each phrase pair in frequency+alignments table
-    for pair, phrasePairTableEntry in self.table_nl_en.iteritems():
-      
-      # convert frequencies to joint and single (log) probabilities 
-      joint_log_prob = math.log(phrasePairTableEntry.phrasePairCount) - \
-                                              math.log(self.total_extracted)
-      
-      nl_phrase = pair[0]
-      en_phrase = pair[1]      
-      
-      nl_phrase_log_prob = math.log(self.table_nl[nl_phrase]) - math.log(self.total_extracted)
-      en_phrase_log_prob = math.log(self.table_en[en_phrase]) - math.log(self.total_extracted)
-      
-      # put conditional (log) phrase probabilities in conditional probability table
-      self.prob_nl_en[pair].phraseProb = joint_log_prob - en_phrase_log_prob # p (nl | en)
-      self.prob_en_nl[pair].phraseProb = joint_log_prob - nl_phrase_log_prob # p (en | nl)
-      
-    
-      #self.writeToFile(f1, nl_phrase, en_phrase)
-    
-    f1.close()  
- 
-    
 
-  
-  
+
   #extract phrases from one sentence pair
   # used in Extractor.extract()
   def parseSentencePair(self, alignments, list_nl, list_en):
-    
-    totalExtractedThisPhrase = 0
 
 
     len_list_nl = len(list_nl)
@@ -275,11 +238,13 @@ class Extractor(object):
       en_to_nl_lex[en_index].append(nl_index)
 
 
-  
+
     nl_to_null = []
     en_to_null = []
-    
-   
+
+    listOfPairsAsText = []
+    listOfPairsAsRanges = []
+
 
     for nl_index1 in range(0, len_list_nl-1): # do not check as start-word the period at the end
 
@@ -318,8 +283,11 @@ class Extractor(object):
               elif [nl_index1, nl_index2] == [nlFromEnMin, nlFromEnMax] :
 
 
-                self.addPair(list_nl, list_en, nl_index1, nl_index2, enRange[0], enRange[1], en_to_nl_lex, nl_to_en_lex)
-                totalExtractedThisPhrase += 1
+                #self.addPair(list_nl, list_en, nl_index1, nl_index2, enRange[0], enRange[1])
+                (listOfPairsAsText, listOfPairsAsRanges) = self.updatePairStats ( listOfPairsAsText, 
+                                                                                  listOfPairsAsRanges, 
+                                                                                  list_nl, list_en, 
+                                                                                  nl_index1, nl_index2, enRange[0], enRange[1])
 
 
                 ####################
@@ -374,17 +342,31 @@ class Extractor(object):
 
                 # add unaligned nl's for current english phrase
                 for unaligned_nl in nl_unaligned_list :
-                  self.addPair(list_nl, list_en, unaligned_nl[0], unaligned_nl[1], enRange[0], enRange[1], en_to_nl_lex, nl_to_en_lex)
-                  totalExtractedThisPhrase += 1
+                  
+                  #self.addPair(list_nl, list_en, unaligned_nl[0], unaligned_nl[1], enRange[0], enRange[1])
+                  (listOfPairsAsText, listOfPairsAsRanges) = self.updatePairStats ( listOfPairsAsText, 
+                                                                                  listOfPairsAsRanges, 
+                                                                                  list_nl, list_en, 
+                                                                                  unaligned_nl[0], unaligned_nl[1], 
+                                                                                  enRange[0], enRange[1])
+
                 # add unaligned en's for current dutch phrase
                 for unaligned_en in en_unaligned_list :
-                  self.addPair(list_nl, list_en, nl_index1, nl_index2, unaligned_en[0], unaligned_en[1], en_to_nl_lex, nl_to_en_lex)
-                  totalExtractedThisPhrase += 1
+                  #self.addPair(list_nl, list_en, nl_index1, nl_index2, unaligned_en[0], unaligned_en[1])
+                  (listOfPairsAsText, listOfPairsAsRanges) = self.updatePairStats ( listOfPairsAsText, 
+                                                                                  listOfPairsAsRanges, 
+                                                                                  list_nl, list_en, 
+                                                                                  nl_index1, nl_index2, 
+                                                                                  unaligned_en[0], unaligned_en[1])
+
                   # add unaliged nl / unaligned en combi's
                   for unaligned_nl in nl_unaligned_list :
-                    self.addPair(list_nl, list_en, unaligned_nl[0], unaligned_nl[1], unaligned_en[0], unaligned_en[1], en_to_nl_lex, nl_to_en_lex)
-                    totalExtractedThisPhrase += 1
-
+                    #self.addPair(list_nl, list_en, unaligned_nl[0], unaligned_nl[1], unaligned_en[0], unaligned_en[1])
+                    (listOfPairsAsText, listOfPairsAsRanges) = self.updatePairStats ( listOfPairsAsText, 
+                                                                                      listOfPairsAsRanges, 
+                                                                                      list_nl, list_en, 
+                                                                                      unaligned_nl[0], unaligned_nl[1], 
+                                                                                      unaligned_en[0], unaligned_en[1])
 
 
             else:
@@ -393,71 +375,57 @@ class Extractor(object):
 
 
           nl_index2 +=1
-        
-    # TODO: calculate phrase based probs here
+
+    # TODO: calculate phrase based probs here\
+    self.calcOrientationCounts(listOfPairsAsRanges, listOfPairsAsText, nl_to_en_lex, len_list_nl, len_list_en)
+    
+    # update phrase table
+    print listOfPairsAsText
+    print ""
+    print listOfPairsAsRanges
+    print "\n"
     
   
-  # get relative (for phrase pair) lexical alignments
-  def getLexicalAlignments(self, source_to_target_lex, start_source, end_source, start_target, end_target) :
-    source_lex_list = []
-    source_to_target_total = []
-    relative_lex_index = 0
+  
+  def updatePairStats (self, listOfPairsAsText, listOfPairsAsRanges, list_nl, list_en, start_nl, end_nl, start_en, end_en):
+    listOfPairsAsText.append(( self.getRangeAsText(list_nl, start_nl,end_nl),
+                               self.getRangeAsText(list_en, start_en, end_en)))
+    listOfPairsAsRanges.append( ((start_nl, end_nl), (start_en, end_en)))
+
+    return (listOfPairsAsText, listOfPairsAsRanges)
+
+
+  def calcOrientationCounts(self, listOfPairsAsRanges, listOfPairsAsText, nl_to_en_alignments, len_nl, len_en) :
     
-    for lex_index in range(start_source, end_source+1) :
+    rc = ReorderingCalculator()
+    dictPhrasesLR = rc.phrase_lexical_reordering_left_right(listOfPairsAsRanges, len_en, len_nl)
+    print
+    dictPhrasesRL = rc.phrase_lexical_reordering_right_left(listOfPairsAsRanges, len_en, len_nl)
+    print
+    dictWordsLR = rc.word_lexical_reordering_left_right(listOfPairsAsRanges, nl_to_en_alignments, len_en, len_nl)
+    print
+    dictWordsRL = rc.word_lexical_reordering_right_left(listOfPairsAsRanges, nl_to_en_alignments, len_en, len_nl)
+    print
+    
+    for i in range(0, len(listOfPairsAsRanges)) :
+      phrasePairRange = listOfPairsAsRanges[i]
+      phrasePairText = listOfPairsAsText[i]
       
-      target_indices = source_to_target_lex[lex_index]
-      if target_indices != ["NULL"]:
-        target_indices =  map( lambda x : x - (start_target), source_to_target_lex[lex_index])
-        source_to_target_total.extend( target_indices)      
-        lex_tuple = (relative_lex_index, tuple(target_indices))  
-      else :
-        lex_tuple = (relative_lex_index, ("NULL",)) 
-        
-      source_lex_list.append(lex_tuple)
-      relative_lex_index = relative_lex_index + 1    
-    
-    source_lex_tuple = tuple(source_lex_list)
-
-    # add NULL -> ...
-    null_to_target = [x for x in range(0, (end_target-start_target)+1) if x not in source_to_target_total] 
-    if null_to_target != []:
-      source_lex_tuple = tuple(itertools.chain((("NULL", tuple(null_to_target)),), source_lex_tuple))
-    
-    return source_lex_tuple
-  
-  
-  # add the found subphrase and its relevant information to relevant dictionaries
-  def addPair(self, list_nl, list_en, start_nl, end_nl, start_en, end_en, en_to_nl_lex, nl_to_en_lex):
-    self.total_extracted = self.total_extracted + 1
-
-    # update tables
-    nlEntry = self.getSubstring(list_nl, range(start_nl,end_nl+1))
-    enEntry = self.getSubstring(list_en, range(start_en,end_en+1))
-    nl_enEntry = (nlEntry , enEntry) #tuple
-
-    nl_to_en_aligns = self.getLexicalAlignments(nl_to_en_lex, start_nl, end_nl, start_en, end_en) 
-    en_to_nl_aligns = self.getLexicalAlignments(en_to_nl_lex, start_en, end_en, start_nl, end_nl) 
-    
-    
-    self.updateTables(nlEntry, enEntry, nl_enEntry, nl_to_en_aligns, en_to_nl_aligns)
-
-
-
-  # update the dictionaries
-  def updateTables(self, nlString, enString, nl_enString, nl_to_en_aligns, en_to_nl_aligns):
-
-    if not (nlString in self.table_nl):
-      self.unique_nl +=  1
-    self.table_nl[nlString] = self.table_nl[nlString] + 1
-
-    if not(enString in self.table_en):
-      self.unique_en += 1
-    self.table_en[enString] = self.table_en[enString] + 1
-  
-    if not(nl_enString in self.table_nl_en):
-      self.unique_nl_en += 1
-
+      self.total_extracted += 1
+      if not (phrasePairText in self.table_nl_en_phraseBased) :
+        self.unique_nl_en += 1
       
+      self.table_nl_en_phraseBased[phrasePairText].increaseOrientation(DirectionName.LEFT_TO_RIGHT,  dictPhrasesLR[phrasePairRange]) 
+      self.table_nl_en_phraseBased[phrasePairText].increaseOrientation(DirectionName.RIGHT_TO_LEFT,  dictPhrasesRL[phrasePairRange]) 
+      
+      self.table_nl_en_wordBased[phrasePairText].increaseOrientation(DirectionName.LEFT_TO_RIGHT,  dictWordsLR[phrasePairRange]) 
+      self.table_nl_en_wordBased[phrasePairText].increaseOrientation(DirectionName.RIGHT_TO_LEFT,  dictWordsRL[phrasePairRange]) 
+      
+      
+    
+  def getRangeAsText(self, list_sentence, start, end) :
+    return self.getSubstring(list_sentence, range(start, end+1))
+
 
   # get the words in the word-list "line_list" that the indices
   # in "aligned_list" point to
@@ -465,6 +433,141 @@ class Extractor(object):
   def getSubstring(self,line_list, aligned_list):
     wordList = map((lambda x : line_list[x]), aligned_list)
     return " ".join(wordList)
+
+class ReorderingCalculator(object) :
+  
+  def phrase_lexical_reordering_left_right(self, phrase_pairs_indexes, len_e, len_f) :
+    
+    rangesToOrientation = {}
+    
+    start = [((-1,-1), (-1,-1))]
+    end = [((len_f, len_f), (len_e,len_e))]
+
+    phrase_pairs = start+phrase_pairs_indexes+end
+    
+    for i in range(0, len(phrase_pairs)-1):
+      if phrase_pairs[i+1][1][0] == phrase_pairs[i][1][1] + 1 and phrase_pairs[i+1][0][0] == phrase_pairs[i][0][1] + 1 :
+        print str(phrase_pairs[i]) +'\t'+ 'm'
+        rangesToOrientation[phrase_pairs[i]] = Orientation.MONOTONE
+      elif phrase_pairs[i+1][1][0] == phrase_pairs[i][1][1] + 1 and phrase_pairs[i+1][0][1] == phrase_pairs[i][0][0] - 1:
+        print str(phrase_pairs[i])+'\t'+ 's'
+        rangesToOrientation[phrase_pairs[i]] = Orientation.SWAP
+      else :
+        if phrase_pairs[i+1][0][1] > phrase_pairs[i][0][0]:
+          print str(phrase_pairs[i])+'\t'+ 'd_r' #discontinuous to the left as we see from left to right
+          rangesToOrientation[phrase_pairs[i]] = Orientation.DISC_RIGHT
+        else:
+          print str(phrase_pairs[i])+'\t'+ 'd_l'
+          rangesToOrientation[phrase_pairs[i]] = Orientation.DISC_LEFT
+    
+    return rangesToOrientation
+
+  def phrase_lexical_reordering_right_left(self, phrase_pairs_indexes, len_e, len_f) :
+    
+    rangesToOrientation = {}
+    
+    start = [((-1,-1), (-1,-1))]
+    end = [((len_f, len_f), (len_e, len_e))]
+
+    phrase_pairs = start+phrase_pairs_indexes+end
+    phrase_pairs.reverse()	
+
+    for i in range(0, len(phrase_pairs)-1):
+      if phrase_pairs[i+1][1][1] == phrase_pairs[i][1][0] - 1 and phrase_pairs[i+1][0][1] == phrase_pairs[i][0][0] - 1:
+        print str(phrase_pairs[i]) +'\t'+ 'm'
+        rangesToOrientation[phrase_pairs[i]] = Orientation.MONOTONE
+      elif phrase_pairs[i+1][1][1] == phrase_pairs[i][1][0] - 1 and phrase_pairs[i+1][0][0] == phrase_pairs[i][0][1] + 1:
+        print str(phrase_pairs[i]) + '\t' + 's'
+        rangesToOrientation[phrase_pairs[i]] = Orientation.SWAP
+      else:
+        if phrase_pairs[i][0][1] > phrase_pairs[i+1][0][0]:
+          print str(phrase_pairs[i])+'\t'+ 'd_l' #discontinuous to the left as we see from right to left
+          rangesToOrientation[phrase_pairs[i]] = Orientation.DISC_LEFT
+        else:
+          print str(phrase_pairs[i])+'\t' + 'd_r'
+          rangesToOrientation[phrase_pairs[i]] = Orientation.DISC_RIGHT
+
+    return rangesToOrientation
+
+
+  def word_lexical_reordering_left_right(self, phrase_pairs_indexes, alignments, len_e, len_f) :
+    
+    rangesToOrientation = {}
+    
+    start = [((-1,-1), (-1,-1))]
+    end = [((len_f, len_f), (len_e,len_e))]
+    
+    #TODO: check whether this block is needed
+    alignments[-1] = [-1]
+    alignments[len_f] = [len_e]
+    #####################
+
+    phrase_pairs = start+phrase_pairs_indexes+end
+
+    for i in range(0, len(phrase_pairs)-1):
+      if self.alignment_exists(alignments, phrase_pairs[i][0][1] + 1, phrase_pairs[i][1][1] + 1):
+        print str(phrase_pairs[i]) + '\t' + 'm'
+        rangesToOrientation[phrase_pairs[i]] = Orientation.MONOTONE
+        
+      elif self.alignment_exists(alignments, phrase_pairs[i][0][0] -1, phrase_pairs[i][1][1] + 1):
+        print str(phrase_pairs[i]) + '\t' + 's'
+        rangesToOrientation[phrase_pairs[i]] = Orientation.SWAP
+      else:
+        if phrase_pairs[i+1][0][1] > phrase_pairs[i][0][0]:
+          print str(phrase_pairs[i])+'\t'+ 'd_l' #discontinuous to the left as we see from left to right
+          rangesToOrientation[phrase_pairs[i]] = Orientation.DISC_LEFT
+        else:
+          print str(phrase_pairs[i])+'\t'+ 'd_r'
+          rangesToOrientation[phrase_pairs[i]] = Orientation.DISC_RIGHT
+    
+    return rangesToOrientation
+
+
+  def word_lexical_reordering_right_left(self, phrase_pairs_indexes, alignments,  len_e, len_f):
+    
+    rangesToOrientation = {}
+    
+    start = [((-1,-1), (-1,-1))]
+    end = [((len_f,len_f), (len_e,len_e))]
+    
+    #TODO: check whether this block is needed
+    alignments[-1] = [-1]
+    alignments[len_f] = [len_e]
+    #####################
+
+    phrase_pairs = start+phrase_pairs_indexes+end
+
+    phrase_pairs.reverse()
+
+    for i in range(0, len(phrase_pairs)-1):
+      if self.alignment_exists(alignments, phrase_pairs[i][0][0] - 1, phrase_pairs[i][1][0] - 1):
+        print str(phrase_pairs[i]) + '\t' + 'm'
+        rangesToOrientation[phrase_pairs[i]] = Orientation.MONOTONE
+      elif self.alignment_exists(alignments, phrase_pairs[i][0][1] +1, phrase_pairs[i][1][0] - 1):
+        print str(phrase_pairs[i]) + '\t' + 's'
+        rangesToOrientation[phrase_pairs[i]] = Orientation.SWAP
+      else:
+        if phrase_pairs[i][0][1] > phrase_pairs[i+1][0][0]:
+          print str(phrase_pairs[i])+'\t'+ 'd_l' # discontinuous to the left as we see from left to right
+          rangesToOrientation[phrase_pairs[i]] = Orientation.DISC_LEFT
+        else:
+          print str(phrase_pairs[i])+'\t'+ 'd_r'
+          rangesToOrientation[phrase_pairs[i]] = Orientation.DISC_RIGHT
+    
+    return rangesToOrientation
+  
+  # the direction of the alignments should be the same as the direction of
+  # the phrase pair ranges
+  # e.g.
+  # e_1 -> [f_2, f_4]
+  # and
+  # [((e_i, e_j), (f_k, f_m)), ... ]
+  # in this case: other way around
+  def alignment_exists(self,alignments, f_index,e_index):
+    if f_index in alignments:
+      if e_index in alignments[f_index]:
+        return True
+    return False
 
 
 
@@ -543,19 +646,19 @@ class Reader(object):
     return line.split()
 
 
-def runTest():  
+def runTest():
   localDir = "/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/dutch-english/clean/"
-  alignsFileName = localDir + "clean.aligned"
-  nlFileName = localDir + "clean.nl"
-  enFileName = localDir + "clean.en"
-  
+  alignsFileName = localDir + "clean.aligned1"
+  nlFileName = localDir + "clean.nl1"
+  enFileName = localDir + "clean.en1"
+
   outputDir = "./output/"
-  
+
   reader = Reader(alignsFileName, nlFileName, enFileName)
   extractorOfCounts = Extractor(reader, outputDir )
   extractorOfCounts.extract()
-  
-  
+
+
 def run():
 	parser = argparse.ArgumentParser(description = "Phrase extraction/probabilities")
 	parser.add_argument('-a', '--alignments', help='Alignments filepath', required=True)
@@ -565,7 +668,7 @@ def run():
 	args = parser.parse_args()
 	if not(args.alignments and args.english and args.foreign and args.output):
 		print 'Error: Please provide the files required'
-  
+
 	alignsFileName = args.alignments
 	nlFileName = args.foreign
 	enFileName = args.english

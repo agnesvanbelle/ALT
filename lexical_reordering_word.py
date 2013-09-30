@@ -6,6 +6,7 @@ phrase_pairs_indexes = [((0, 0), (0, 0)), ((1,1), (1, 1)), ((4, 4), (2,2)), ((2,
 	# 0:[0,1]
 	# 1:[2]
 	# 2:[3,4]
+# from f to e
 alignments = {0: [0], 1: [1], 2: [4], 3: [3], 4: [2], 5: [5]}
 
 def alignment_exists(alignments, f_index,e_index):
