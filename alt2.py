@@ -725,6 +725,6 @@ def run():
 
 
 if __name__ == '__main__': #if this file is called by python
-  runTest()
+  run()
 
 
