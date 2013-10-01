@@ -439,11 +439,8 @@ class Extractor(object):
       self.table_nl_en_wordBased[phrasePairText].increaseOrientation(DirectionName.LEFT_TO_RIGHT,  dictWordsLR[phrasePairRange]) 
       self.table_nl_en_wordBased[phrasePairText].increaseOrientation(DirectionName.RIGHT_TO_LEFT,  dictWordsRL[phrasePairRange]) 
       
-      
-    """
-  # write everything to a file in format
-  #  f ||| e ||| p(f|e) p(e|f) l(f|e) l(e|f) ||| freq(f) freq(e) freq(f,e)
-  def writeToFile(self, f1, nl_phrase, en_phrase) :
+  # f ||| e ||| p1 p2 p3 p4 p5 p6 p7 p8
+  def writePairToFile(self, ) :
     pair = (nl_phrase, en_phrase)
     delimiter = " ||| "
 
@@ -465,8 +462,7 @@ class Extractor(object):
     f1.write(" ")
     f1.write(str(self.table_nl_en[pair].phrasePairCount))
     f1.write('\n')
-  """
-
+  
 
   def getRangeAsText(self, list_sentence, start, end) :
     return self.getSubstring(list_sentence, range(start, end+1))
@@ -501,11 +497,11 @@ class ReorderingCalculator(object) :
         rangesToOrientation[phrase_pairs[i]] = Orientation.SWAP
       else :
         if phrase_pairs[i+1][0][1] > phrase_pairs[i][0][0]:
-          print str(phrase_pairs[i])+'\t'+ 'd_l' #discontinuous to the left as we see from left to right
-          rangesToOrientation[phrase_pairs[i]] = Orientation.DISC_LEFT
+          print str(phrase_pairs[i])+'\t'+ 'd_r' 
+          rangesToOrientation[phrase_pairs[i]] = Orientation.DISC_RIGHT
         else:
           print str(phrase_pairs[i])+'\t'+ 'd_r'
-          rangesToOrientation[phrase_pairs[i]] = Orientation.DISC_RIGHT
+          rangesToOrientation[phrase_pairs[i]] = Orientation.DISC_LEFT
     
     return rangesToOrientation
 
