@@ -440,27 +440,27 @@ class Extractor(object):
       self.table_nl_en_wordBased[phrasePairText].increaseOrientation(DirectionName.RIGHT_TO_LEFT,  dictWordsRL[phrasePairRange]) 
       
   # f ||| e ||| p1 p2 p3 p4 p5 p6 p7 p8
-  def writePairToFile(self, ) :
+  def writePairToFile(self, pair) :
     pair = (nl_phrase, en_phrase)
     delimiter = " ||| "
 
-    f1.write(str(nl_phrase) + delimiter + str(en_phrase) + delimiter)
-
-    f1.write(str(self.prob_nl_en[pair].phraseProb ))
-    f1.write(" ")
-    f1.write(str(self.prob_en_nl[pair].phraseProb ))
-    f1.write(" ")
-    f1.write(str(self.prob_nl_en[pair].lexicalProb ))
-    f1.write(" ")
-    f1.write(str(self.prob_en_nl[pair].lexicalProb ))
-
-    f1.write(delimiter)
-
-    f1.write(str(self.table_nl[nl_phrase]))
-    f1.write(" ")
-    f1.write(str(self.table_en[en_phrase]))
-    f1.write(" ")
-    f1.write(str(self.table_nl_en[pair].phrasePairCount))
+    #~ f1.write(str(nl_phrase) + delimiter + str(en_phrase) + delimiter)
+#~ 
+    #~ f1.write(str(self.prob_nl_en[pair].phraseProb ))
+    #~ f1.write(" ")
+    #~ f1.write(str(self.prob_en_nl[pair].phraseProb ))
+    #~ f1.write(" ")
+    #~ f1.write(str(self.prob_nl_en[pair].lexicalProb ))
+    #~ f1.write(" ")
+    #~ f1.write(str(self.prob_en_nl[pair].lexicalProb ))
+#~ 
+    #~ f1.write(delimiter)
+#~ 
+    #~ f1.write(str(self.table_nl[nl_phrase]))
+    #~ f1.write(" ")
+    #~ f1.write(str(self.table_en[en_phrase]))
+    #~ f1.write(" ")
+    #~ f1.write(str(self.table_nl_en[pair].phrasePairCount))
     f1.write('\n')
   
 
@@ -690,7 +690,7 @@ class Reader(object):
 
 
 def runTest():
-  localDir = "/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/dutch-english/clean/"
+  localDir = "dutch-english/clean/"
   alignsFileName = localDir + "clean.aligned1"
   nlFileName = localDir + "clean.nl1"
   enFileName = localDir + "clean.en1"
@@ -725,6 +725,6 @@ def run():
 
 
 if __name__ == '__main__': #if this file is called by python
-  run()
+  runTest()
 
 
