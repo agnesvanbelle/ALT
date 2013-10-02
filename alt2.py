@@ -48,7 +48,7 @@ class Orientation:
     elif n == 3 :
       return "DISC_RIGHT"
     else:
-      return "<error>"
+      raise ValueError("pass a Orientation")
   
 
 class DirectionName :
@@ -62,7 +62,7 @@ class DirectionName :
     elif n == 1:
       return "RIGHT_TO_LEFT"
     else:
-      return "<error>"
+      raise ValueError("pass a DirectionName")
 
   
 
@@ -83,6 +83,7 @@ class Direction (object):
   def increaseOrientation(self, o) :
     self.orientationsDict[o] += 1
     self.totalOrientations += 1
+  
   
 
 # class containing:
@@ -125,6 +126,9 @@ class Extractor(object):
   # maximum phrase length
   maxPhraseLen = 2
 
+  # smoothing factor when calculating probabilities
+  smoothingFactor = 0.5
+  
   def __init__(self, reader, outputDir ):
     self.reader = reader
     self.tablePath = os.path.abspath(outputDir) + '/'
@@ -140,9 +144,12 @@ class Extractor(object):
     # for both directions (l->r and r->l),
     # keep track of all orientation
     # counts for all phrase pairs
-    self.directionLR = Direction()
-    self.directionRL = Direction()
+    self.directionLR_phraseBased = Direction()
+    self.directionRL_phraseBased = Direction()
 
+    self.directionLR_wordBased = Direction()
+    self.directionRL_wordBased = Direction()
+    
     if not os.path.exists(self.tablePath):
       os.makedirs(self.tablePath)
 
@@ -172,16 +179,17 @@ class Extractor(object):
 
       # print stats
       self.printStats()
-
       # write stats to file
       #self.writeStatsToFile()
 
-      sys.stdout.write('Done .\n')
+      sys.stdout.write('Done extracting.\n')
       
       print "size table_nl_en_phraseBased: %d " % len(self.table_nl_en_phraseBased)
-      #phrasePair = ("mevrouw", "madam")
       
       
+      print "Calculating probabilities, writing them to file..."
+      self.toProbsToFile(phraseBased=True)
+      print "Done calculating/writing."
       
       
 
@@ -194,6 +202,7 @@ class Extractor(object):
       teLR =  te.directionLR
 
       print "LR:"
+      #print teLR.orientationsDict
       for o, c in teLR.orientationsDict.iteritems() :
         print "\torientation: %s, count: %d" % (Orientation.getString(o), c)
       print "\ttotal # of orientations LR: %d" % teLR.totalOrientations
@@ -259,7 +268,7 @@ class Extractor(object):
     listOfPairsAsRanges = []
 
 
-    for nl_index1 in range(0, len_list_nl-1): # do not check as start-word the period at the end
+    for nl_index1 in range(0, len_list_nl): # do not check as start-word the period at the end
 
       enRange = nl_to_en[nl_index1]
 
@@ -389,15 +398,16 @@ class Extractor(object):
 
           nl_index2 +=1
 
-    # TODO: calculate phrase based probs here\
+    
+    # update phrase pair table counts
+    # and global counts
     self.calcOrientationCounts(listOfPairsAsRanges, listOfPairsAsText, nl_to_en_lex, len_list_nl, len_list_en)
     
-    # update phrase table
+    # print pair
     print listOfPairsAsText
     print ""
     print listOfPairsAsRanges
     print "\n"
-    
     for phrasePair in listOfPairsAsText:
       self.printPhrasePair(phrasePair)
   
@@ -430,40 +440,134 @@ class Extractor(object):
       if not (phrasePairText in self.table_nl_en_phraseBased) :
         self.unique_nl_en += 1
       
-      self.table_nl_en_phraseBased[phrasePairText].increaseOrientation(DirectionName.LEFT_TO_RIGHT,  dictPhrasesLR[phrasePairRange]) 
-      #print "increasing orientation for phrase %s, direction %s, orientation %s" % (phrasePairText, DirectionName.LEFT_TO_RIGHT, dictPhrasesLR[phrasePairRange])
+      ## phrase-based
       
-      self.table_nl_en_phraseBased[phrasePairText].increaseOrientation(DirectionName.RIGHT_TO_LEFT,  dictPhrasesRL[phrasePairRange]) 
-      
+      for orientation in dictPhrasesLR[phrasePairRange]:
+        # for pair
+        self.table_nl_en_phraseBased[phrasePairText].increaseOrientation(DirectionName.LEFT_TO_RIGHT,  orientation)   
+        # for total    
+        self.directionLR_phraseBased.increaseOrientation(orientation)
 
-      self.table_nl_en_wordBased[phrasePairText].increaseOrientation(DirectionName.LEFT_TO_RIGHT,  dictWordsLR[phrasePairRange]) 
-      self.table_nl_en_wordBased[phrasePairText].increaseOrientation(DirectionName.RIGHT_TO_LEFT,  dictWordsRL[phrasePairRange]) 
+      for orientation in dictPhrasesRL[phrasePairRange]:  
+        print Orientation.getString(orientation)
+        self.table_nl_en_phraseBased[phrasePairText].increaseOrientation(DirectionName.RIGHT_TO_LEFT,  orientation) 
+        self.directionRL_phraseBased.increaseOrientation(orientation)
       
+      ## word-based
+      for orientation in dictWordsLR[phrasePairRange]:
+        self.table_nl_en_wordBased[phrasePairText].increaseOrientation(DirectionName.LEFT_TO_RIGHT,  orientation) 
+        self.directionLR_wordBased.increaseOrientation(orientation)
+      
+      for orientation in dictWordsRL[phrasePairRange]:
+        self.table_nl_en_wordBased[phrasePairText].increaseOrientation(DirectionName.RIGHT_TO_LEFT,  orientation)   
+        self.directionRL_wordBased.increaseOrientation(orientation)
+        
+
+
+  def calcProbability(self, pair, direction, orientation, phraseBased=True):
+    
+        
+    if phraseBased :
+      phraseTable = self.table_nl_en_phraseBased
+      totalLR = self.directionLR_phraseBased
+      totalRL = self.directionRL_phraseBased
+    else:
+      phraseTable = self.table_nl_en_wordBased
+      totalLR = self.directionLR_wordBased
+      totalRL = self.directionRL_wordBased
+      
+    if direction == DirectionName.LEFT_TO_RIGHT:
+      
+      totalCountForOrientation = totalLR.orientationsDict[orientation]
+      totalCountAllOrientations = totalLR.totalOrientations
+      probOrientation = float(totalCountForOrientation)/totalCountAllOrientations
+      
+      numerator = (self.smoothingFactor * probOrientation) + phraseTable[pair].directionLR.orientationsDict[orientation]
+      denominator = self.smoothingFactor + phraseTable[pair].directionLR.totalOrientations
+      
+      
+      normalProb = float(numerator)/denominator
+      
+      if numerator == 0:
+        normalProb = sys.float_info.min 
+      return math.log(normalProb)
+      
+    elif direction == DirectionName.RIGHT_TO_LEFT:
+      totalCountForOrientation = totalRL.orientationsDict[orientation]
+      totalCountAllOrientations = totalRL.totalOrientations
+      probOrientation = float(totalCountForOrientation)/totalCountAllOrientations
+      
+      numerator = (self.smoothingFactor * probOrientation) + phraseTable[pair].directionRL.orientationsDict[orientation]
+      denominator = self.smoothingFactor + phraseTable[pair].directionRL.totalOrientations
+      
+      if denominator == 0:
+        return 0
+      return float(numerator)/denominator
+    
+    else : 
+      raise ValueError("Not a valid DirectionName")
+
+
   # f ||| e ||| p1 p2 p3 p4 p5 p6 p7 p8
-  def writePairToFile(self, pair) :
-    pair = (nl_phrase, en_phrase)
+    """
+    where
+     p1=p_l->r(m|(f; e))
+     p2=p_l->r(s|(f; e))
+     p3=p_l->r(dl|(f; e))
+     p4=p_l->r(dr|(f; e))
+     p5=p_r->l(m|(f; e))
+     p6=p_r->l(s|(f; e))
+     p7=p_r->l(dl|(f; e))
+     p8=p_r->l(dr|(f; e))
+  """      
+  def writePairToFile(self, f1, pair, phraseBased=True) :
+    (nl_phrase, en_phrase) = pair
     delimiter = " ||| "
 
-    #~ f1.write(str(nl_phrase) + delimiter + str(en_phrase) + delimiter)
-#~ 
-    #~ f1.write(str(self.prob_nl_en[pair].phraseProb ))
-    #~ f1.write(" ")
-    #~ f1.write(str(self.prob_en_nl[pair].phraseProb ))
-    #~ f1.write(" ")
-    #~ f1.write(str(self.prob_nl_en[pair].lexicalProb ))
-    #~ f1.write(" ")
-    #~ f1.write(str(self.prob_en_nl[pair].lexicalProb ))
-#~ 
-    #~ f1.write(delimiter)
-#~ 
-    #~ f1.write(str(self.table_nl[nl_phrase]))
-    #~ f1.write(" ")
-    #~ f1.write(str(self.table_en[en_phrase]))
-    #~ f1.write(" ")
-    #~ f1.write(str(self.table_nl_en[pair].phrasePairCount))
+    # get probabilities
+    p_LR_m = self.calcProbability(pair, DirectionName.LEFT_TO_RIGHT, Orientation.MONOTONE, phraseBased)
+    p_LR_s = self.calcProbability(pair, DirectionName.LEFT_TO_RIGHT, Orientation.SWAP, phraseBased)
+    p_LR_dl = self.calcProbability(pair, DirectionName.LEFT_TO_RIGHT, Orientation.DISC_LEFT, phraseBased)
+    p_LR_dr = self.calcProbability(pair, DirectionName.LEFT_TO_RIGHT, Orientation.DISC_RIGHT, phraseBased)
+    
+    p_RL_m = self.calcProbability(pair, DirectionName.RIGHT_TO_LEFT, Orientation.MONOTONE, phraseBased)
+    p_RL_s = self.calcProbability(pair, DirectionName.RIGHT_TO_LEFT, Orientation.SWAP, phraseBased)
+    p_RL_dl = self.calcProbability(pair, DirectionName.RIGHT_TO_LEFT, Orientation.DISC_LEFT, phraseBased)
+    p_RL_dr = self.calcProbability(pair, DirectionName.RIGHT_TO_LEFT, Orientation.DISC_RIGHT, phraseBased)
+    
+    # write to file
+    f1.write(str(nl_phrase) + delimiter + str(en_phrase) + delimiter)
+    
+    # '%.4f' % (2.2352341234)
+    f1.write(str('%.4f' % p_LR_m) + " " + str(p_LR_s) + " " + str(p_LR_dl) + " " + str(p_LR_dr))
+    f1.write(" ")
+    f1.write(str(p_RL_m) + " " + str(p_RL_s) + " " + str(p_RL_dl) + " " + str(p_RL_dr))
+    
     f1.write('\n')
   
+  
+  
+  def toProbsToFile(self, phraseBased=True):
+    
+    fileName = 'final_file' 
+    if phraseBased :
+      fileName += '_phraseBased'
+      phraseTable = self.table_nl_en_phraseBased
+    else:
+      fileName += '_wordBased'
+      phraseTable = self.table_nl_en_wordBased
+    fileName += '.txt'
+    
+    f1 = open( self.tablePath +  fileName, "wb" );
 
+    # for each phrase pair in table
+    for pair in phraseTable:
+                 
+      self.writePairToFile(f1 , pair, phraseBased)
+    
+    f1.close()  
+ 
+    
   def getRangeAsText(self, list_sentence, start, end) :
     return self.getSubstring(list_sentence, range(start, end+1))
 
@@ -476,12 +580,25 @@ class Extractor(object):
     return " ".join(wordList)
 
 class ReorderingCalculator(object) :
-  # do for ALL adjacent phrase pairs?
-  # or just one?
-  
+
+
+  def get_next_pairs_lr(self,i, phrase_pairs):
+    a = []
+    for j in range(i+1, len(phrase_pairs)):
+      if phrase_pairs[i][1][1] + 1 == phrase_pairs[j][1][0]:
+        a.append(j)
+    return a
+
+  def get_next_pairs_rl(self,i, phrase_pairs):
+    a = []
+    for j in range(i+1, len(phrase_pairs)):
+      if phrase_pairs[i][1][0] -1 == phrase_pairs[j][1][1]:
+        a.append(j)
+    return a
+      
   def phrase_lexical_reordering_left_right(self, phrase_pairs_indexes, len_e, len_f) :
     
-    rangesToOrientation = {}
+    rangesToOrientation = collections.defaultdict(tuple)
     
     start = [((-1,-1), (-1,-1))]
     end = [((len_f, len_f), (len_e,len_e))]
@@ -489,25 +606,29 @@ class ReorderingCalculator(object) :
     phrase_pairs = start+phrase_pairs_indexes+end
     
     for i in range(0, len(phrase_pairs)-1):
-      if phrase_pairs[i+1][1][0] == phrase_pairs[i][1][1] + 1 and phrase_pairs[i+1][0][0] == phrase_pairs[i][0][1] + 1 :
-        print str(phrase_pairs[i]) +'\t'+ 'm'
-        rangesToOrientation[phrase_pairs[i]] = Orientation.MONOTONE
-      elif phrase_pairs[i+1][1][0] == phrase_pairs[i][1][1] + 1 and phrase_pairs[i+1][0][1] == phrase_pairs[i][0][0] - 1:
-        print str(phrase_pairs[i])+'\t'+ 's'
-        rangesToOrientation[phrase_pairs[i]] = Orientation.SWAP
-      else :
-        if phrase_pairs[i+1][0][1] > phrase_pairs[i][0][0]:
-          print str(phrase_pairs[i])+'\t'+ 'd_r' 
-          rangesToOrientation[phrase_pairs[i]] = Orientation.DISC_RIGHT
-        else:
-          print str(phrase_pairs[i])+'\t'+ 'd_r'
-          rangesToOrientation[phrase_pairs[i]] = Orientation.DISC_LEFT
+      next_phrase_pairs = self.get_next_pairs_lr(i, phrase_pairs)
+      for j in range(0, len(next_phrase_pairs)):
+        k = next_phrase_pairs[j]
+        if phrase_pairs[k][1][0] == phrase_pairs[i][1][1] + 1 and phrase_pairs[k][0][0] == phrase_pairs[i][0][1] + 1 :
+          print str(phrase_pairs[i]) +'\t'+ 'm'
+          rangesToOrientation[phrase_pairs[i]] += ( Orientation.MONOTONE,)
+        elif phrase_pairs[k][1][0] == phrase_pairs[i][1][1] + 1 and phrase_pairs[k][0][1] == phrase_pairs[i][0][0] - 1:
+          print str(phrase_pairs[i])+'\t'+ 's'
+          rangesToOrientation[phrase_pairs[i]] += ( Orientation.SWAP,)
+        else :
+          if phrase_pairs[k][0][1] > phrase_pairs[i][0][0]:
+            print str(phrase_pairs[i])+'\t'+ 'd_r'
+            rangesToOrientation[phrase_pairs[i]] += (Orientation.DISC_LEFT,)            
+          else:
+            print str(phrase_pairs[i])+'\t'+ 'd_l'
+            rangesToOrientation[phrase_pairs[i]] += (Orientation.DISC_RIGHT,)
+
     
     return rangesToOrientation
 
   def phrase_lexical_reordering_right_left(self, phrase_pairs_indexes, len_e, len_f) :
     
-    rangesToOrientation = {}
+    rangesToOrientation = collections.defaultdict(tuple)
     
     start = [((-1,-1), (-1,-1))]
     end = [((len_f, len_f), (len_e, len_e))]
@@ -516,26 +637,30 @@ class ReorderingCalculator(object) :
     phrase_pairs.reverse()	
 
     for i in range(0, len(phrase_pairs)-1):
-      if phrase_pairs[i+1][1][1] == phrase_pairs[i][1][0] - 1 and phrase_pairs[i+1][0][1] == phrase_pairs[i][0][0] - 1:
-        print str(phrase_pairs[i]) +'\t'+ 'm'
-        rangesToOrientation[phrase_pairs[i]] = Orientation.MONOTONE
-      elif phrase_pairs[i+1][1][1] == phrase_pairs[i][1][0] - 1 and phrase_pairs[i+1][0][0] == phrase_pairs[i][0][1] + 1:
-        print str(phrase_pairs[i]) + '\t' + 's'
-        rangesToOrientation[phrase_pairs[i]] = Orientation.SWAP
-      else:
-        if phrase_pairs[i][0][1] > phrase_pairs[i+1][0][0]:
-          print str(phrase_pairs[i])+'\t'+ 'd_l' #discontinuous to the left as we see from right to left
-          rangesToOrientation[phrase_pairs[i]] = Orientation.DISC_LEFT
+      next_phrase_pairs = self.get_next_pairs_rl(i, phrase_pairs)
+      for j in range(0, len(next_phrase_pairs)):
+        k = next_phrase_pairs[j]
+        if phrase_pairs[k][1][1] == phrase_pairs[i][1][0] - 1 and phrase_pairs[k][0][1] == phrase_pairs[i][0][0] - 1:
+          print str(phrase_pairs[i]) +'\t'+ 'm'
+          rangesToOrientation[phrase_pairs[i]] += (Orientation.MONOTONE,)
+        elif phrase_pairs[k][1][1] == phrase_pairs[i][1][0] - 1 and phrase_pairs[k][0][0] == phrase_pairs[i][0][1] + 1:
+          print str(phrase_pairs[i]) + '\t' + 's'
+          rangesToOrientation[phrase_pairs[i]] += (Orientation.SWAP,)
         else:
-          print str(phrase_pairs[i])+'\t' + 'd_r'
-          rangesToOrientation[phrase_pairs[i]] = Orientation.DISC_RIGHT
+          if phrase_pairs[i][0][1] > phrase_pairs[k][0][0]:
+            print str(phrase_pairs[i])+'\t'+ 'd_l'
+            rangesToOrientation[phrase_pairs[i]] += (Orientation.DISC_LEFT,)
+          else:
+            print str(phrase_pairs[i])+'\t' + 'd_r'
+            rangesToOrientation[phrase_pairs[i]] += (Orientation.DISC_RIGHT,)
+
 
     return rangesToOrientation
 
 
   def word_lexical_reordering_left_right(self, phrase_pairs_indexes, alignments, len_e, len_f) :
     
-    rangesToOrientation = {}
+    rangesToOrientation = collections.defaultdict(tuple)
     
     start = [((-1,-1), (-1,-1))]
     end = [((len_f, len_f), (len_e,len_e))]
@@ -550,25 +675,25 @@ class ReorderingCalculator(object) :
     for i in range(0, len(phrase_pairs)-1):
       if self.alignment_exists(alignments, phrase_pairs[i][0][1] + 1, phrase_pairs[i][1][1] + 1):
         print str(phrase_pairs[i]) + '\t' + 'm'
-        rangesToOrientation[phrase_pairs[i]] = Orientation.MONOTONE
+        rangesToOrientation[phrase_pairs[i]] += (Orientation.MONOTONE,)
         
       elif self.alignment_exists(alignments, phrase_pairs[i][0][0] -1, phrase_pairs[i][1][1] + 1):
         print str(phrase_pairs[i]) + '\t' + 's'
-        rangesToOrientation[phrase_pairs[i]] = Orientation.SWAP
+        rangesToOrientation[phrase_pairs[i]] += (Orientation.SWAP,)
       else:
         if phrase_pairs[i+1][0][1] > phrase_pairs[i][0][0]:
           print str(phrase_pairs[i])+'\t'+ 'd_l' #discontinuous to the left as we see from left to right
-          rangesToOrientation[phrase_pairs[i]] = Orientation.DISC_LEFT
+          rangesToOrientation[phrase_pairs[i]] += (Orientation.DISC_LEFT,)
         else:
           print str(phrase_pairs[i])+'\t'+ 'd_r'
-          rangesToOrientation[phrase_pairs[i]] = Orientation.DISC_RIGHT
+          rangesToOrientation[phrase_pairs[i]] += (Orientation.DISC_RIGHT,)
     
     return rangesToOrientation
 
 
   def word_lexical_reordering_right_left(self, phrase_pairs_indexes, alignments,  len_e, len_f):
     
-    rangesToOrientation = {}
+    rangesToOrientation = collections.defaultdict(tuple)
     
     start = [((-1,-1), (-1,-1))]
     end = [((len_f,len_f), (len_e,len_e))]
@@ -585,17 +710,17 @@ class ReorderingCalculator(object) :
     for i in range(0, len(phrase_pairs)-1):
       if self.alignment_exists(alignments, phrase_pairs[i][0][0] - 1, phrase_pairs[i][1][0] - 1):
         print str(phrase_pairs[i]) + '\t' + 'm'
-        rangesToOrientation[phrase_pairs[i]] = Orientation.MONOTONE
+        rangesToOrientation[phrase_pairs[i]] += (Orientation.MONOTONE,)
       elif self.alignment_exists(alignments, phrase_pairs[i][0][1] +1, phrase_pairs[i][1][0] - 1):
         print str(phrase_pairs[i]) + '\t' + 's'
-        rangesToOrientation[phrase_pairs[i]] = Orientation.SWAP
+        rangesToOrientation[phrase_pairs[i]] += (Orientation.SWAP,)
       else:
         if phrase_pairs[i][0][1] > phrase_pairs[i+1][0][0]:
           print str(phrase_pairs[i])+'\t'+ 'd_l' # discontinuous to the left as we see from left to right
-          rangesToOrientation[phrase_pairs[i]] = Orientation.DISC_LEFT
+          rangesToOrientation[phrase_pairs[i]] += (Orientation.DISC_LEFT,)
         else:
           print str(phrase_pairs[i])+'\t'+ 'd_r'
-          rangesToOrientation[phrase_pairs[i]] = Orientation.DISC_RIGHT
+          rangesToOrientation[phrase_pairs[i]]+=(Orientation.DISC_RIGHT,)
     
     return rangesToOrientation
   
@@ -690,7 +815,7 @@ class Reader(object):
 
 
 def runTest():
-  localDir = "dutch-english/clean/"
+  localDir = "/run/media/root/ss-ntfs/3.Documents/huiswerk_20132014/ALT/dutch-english/clean/"
   alignsFileName = localDir + "clean.aligned1"
   nlFileName = localDir + "clean.nl1"
   enFileName = localDir + "clean.en1"
