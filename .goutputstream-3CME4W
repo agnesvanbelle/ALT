@@ -26,7 +26,7 @@ import argparse
 
 
 
-MAXIMUM_READ_SENTENCES = 200 # for debug purposes
+MAXIMUM_READ_SENTENCES = 8 # for debug purposes
 
 gc.disable()
 
@@ -178,6 +178,8 @@ class Extractor(object):
     self.len_en_wordBased = collections.defaultdict(PhrasePairTableEntry)
     self.len_avg_wordBased = collections.defaultdict(PhrasePairTableEntry)
 
+    self.varianceSum_phraseBased = PhrasePairTableEntry()
+    self.varianceSum_woordBased = PhrasePairTableEntry()
     
     if not os.path.exists(self.tablePath):
       os.makedirs(self.tablePath)
@@ -206,22 +208,21 @@ class Extractor(object):
           # parse phrases using  the dutch sentence, the english sentence and their alignments-list
           self.parseSentencePair(self.reader.line_list_aligns, self.reader.line_nl_words, self.reader.line_en_words)
 
-     
+      # print/write stats
+      print self.getStats()
+      self.writeStats()
+
       sys.stdout.write('Done extracting.\n')
 
       print "size table_nl_en_phraseBased: %d " % len(self.table_nl_en_phraseBased)
       print "size table_nl_en_wordBased: %d " % len(self.table_nl_en_wordBased)
 
-    
 
       print "Calculating probabilities, writing them to file..."
       self.toProbsToFile(phraseBased=True)
       self.toProbsToFile(phraseBased=False)
       print "Done calculating/writing."
       
-       # print/write stats
-      print self.getStats()
-      self.writeStats()
 
 
 
@@ -253,6 +254,11 @@ class Extractor(object):
     f.write(self.getStats())
     f.close()
 
+  def variance(self, avg, values) :
+    return ( sum 
+                (map(lambda x : math.pow( x - avg, 2), values)) / 
+                float(len(values))
+            )
 
 
 
@@ -265,7 +271,6 @@ class Extractor(object):
     s += 'Nr. orientations l->r wb: ' + str(self.directionLR_wordBased.totalOrientations)  + '\n'
     s += 'Nr. orientations r->l wb: ' + str(self.directionRL_wordBased.totalOrientations)  + '\n'
     
-    s += 'Total counts:'
     s += '\n\nl->r monotone pb: ' + str(self.directionLR_phraseBased.orientationsDict[Orientation.MONOTONE])
     s += '\nl->r swap pb: ' + str(self.directionLR_phraseBased.orientationsDict[Orientation.SWAP])
     s += '\nl->r d_l pb: ' + str(self.directionLR_phraseBased.orientationsDict[Orientation.DISC_LEFT])
@@ -362,7 +367,6 @@ class Extractor(object):
     s += '\nr->l d_l wb: ' + str(self.directionRL_wordBased.orientationsDict[Orientation.DISC_LEFT]/float(self.total_extracted))
     s += '\nr->l d_r wb: ' + str(self.directionRL_wordBased.orientationsDict[Orientation.DISC_RIGHT]/float(self.total_extracted))
     
-
     return s
 
   #extract phrases from one sentence pair
@@ -604,6 +608,8 @@ class Extractor(object):
       enLen = len(en.split())
         
       for orientation in dictPhrasesLR[phrasePairRange]:
+        if (orientation == Orientation.SWAP):
+          print "swap in calcOrientationCounts"
         
         # for pair
         self.table_nl_en_phraseBased[phrasePairText].increaseOrientation(DirectionName.LEFT_TO_RIGHT,  orientation)
@@ -710,6 +716,12 @@ class Extractor(object):
     p_RL_s = self.calcProbability(pair, DirectionName.RIGHT_TO_LEFT, Orientation.SWAP, phraseBased)
     p_RL_dl = self.calcProbability(pair, DirectionName.RIGHT_TO_LEFT, Orientation.DISC_LEFT, phraseBased)
     p_RL_dr = self.calcProbability(pair, DirectionName.RIGHT_TO_LEFT, Orientation.DISC_RIGHT, phraseBased)
+
+    phraseProb = phrasePairTableEntry.phrasePairCount / self.total_extracted
+    self.varianceSum_phraseBased.addOrientationValue(DirectionName.LEFT_TO_RIGHT, Orientation.MONOTONE, phrasePairTableEntry.getOrientationValue(DirectionName.LEFT_TO_RIGHT, Orientation.MONOTONE))
+  
+    
+      
     #print p_RL_s
     #print p_LR_s
     
@@ -743,6 +755,7 @@ class Extractor(object):
     # for each phrase pair in table
     for pair, phrasePairTableEntry in phraseTable.iteritems():
 
+#      self.varianceSum += (pair.phrasePairCount / self.total_extracted) 
       self.writePairToFile(f1 , pair, phrasePairTableEntry, phraseBased)
       
     f1.close()
@@ -767,7 +780,7 @@ class ReorderingCalculator(object) :
     for j in range(0, len(phrase_pairs)):
       if phrase_pairs[i][1][1] + 1 == phrase_pairs[j][1][0]:
         a.append(j)
-    #print "a: %s" %  a
+    print "a: %s" %  a
     return a
 
   def get_next_pairs_rl(self,i, phrase_pairs):
@@ -804,7 +817,7 @@ class ReorderingCalculator(object) :
           #print str(phrase_pairs[i]) +'\t'+ 'm'
           rangesToOrientation[phrase_pairs[i]] += ( Orientation.MONOTONE,)
         elif phrase_pairs[k][1][0] == phrase_pairs[i][1][1] + 1 and phrase_pairs[k][0][1] == phrase_pairs[i][0][0] - 1:
-          #print str(phrase_pairs[i])+'\t'+ 's'
+          print str(phrase_pairs[i])+'\t'+ 's'
           rangesToOrientation[phrase_pairs[i]] += ( Orientation.SWAP,)
         else :
           if phrase_pairs[k][0][1] > phrase_pairs[i][0][0]:
@@ -835,14 +848,14 @@ class ReorderingCalculator(object) :
           #print str(phrase_pairs[i]) +'\t'+ 'm'
           rangesToOrientation[phrase_pairs[i]] += (Orientation.MONOTONE,)
         elif phrase_pairs[k][1][1] == phrase_pairs[i][1][0] - 1 and phrase_pairs[k][0][0] == phrase_pairs[i][0][1] + 1:
-          #print str(phrase_pairs[i]) + '\t' + 's'
+          print str(phrase_pairs[i]) + '\t' + 's'
           rangesToOrientation[phrase_pairs[i]] += (Orientation.SWAP,)
         else:
           if phrase_pairs[i][0][1] > phrase_pairs[k][0][0]:
             #print str(phrase_pairs[i])+'\t'+ 'd_l'
             rangesToOrientation[phrase_pairs[i]] += (Orientation.DISC_LEFT,)
           else:
-            #print str(phrase_pairs[i])+'\t' + 'd_r'
+            print str(phrase_pairs[i])+'\t' + 'd_r'
             rangesToOrientation[phrase_pairs[i]] += (Orientation.DISC_RIGHT,)
 
 
