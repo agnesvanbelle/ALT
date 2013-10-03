@@ -26,7 +26,7 @@ import argparse
 
 
 
-MAXIMUM_READ_SENTENCES = 100000000000000000 # for debug purposes
+MAXIMUM_READ_SENTENCES = 8 # for debug purposes
 
 gc.disable()
 
@@ -107,6 +107,9 @@ class PhrasePairTableEntry(object) :
     else :
       self.directionRL = direction_rl
 
+  def increaseCount(self) :
+    self.phrasePairCount += 1
+    
   def increaseOrientation(self,  d,  o) :
     if d == DirectionName.LEFT_TO_RIGHT:
       self.directionLR.increaseOrientation(o)
@@ -124,7 +127,7 @@ class Extractor(object):
 
 
   # maximum phrase length
-  maxPhraseLen = 7
+  maxPhraseLen = 6 # should be one below the desired length...
 
   # smoothing factor when calculating probabilities
   smoothingFactor = 0.5
@@ -149,6 +152,13 @@ class Extractor(object):
 
     self.directionLR_wordBased = Direction()
     self.directionRL_wordBased = Direction()
+    
+    self.len_nl_phraseBased = collections.defaultdict(PhrasePairTableEntry)
+    self.len_en_phraseBased = collections.defaultdict(PhrasePairTableEntry)
+    self.len_avg_phraseBased = collections.defaultdict(PhrasePairTableEntry)
+    self.len_nl_wordBased = collections.defaultdict(PhrasePairTableEntry)
+    self.len_en_wordBased = collections.defaultdict(PhrasePairTableEntry)
+    self.len_avg_wordBased = collections.defaultdict(PhrasePairTableEntry)
 
     if not os.path.exists(self.tablePath):
       os.makedirs(self.tablePath)
@@ -232,7 +242,83 @@ class Extractor(object):
     s += 'Nr. orientations r->l pb: ' + str(self.directionRL_phraseBased.totalOrientations)  + '\n'
     s += 'Nr. orientations l->r wb: ' + str(self.directionLR_wordBased.totalOrientations)  + '\n'
     s += 'Nr. orientations r->l wb: ' + str(self.directionRL_wordBased.totalOrientations)  + '\n'
-
+    
+    s += '\n\nl->r monotone pb: ' + str(self.directionLR_phraseBased.orientationsDict[Orientation.MONOTONE])
+    s += '\nl->r swap pb: ' + str(self.directionLR_phraseBased.orientationsDict[Orientation.SWAP])
+    s += '\nl->r d_l pb: ' + str(self.directionLR_phraseBased.orientationsDict[Orientation.DISC_LEFT])
+    s += '\nl->r d_r pb: ' + str(self.directionLR_phraseBased.orientationsDict[Orientation.DISC_RIGHT])
+    s += '\n\nr->l monotone pb: ' + str(self.directionRL_phraseBased.orientationsDict[Orientation.MONOTONE])
+    s += '\nr->l swap pb: ' + str(self.directionRL_phraseBased.orientationsDict[Orientation.SWAP])
+    s += '\nr->l d_l pb: ' + str(self.directionRL_phraseBased.orientationsDict[Orientation.DISC_LEFT])
+    s += '\nr->l d_r pb: ' + str(self.directionRL_phraseBased.orientationsDict[Orientation.DISC_RIGHT])
+    
+    s += '\n\n\nl->r monotone wb: ' + str(self.directionLR_wordBased.orientationsDict[Orientation.MONOTONE])
+    s += '\nl->r swap wb: ' + str(self.directionLR_wordBased.orientationsDict[Orientation.SWAP])
+    s += '\nl->r d_l wb: ' + str(self.directionLR_wordBased.orientationsDict[Orientation.DISC_LEFT])
+    s += '\nl->r d_r wb: ' + str(self.directionLR_wordBased.orientationsDict[Orientation.DISC_RIGHT])
+    s += '\n\nr->l monotone wb: ' + str(self.directionRL_wordBased.orientationsDict[Orientation.MONOTONE])
+    s += '\nr->l swap wb: ' + str(self.directionRL_wordBased.orientationsDict[Orientation.SWAP])
+    s += '\nr->l d_l wb: ' + str(self.directionRL_wordBased.orientationsDict[Orientation.DISC_LEFT])
+    s += '\nr->l d_r wb: ' + str(self.directionRL_wordBased.orientationsDict[Orientation.DISC_RIGHT])
+    
+    s += '\n\n'
+    
+    s+= 'Dutch l->r per length (phrase-based):\n'
+    for nl_length in self.len_nl_phraseBased.keys() :
+      s += str(nl_length) + '\t'
+      s += str(self.len_nl_phraseBased[nl_length].directionLR.totalOrientations)
+      s += '\n'
+    
+    s+= '\n'
+    s+= 'English l->r per length (phrase-based):\n'
+    for en_length in self.len_en_phraseBased.keys() :
+      s += str(en_length) + '\t'
+      s += str(self.len_en_phraseBased[en_length].directionLR.totalOrientations)
+      s += '\n'
+      
+    s+= '\n'
+    s+= 'Dutch r->l per length (phrase-based):\n'
+    for nl_length in self.len_nl_phraseBased.keys() :
+      s += str(nl_length) + '\t'
+      s += str(self.len_nl_phraseBased[nl_length].directionRL.totalOrientations)
+      s += '\n'
+    
+    s+='\n'
+    s+= 'English r->l per length (phrase-based):\n'
+    for en_length in self.len_en_phraseBased.keys() :
+      s += str(en_length) + '\t'
+      s += str(self.len_en_phraseBased[en_length].directionRL.totalOrientations)
+      s += '\n'
+  
+    s += '\n\n\n'
+    
+    s+= 'Dutch l->r per length (word-based):\n'
+    for nl_length in self.len_nl_wordBased.keys() :
+      s += str(nl_length) + '\t'
+      s += str(self.len_nl_phraseBased[nl_length].directionLR.totalOrientations)
+      s += '\n'
+    
+    s+= '\n'
+    s+= 'English l->r per length (word-based):\n'
+    for en_length in self.len_en_wordBased.keys() :
+      s += str(en_length) + '\t'
+      s += str(self.len_en_phraseBased[en_length].directionLR.totalOrientations)
+      s += '\n'
+      
+    s+= '\n'
+    s+= 'Dutch r->l per length (word-based):\n'
+    for nl_length in self.len_nl_wordBased.keys() :
+      s += str(nl_length) + '\t'
+      s += str(self.len_nl_phraseBased[nl_length].directionRL.totalOrientations)
+      s += '\n'
+    
+    s+='\n'
+    s+= 'English r->l per length (word-based):\n'
+    for en_length in self.len_en_wordBased.keys() :
+      s += str(en_length) + '\t'
+      s += str(self.len_en_phraseBased[en_length].directionRL.totalOrientations)
+      s += '\n'
+      
     return s
 
   #extract phrases from one sentence pair
@@ -428,7 +514,20 @@ class Extractor(object):
 
     return (listOfPairsAsText, listOfPairsAsRanges)
 
-
+  def updateLengthStats(self, nlLen, enLen, d, o, phraseBased=True):
+    
+    if phraseBased:
+      (len_nl, len_en, len_avg) = (self.len_nl_phraseBased, self.len_en_phraseBased, self.len_avg_phraseBased)
+    else:
+      (len_nl, len_en, len_avg) = (self.len_nl_wordBased, self.len_en_wordBased, self.len_avg_wordBased)
+      
+    len_nl[nlLen].increaseCount()
+    len_nl[nlLen].increaseOrientation(d, o)
+    len_en[enLen].increaseCount()
+    len_en[enLen].increaseOrientation(d,o)
+    len_avg[round((nlLen+enLen)/2.0)].increaseCount()
+    len_avg[round((nlLen+enLen)/2.0)].increaseOrientation(d,o)
+    
   def calcOrientationCounts(self, listOfPairsAsRanges, listOfPairsAsText, nl_to_en_alignments, len_nl, len_en) :
 
     rc = ReorderingCalculator()
@@ -449,27 +548,45 @@ class Extractor(object):
       if not (phrasePairText in self.table_nl_en_phraseBased) :
         self.unique_nl_en += 1
 
+      self.table_nl_en_phraseBased[phrasePairText].increaseCount()
       ## phrase-based
 
+      nl = phrasePairText[0]
+      nlLen =  len(nl.split())
+      en = phrasePairText[1]
+      enLen = len(en.split())
+        
       for orientation in dictPhrasesLR[phrasePairRange]:
         # for pair
         self.table_nl_en_phraseBased[phrasePairText].increaseOrientation(DirectionName.LEFT_TO_RIGHT,  orientation)
         # for total
         self.directionLR_phraseBased.increaseOrientation(orientation)
-
+        #length statistics
+        if orientation != Orientation.MONOTONE:
+          self.updateLengthStats(nlLen, enLen, DirectionName.LEFT_TO_RIGHT, orientation, phraseBased=True)
+        
       for orientation in dictPhrasesRL[phrasePairRange]:
         #print Orientation.getString(orientation)
         self.table_nl_en_phraseBased[phrasePairText].increaseOrientation(DirectionName.RIGHT_TO_LEFT,  orientation)
         self.directionRL_phraseBased.increaseOrientation(orientation)
-
+        
+        if orientation != Orientation.MONOTONE:
+          self.updateLengthStats(nlLen, enLen, DirectionName.RIGHT_TO_LEFT, orientation, phraseBased=True)
+        
       ## word-based
       for orientation in dictWordsLR[phrasePairRange]:
         self.table_nl_en_wordBased[phrasePairText].increaseOrientation(DirectionName.LEFT_TO_RIGHT,  orientation)
         self.directionLR_wordBased.increaseOrientation(orientation)
-
+        
+        if orientation != Orientation.MONOTONE:
+          self.updateLengthStats(nlLen, enLen, DirectionName.LEFT_TO_RIGHT, orientation, phraseBased=False)
+        
       for orientation in dictWordsRL[phrasePairRange]:
         self.table_nl_en_wordBased[phrasePairText].increaseOrientation(DirectionName.RIGHT_TO_LEFT,  orientation)
         self.directionRL_wordBased.increaseOrientation(orientation)
+        
+        if orientation != Orientation.MONOTONE:
+          self.updateLengthStats(nlLen, enLen, DirectionName.RIGHT_TO_LEFT, orientation, phraseBased=False)
 
 
 
@@ -575,7 +692,7 @@ class Extractor(object):
     for pair in phraseTable:
 
       self.writePairToFile(f1 , pair, phraseBased)
-
+      
     f1.close()
 
 
@@ -861,6 +978,6 @@ def run():
 
 
 if __name__ == '__main__': #if this file is called by python
-  run()
+  runTest()
 
 

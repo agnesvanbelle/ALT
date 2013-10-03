@@ -1,0 +1,107 @@
+
+Extracted 463 phrase pairs 
+	 unique pairs: 424
+Nr. orientations l->r pb: 1635
+Nr. orientations r->l pb: 1641
+Nr. orientations l->r wb: 463
+Nr. orientations r->l wb: 463
+
+
+l->r monotone pb: 1041
+l->r swap pb: 0
+l->r d_l pb: 594
+l->r d_r pb: 0
+
+r->l monotone pb: 1045
+r->l swap pb: 0
+r->l d_l pb: 596
+r->l d_r pb: 0
+
+
+l->r monotone wb: 270
+l->r swap wb: 12
+l->r d_l wb: 156
+l->r d_r wb: 25
+
+r->l monotone wb: 268
+r->l swap wb: 8
+r->l d_l wb: 152
+r->l d_r wb: 35
+
+Dutch l->r per length (phrase-based):
+1	79
+2	116
+3	131
+4	119
+5	81
+6	68
+7	0
+8	0
+
+English l->r per length (phrase-based):
+1	148
+2	177
+3	97
+4	86
+5	62
+6	23
+7	1
+
+Dutch r->l per length (phrase-based):
+1	94
+2	126
+3	104
+4	94
+5	73
+6	55
+7	34
+8	16
+
+English r->l per length (phrase-based):
+1	257
+2	216
+3	80
+4	35
+5	2
+6	6
+7	0
+
+
+
+Dutch l->r per length (word-based):
+1	79
+2	116
+3	131
+4	119
+5	81
+6	68
+7	0
+8	0
+
+English l->r per length (word-based):
+1	148
+2	177
+3	97
+4	86
+5	62
+6	23
+7	1
+
+Dutch r->l per length (word-based):
+1	94
+2	126
+3	104
+4	94
+5	73
+6	55
+7	34
+8	16
+
+English r->l per length (word-based):
+1	257
+2	216
+3	80
+4	35
+5	2
+6	6
+7	0
