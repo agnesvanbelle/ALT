@@ -19,9 +19,12 @@ from pqdict import PQDict # see https://github.com/nvictus/priority-queue-dictio
 - Before expanding the hypotheses in stack m:
 --  All hypotheses (s) in stack m are sorted according to
     current cost(s)+future cost(s)
+    
 --  Prune hypotheses that are outside of the beam of the
     top-scoring hypothesis
+    
 --  Recombine all remaining hypotheses (where possible)
+
 --  Histogram pruning: If there are k hypotheses in stack m and
     k > l, where l is the histogram pruning limit, remove the k-l
     lowest scoring hypotheses
@@ -54,7 +57,7 @@ class StatesSameSubproblem(object):
     return self.stateHeap[0].prob
   
   def __lt__(self, other):
-    return self.calcProb() < other.calcProb()
+    return self.calcProb() > other.calcProb()
       
   def __str__(self):
      return "stateHeap: %.2f" % self.calcProb()
@@ -62,7 +65,10 @@ class StatesSameSubproblem(object):
   def __repr__(self):
     return self.__str__()
   
-  
+  def addState(self, s):
+    heapq.heappush(self.stateHeap, s)
+    return self
+    
 class Subproblem(object):
   
   def __init__(self, p1, p2, p3):
@@ -114,10 +120,13 @@ def run():
   # idea is that we can easily add states to the right subproblem-heap
   # by using subproblem-based dictionary keys
   print pq[subprobl1]
+  print pq[subprobl1].stateHeap
   
-  heapq.heappush(pq[subprobl1].stateHeap, State(-0.5))
+  pq.updateitem(subprobl1, pq[subprobl1].addState(State(-0.5)))
   
+  print pq[subprobl1].stateHeap
   print pq
+  
   
 if __name__ == '__main__': #if this file is called by python
   
