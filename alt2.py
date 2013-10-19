@@ -4,14 +4,14 @@
 
 
 # usage:
-# python alt1.py
+# python alt2.py
 #   -a <alignments file>
 #   -e <english sentence file>
 #   -f <dutch sentence file>
 #   -o <output dir for final file>
 #
 # example usage command:
-# python2.7 alt1.py -a /home/cmonz1/alt2013/dutch-english/web/web.aligned  -e /home/cmonz1/alt2013/dutch-english/web/web.en -f /home/cmonz1/alt2013/dutch-english/web/web.nl -o ./output_web
+# python2.7 alt2.py -a /home/cmonz1/alt2013/dutch-english/web/web.aligned  -e /home/cmonz1/alt2013/dutch-english/web/web.en -f /home/cmonz1/alt2013/dutch-english/web/web.nl -o ./output_web
 
 
 import sys
@@ -26,7 +26,7 @@ import argparse
 
 
 
-MAXIMUM_READ_SENTENCES = 200 # for debug purposes
+MAXIMUM_READ_SENTENCES = 10000000000000000000 # for debug purposes
 
 gc.disable()
 
@@ -1042,14 +1042,9 @@ def run():
 
 if __name__ == '__main__': #if this file is called by python
   
+
   
-  #phrase_pairs_indexes = [((0, 0), (0, 0)), ((1,1), (1, 1)), ((4, 4), (2,2)), ((2,3),(3,4)), ((5,5),(5,5))]
-  #print phrase_pairs_indexes
-  #rc = ReorderingCalculator()
-  #rc.phrase_lexical_reordering_left_right(phrase_pairs_indexes, 6,6)
-  #print
-  
-  runTest()
+  run()
   
  
   
