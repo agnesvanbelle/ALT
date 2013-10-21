@@ -8,8 +8,10 @@ import copy
 import collections
 import argparse
 import heapq
-from pqdict import PQDict # see https://github.com/nvictus/priority-queue-dictionary
 
+from pqdict import PQDict # see https://github.com/nvictus/priority-queue-dictionary
+import pqdict
+import utilities
 """
 - All hypotheses (states) that are comparable for pruning
   are in the same stack
@@ -21,7 +23,7 @@ from pqdict import PQDict # see https://github.com/nvictus/priority-queue-dictio
     current cost(s)+future cost(s)
     
 --  Prune hypotheses that are outside of the beam of the
-    top-scoring hypothesis
+    top-scoring hypothesis (threshold pruning) (compare all states, regardless of Subproblem)
     
 --  Recombine all remaining hypotheses (where possible)
 
@@ -30,11 +32,46 @@ from pqdict import PQDict # see https://github.com/nvictus/priority-queue-dictio
     lowest scoring hypotheses
 
 """
+
+# defines a sub-problem: holds the 3 properties according to which
+# States can be recombined
+class Subproblem(object):
+  
+  def __init__(self, translatedPositionsF=[], lastTranslatedPositionF=None, lastTwoWordsE=[]):
+    
+    self.translatedPositionsF = translatedPositionsF # coverage vector , foreign side
+    self.lastTranslatedPositionF = lastTranslatedPositionF # last translated foreign word (or phrase?) position
+    self.lastTwoWordsE = lastTwoWordsE # last 2-gram LM history = last two english words
+    
+  def __str__(self):
+     return "\n\tsubproblem: <%s,%s,%s>" % (self.translatedPositionsF, self.lastTranslatedPositionF, self.lastTwoWordsE)
+  
+  def __repr__(self):
+    return self.__str__()
+  
+  """  
+  def __hash__(self):
+    return hash((self.p1, self.p2, self.p3))
+
+  def __eq__(self, other):
+    return (self.p1, self.p2, self.p3) == (other.p1, other.p2, other.p3)
+  """
+  
+# holds all state (hypothesis) properties
+# hold 4 state-specific properties as well as a Subproblem object with 3 
+# more properties
 class State(object):
   
-  def __init__(self, prob=sys.maxint*(-1)):
-    self.prob = prob
-  
+  def __init__(self, subproblem=None, translationCurrentPhraseE=None, prob=sys.maxint*(-1), backpointer=None, recombPointers=[]):
+    
+    self.subproblem = subproblem # instance of class Subproblem, containing 3 properties
+    
+    self.translationCurrentPhraseE = translationCurrentPhraseE
+    self.prob = prob #translation probability
+    self.backpointer = backpointer # one backpointer to previous state
+    self.recombPointers = recombPointers # "back"-pointers to recombined states
+    
+    self.nrFWordsTranslated = len(self.subproblem.translatedPositionsF) # nr. of foreign words translated
   
   # heapify by largest probability first
   def __lt__(self, other):
@@ -46,11 +83,30 @@ class State(object):
   def __repr__(self):
     return self.__str__()
     
+  # for threshold pruning : comparable definition
+  def __eq__(self, other):
+    if isinstance(other, State):
+      return self.nrFWordsTranslated == other.nrFWordsTranslated
+      
+    return NotImplemented
+
+  # for threshold pruning : comparable definition
+  def __ne__(self, other):
+    result = self.__eq__(other)
+    if result is NotImplemented:
+      return result
+    return not result
+      
+      
+# container to hold States corresponding to a certain Subproblem
+# used in a StackHeapDict, 
+# with Subproblem as the key, and this class as the value
 class StatesSameSubproblem(object):
   
-  def __init__(self, stateHeap ):
-    self.stateHeap = stateHeap
-    #self.prob = self.calcProb()
+  
+  def __init__(self, stateHeap=[] ):
+    self.stateHeap = stateHeap  
+    heapq.heapify(self.stateHeap)    
     
   # largest prob. of all the states it contains
   def calcProb(self):
@@ -60,74 +116,75 @@ class StatesSameSubproblem(object):
     return self.calcProb() > other.calcProb()
       
   def __str__(self):
-     return "stateHeap: %.2f" % self.calcProb()
+     return "\n\t\tstateHeap: %.2f" % self.calcProb()
   
   def __repr__(self):
     return self.__str__()
   
+  # maintains heap invariant
   def addState(self, s):
     heapq.heappush(self.stateHeap, s)
     return self
     
-class Subproblem(object):
+
+#heap-dict of type
+# Subproblem --> StatesSameSubproblem
+class StackHeapDict(pqdict.PQDict):
   
-  def __init__(self, p1, p2, p3):
-    self.p1 = p1
-    self.p2 = p2
-    self.p3 = p3
-    
-  def __str__(self):
-     return "subproblem: <%s,%s,%s>" % (self.p1, self.p2, self.p3)
+  def __init__(self, *args, **kwargs):
+    super(StackHeapDict, self).__init__(*args, **kwargs)
   
-  def __repr__(self):
-    return self.__str__()
-    
+  # maintains heap invariant
+  # also b/c it calls StatesSameSubproblem.assState which does
+  def addState(self, key, state):
+    self.updateitem(key, self[key].addState(state))
+
+
 def run():
   
-  s1 = State(-4)
-  s2 = State(-2)
-  s3 = State(-1.5)
-  stateHeap = [s1,s2,s3]  
-  heapq.heapify(stateHeap)
+  
+  subprobl1 = Subproblem([1,2],1,'I am')
+  s1 = State(subproblem=subprobl1, prob=-2)
+  s2 = State(subproblem=subprobl1, prob=-3)
+  s3 = State(subproblem=subprobl1, prob=-7)
+  
+  subprobl1States = StatesSameSubproblem([s1,s2,s3])
   
   
   
-  subprobl1States = StatesSameSubproblem(stateHeap)
+  subprobl2 = Subproblem([3,4,5],4,'am playing')
+  s1 = State(subproblem=subprobl2, prob=-8)
+  s2 = State(subproblem=subprobl2, prob=-1)
   
   
-  
-  s1 = State(-1)
-  s2 = State(-8)
-  stateHeap = [s1,s2]  
-  heapq.heapify(stateHeap)
-  
-  subprobl2States = StatesSameSubproblem(stateHeap)
+  subprobl2States = StatesSameSubproblem([s1,s2]  )
   
   print subprobl1States.stateHeap
   print subprobl1States
   print subprobl2States.stateHeap
   print subprobl2States
 
-  subprobl1 = Subproblem('a','b','c')
-  subprobl2 = Subproblem('a','d','e')
   
-  pq = PQDict()
-  pq.additem(subprobl1, subprobl1States)
-  pq.additem(subprobl2, subprobl2States)
   
+  
+  pq = StackHeapDict()
+  pq[subprobl1] = subprobl1States
+  pq[subprobl2] = subprobl2States
+
   print pq
   
   # idea is that we can easily add states to the right subproblem-heap
   # by using subproblem-based dictionary keys
-  print pq[subprobl1]
-  print pq[subprobl1].stateHeap
+
+  #pq.updateitem(subprobl1, pq[subprobl1].addState(State(-0.5)))
+  pq.addState(subprobl1, State(subproblem=subprobl1, prob=-0.5))
   
-  pq.updateitem(subprobl1, pq[subprobl1].addState(State(-0.5)))
-  
-  print pq[subprobl1].stateHeap
   print pq
   
+  # returns two b/c
+  print subprobl1States.stateHeap[0] == subprobl1States.stateHeap[1]
   
+  print subprobl1States.stateHeap[0] == subprobl2States.stateHeap[0]
 if __name__ == '__main__': #if this file is called by python
   
 
