@@ -21,6 +21,10 @@ import utilities
 - Before expanding the hypotheses in stack m:
 --  All hypotheses (s) in stack m are sorted according to
     current cost(s)+future cost(s)
+    NOTE: this is simply translation probability + future cost
+    since a future "cost" is also in terms of log probs,
+    a future "cost" that is "higher" actually means a lower cost
+    so I call it a "future Probability" in the code
     
 --  Prune hypotheses that are outside of the beam of the
     top-scoring hypothesis (threshold pruning) (compare all states, regardless of Subproblem)
@@ -33,6 +37,8 @@ import utilities
 
 """
 
+beamThreshHold = 2.9
+
 # defines a sub-problem: holds the 3 properties according to which
 # States can be recombined
 class Subproblem(object):
@@ -43,26 +49,22 @@ class Subproblem(object):
     self.lastTranslatedPositionF = lastTranslatedPositionF # last translated foreign word (or phrase?) position
     self.lastTwoWordsE = lastTwoWordsE # last 2-gram LM history = last two english words
     
+    self.nrFWordsTranslated =  len(self.translatedPositionsF)
+    
   def __str__(self):
      return "\n\tsubproblem: <%s,%s,%s>" % (self.translatedPositionsF, self.lastTranslatedPositionF, self.lastTwoWordsE)
   
   def __repr__(self):
     return self.__str__()
   
-  """  
-  def __hash__(self):
-    return hash((self.p1, self.p2, self.p3))
 
-  def __eq__(self, other):
-    return (self.p1, self.p2, self.p3) == (other.p1, other.p2, other.p3)
-  """
   
 # holds all state (hypothesis) properties
 # hold 4 state-specific properties as well as a Subproblem object with 3 
 # more properties
 class State(object):
   
-  def __init__(self, subproblem=None, translationCurrentPhraseE=None, prob=sys.maxint*(-1), backpointer=None, recombPointers=[]):
+  def __init__(self, subproblem=None, translationCurrentPhraseE=None, prob=sys.maxint*(-1), backpointer=None, recombPointers=[], futureProb=0):
     
     self.subproblem = subproblem # instance of class Subproblem, containing 3 properties
     
@@ -71,14 +73,21 @@ class State(object):
     self.backpointer = backpointer # one backpointer to previous state
     self.recombPointers = recombPointers # "back"-pointers to recombined states
     
-    self.nrFWordsTranslated = len(self.subproblem.translatedPositionsF) # nr. of foreign words translated
+    # for pruning
+    self.futureProb= futureProb
+    self.totalProb = self.prob  + self.futureProb
+
+    
+    
+    self.nrFWordsTranslated = self.subproblem.nrFWordsTranslated   # nr. of foreign words translated
   
-  # heapify by largest probability first
+    
+  # heapify by highest total prob 
   def __lt__(self, other):
-    return self.prob > other.prob
+    return self.totalProb > other.totalProb
   
   def __str__(self):
-     return "state: %.2f" % self.prob
+     return "state: %.2f" % self.totalProb
   
   def __repr__(self):
     return self.__str__()
@@ -108,15 +117,15 @@ class StatesSameSubproblem(object):
     self.stateHeap = stateHeap  
     heapq.heapify(self.stateHeap)    
     
-  # largest prob. of all the states it contains
-  def calcProb(self):
-    return self.stateHeap[0].prob
+  # lowest cost of all the states it contains
+  def calcTotalProb(self):
+    return self.stateHeap[0].totalProb
   
   def __lt__(self, other):
-    return self.calcProb() > other.calcProb()
+    return self.calcTotalProb() > other.calcTotalProb()
       
   def __str__(self):
-     return "\n\t\tstateHeap: %.2f" % self.calcProb()
+     return "\n\t\tstateHeap: %.2f" % self.calcTotalProb()
   
   def __repr__(self):
     return self.__str__()
@@ -126,26 +135,56 @@ class StatesSameSubproblem(object):
     heapq.heappush(self.stateHeap, s)
     return self
     
-
-#heap-dict of type
+    
+  
+# defines a stack
+#
+# basically, it's a heap-dict of type
 # Subproblem --> StatesSameSubproblem
 class StackHeapDict(pqdict.PQDict):
   
-  def __init__(self, *args, **kwargs):
+  # static attributes
+  beamThreshold = 2.9
+  histogramPruneLimit = 5
+  
+  def __init__(self, nrFWordsTranslated=None, *args, **kwargs):
     super(StackHeapDict, self).__init__(*args, **kwargs)
   
+    # a stack is defined by the nr. of foreign words translated
+    if nrFWordsTranslated == None:    
+      if len(self) > 0:
+        self.nrFWordsTranslated = self.peek()[0].nrFWordsTranslated
+
+        
   # maintains heap invariant
   # also b/c it calls StatesSameSubproblem.assState which does
   def addState(self, key, state):
     self.updateitem(key, self[key].addState(state))
 
 
-def run():
+  # TODO
+  def thresholdPrune(self, bestState):
+    pass
+  
+  
+  def recombine(self):    
+    pass
+    
+      
+  def histogramPrune(self):
+    pass
+    
+  
+  
+def test1():
   
   
   subprobl1 = Subproblem([1,2],1,'I am')
-  s1 = State(subproblem=subprobl1, prob=-2)
-  s2 = State(subproblem=subprobl1, prob=-3)
+  s1 = State(subproblem=subprobl1, prob=-2,  futureProb=-2)
+  
+  print s1
+  
+  s2 = State(subproblem=subprobl1, prob=-3, futureProb=-5)
   s3 = State(subproblem=subprobl1, prob=-7)
   
   subprobl1States = StatesSameSubproblem([s1,s2,s3])
@@ -177,16 +216,17 @@ def run():
   # by using subproblem-based dictionary keys
 
   #pq.updateitem(subprobl1, pq[subprobl1].addState(State(-0.5)))
-  pq.addState(subprobl1, State(subproblem=subprobl1, prob=-0.5))
+  pq.addState(subprobl1, State(subproblem=subprobl1, prob=-0.5, futureProb=-0.01))
   
   print pq
   
-  # returns two b/c
+  # returns true b/c same nr. of translated foreign words
   print subprobl1States.stateHeap[0] == subprobl1States.stateHeap[1]
   
+  # returns false b/c different nr. of translated foreign words
   print subprobl1States.stateHeap[0] == subprobl2States.stateHeap[0]
+  
+  
 if __name__ == '__main__': #if this file is called by python
   
-
-  
-  run()
+  test1()
