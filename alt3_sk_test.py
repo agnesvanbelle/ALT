@@ -23,7 +23,7 @@ import utilities
     current cost(s)+future cost(s)
     NOTE: this is simply translation probability + future cost
     since a future "cost" is also in terms of log probs,
-    a future "cost" that is "higher" actually means a lower cost
+    a future "cost" that is "higher" actually means a lower cost (-1 is lower than -2 for example)
     so I call it a "future Probability" in the code
     
 --  Prune hypotheses that are outside of the beam of the
@@ -76,8 +76,6 @@ class State(object):
     # for pruning
     self.futureProb= futureProb
     self.totalProb = self.prob  + self.futureProb
-
-    
     
     self.nrFWordsTranslated = self.subproblem.nrFWordsTranslated   # nr. of foreign words translated
   
@@ -181,9 +179,6 @@ def test1():
   
   subprobl1 = Subproblem([1,2],1,'I am')
   s1 = State(subproblem=subprobl1, prob=-2,  futureProb=-2)
-  
-  print s1
-  
   s2 = State(subproblem=subprobl1, prob=-3, futureProb=-5)
   s3 = State(subproblem=subprobl1, prob=-7)
   
