@@ -8,6 +8,7 @@ import copy
 import collections
 import argparse
 import heapq
+import math 
 
 from pqdict import PQDict # see https://github.com/nvictus/priority-queue-dictionary
 import pqdict
@@ -99,7 +100,8 @@ class State(object):
   
   def __repr__(self):
     return self.__str__()
-    
+
+  """
   # for threshold pruning : comparable definition
   def __eq__(self, other):
     if isinstance(other, State):
@@ -113,7 +115,7 @@ class State(object):
     if result is NotImplemented:
       return result
     return not result
-      
+  """    
       
 # container to hold States corresponding to a certain Subproblem
 # used in a StackHeapDict, 
@@ -143,26 +145,108 @@ class StatesSameSubproblem(object):
     heapq.heappush(self.stateHeap, s)
     return self
     
-    
-  
-# defines a stack
-#
-# basically, it's a heap-dict of type
-# Subproblem --> StatesSameSubproblem
-class StackHeapDict(pqdict.PQDict):
+
+class Stack(object):
   
   # static attributes
   beamThreshold = 2.9
   histogramPruneLimit = 5
   
   def __init__(self, nrFWordsTranslated=None, *args, **kwargs):
-    super(StackHeapDict, self).__init__(*args, **kwargs)
   
-    # a stack is defined by the nr. of foreign words translated
-    if nrFWordsTranslated == None:    
-      if len(self) > 0:
-        self.nrFWordsTranslated = self.peek()[0].nrFWordsTranslated
+    self.nrFWordsTranslated = nrFWordsTranslated # not needed
 
+    self.stackHeapDict = StackHeapDict(*args, **kwargs)
+    self.finalStateHeap = None
+  
+  
+  def postProcess(self, bestScore):
+    
+    (finalStateList, finalStateDict) = self.thresholdPruneAndRecombine(bestScore)
+    self.histogramPrune(finalStateList, finalStateDict):
+      
+  # prune hypotheses outside of the beam of the highest-scoring one
+  #
+  # precondition: self.stackHeapDict is filled, and self.finalStateList is not yet
+  # postcondition: self.finalStateList exists 
+  def thresholdPruneAndRecombine(self, bestScore):
+    
+    # this prunes 'states with same subproblem'
+    # for which the highest scoring state is lower than theshold      
+    while self.stackHeapDict.peek()[1] < bestScore-beamThreshold:
+      self.stackHeapDict.popitem()
+    
+    # dive into remaining subproblems (iterate over keys)
+    # regular iteration, no prescribed order
+    self.nrStatesTotal = 0
+    finalStateList = []
+    finalStateDict = {}
+    
+    for subproblem, statesSameSubproblem in self.stackHeapDict.iteritems():
+      print "Examining states of %s" % ((subproblem, statesSameSubproblem),)
+      
+      
+      state = statesSameSubproblem.stateHeap.heappop() # return state with largest prob, remove from heap
+        
+      if state.totalProb < bestScore-beamThreshold : # probability is within beam
+          
+        # deep copy necessary (?) b/c we will remove stackHeapDict later
+        lowerStates = copy.deepcopy(statesSameSubproblem.stateHeap)
+        
+        # recombination  
+        state.addRecombPointers(lowerStates)
+        
+        # add state to final list
+        self.finalStateList.append(state)
+        self.finalStateDict[state] = ''
+        
+        # update total nr. of states in this stack
+        self.nrStatesTotal += len(newStateList)
+  
+      del stackHeapDict[subproblem] 
+    
+    return (finalStateList, finalStateDict)
+      
+  # precondition: thresholdPruneAndRecombine has been run
+  # postcondition: results in self.finalStateHeap
+  def histogramPrune(self, finalStateList, finalStateDict):
+    
+    nrToRemain = min(self.nrStatesTotal, self.histogramPruneLimit)
+    
+    nrToRemove = max(0, self.nrStatesTotal - self.histogramPruneLimit)
+    
+    # complexity of heapq.nlargest is n*log(k), of nsmallest I assume similar
+    if self.nrStatesTotal*math.log(nrToRemove)*nrToRemove < self.nrStatesTotal*math.log(nrToRemain):
+      # remove smallest
+      toRemoveList = heapq.nsmallest(nrToRemove, finalStateList)
+      for state in toRemoveList:
+        finalStateDict.pop(state, None)
+      self.finalStateHeap = finalStateDict.keys()
+      
+    else: # remain largest
+      self.finalStateHeap = heapq.nlargest(nrToRemain, finalStateList)
+    
+    del finalStateList
+    del finalStateDict 
+    
+    heapq.heapify(self.finalStateHeap)
+    
+    
+    
+      
+# defines a stack dict using during decoding 
+# in class Stack
+#
+# basically, it's a heap-dict of type
+# Subproblem --> StatesSameSubproblem
+class StackHeapDict(pqdict.PQDict):
+  
+  
+  
+  def __init__(self, *args, **kwargs):
+    super(StackHeapDict, self).__init__(*args, **kwargs)
+
+  
         
   # maintains heap invariant
   # also b/c it calls StatesSameSubproblem.assState which does
@@ -170,62 +254,7 @@ class StackHeapDict(pqdict.PQDict):
     self.updateitem(key, self[key].addState(state))
 
 
-  
-  # prune hypotheses outside of the beam of the highest-scoring one
-  def thresholdPruneAndRecombine(self, bestScore):
-    
-    # this prunes 'states with same subproblem'
-    # for which the highest scoring state is lower than theshold
-    while self.peek()[1] < bestScore-beamThreshold:
-      self.popitem()
-    
-    # dive into subproblems (iterate over keys)
-    # regular iteration, no prescribed order
-    self.nrStatesTotal = 0
-    for subproblem, statesSameSubproblem in self.iteritems():
-      print "Examining states of %s" % ((subproblem, statesSameSubproblem),)
-      
-      newStatesSameSubproblem = StatesSameSubproblem()
-      newStateList = []
-      
-      while True:
-        state = statesSameSubproblem.stateHeap.heappop() # return state with largest prob, remove from heap
-        
-        if state.totalProb < bestScore-beamThreshold : # probability is within beam
-          newStateList.append(state)
-          
-        else: # we are below the beam threshold for this subproblem's states
-          
-          # deep copy necessary (?) b/c we will remove statesSameSubproblem later
-          lowerStates = copy.deepcopy(statesSameSubproblem.stateHeap)
-          
-          # recombination
-          for keptState in newStateList:
-            
-            keptState.addRecombPointers(lowerStates)
-            
-            newStatesSameSubproblem.addState(keptState)
-            
-          break
-          
-        # update  the current subproblem's 'statesSameSubproblem'
-        self.updateitem(subproblem, newStatesSameSubproblem)
-        # update total nr. of states in this stack
-        self.nrStatesTotal += len(newStateList)
-  
-      
-  def histogramPrune(self):
-    nrToRemove = max(0, self.nrStatesTotal - self.histogramPruneLimit)
-    
-    
-    selfOrderReversed = StackHeapDict.maxpq(self) # low to high
-    
-    pass
-      
-      
-    pass
-    
-  
+
   
 def test1():
   
