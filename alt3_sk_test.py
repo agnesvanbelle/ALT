@@ -146,64 +146,109 @@ class StatesSameSubproblem(object):
     return self
     
 
+# defines a stack dict using during decoding 
+# in class Stack
+#
+# basically, it's a heap-dict of type
+# Subproblem --> StatesSameSubproblem
+class StackHeapDict(pqdict.PQDict):
+      
+  def __init__(self, *args, **kwargs):
+    super(StackHeapDict, self).__init__(*args, **kwargs)
+    
+  # maintains heap invariant
+  # also b/c it calls StatesSameSubproblem.assState which does
+  def addState(self, key, state):
+    if key in self:
+      self.updateitem(key, self[key].addState(state))
+    else:
+      sss  = StatesSameSubproblem([state])
+      self.additem(key, sss)
+
+  def __str__(self):
+    s = ""
+    s += "%d" % len(self)
+    for key in self.keys():
+      s += "\t%s --> %s\n" % (key, self[key])
+    return "\n\t\tstackHeapDict:\n %s" % s
+  
+  def __repr__(self):
+    return self.__str__()
+  
+
 class Stack(object):
   
   # static attributes
   beamThreshold = 2.9
-  histogramPruneLimit = 5
+  histogramPruneLimit = 1
   
   def __init__(self, nrFWordsTranslated=None, *args, **kwargs):
   
     self.nrFWordsTranslated = nrFWordsTranslated # not needed
 
     self.stackHeapDict = StackHeapDict(*args, **kwargs)
-    self.finalStateHeap = None
+    self.finalStateList = None
   
+  def __str__(self):
+    if self.stackHeapDict != None:
+      return self.stackHeapDict.__str__()
+    else :
+      return "finalStateList:\n\t%s" %self.finalStateList
   
+  def __repr__(self):
+    return self.__str__()
+  
+    
+  def addState(self, subproblem, state):
+    self.stackHeapDict.addState(subproblem, state)
+    
   def postProcess(self, bestScore):
     
     (finalStateList, finalStateDict) = self.thresholdPruneAndRecombine(bestScore)
-    self.histogramPrune(finalStateList, finalStateDict):
-      
+    self.histogramPrune(finalStateList, finalStateDict)
+    
+    self.stackHeapDict = None
+    
   # prune hypotheses outside of the beam of the highest-scoring one
   #
   # precondition: self.stackHeapDict is filled, and self.finalStateList is not yet
   # postcondition: self.finalStateList exists 
   def thresholdPruneAndRecombine(self, bestScore):
-    
-    # this prunes 'states with same subproblem'
-    # for which the highest scoring state is lower than theshold      
-    while self.stackHeapDict.peek()[1] < bestScore-beamThreshold:
-      self.stackHeapDict.popitem()
-    
+
     # dive into remaining subproblems (iterate over keys)
     # regular iteration, no prescribed order
     self.nrStatesTotal = 0
     finalStateList = []
     finalStateDict = {}
     
-    for subproblem, statesSameSubproblem in self.stackHeapDict.iteritems():
-      print "Examining states of %s" % ((subproblem, statesSameSubproblem),)
+    #iterate from high to low scoring states
+    while True and len(self.stackHeapDict) > 0:
+      (subproblem, statesSameSubproblem) = self.stackHeapDict.popitem()
       
-      
-      state = statesSameSubproblem.stateHeap.heappop() # return state with largest prob, remove from heap
+      # if the highest scoring state is lower than theshold   
+      if statesSameSubproblem.calcTotalProb < bestScore-Stack.beamThreshold:
+        print "breaking"
+        break
         
-      if state.totalProb < bestScore-beamThreshold : # probability is within beam
+      print "Examining states of %s" % ((subproblem, statesSameSubproblem),)      
+      
+      state = heapq.heappop(statesSameSubproblem.stateHeap) # return state with largest prob, remove from heap
+        
+      #if state.totalProb < bestScore-Stack.beamThreshold : # probability is within beam
           
-        # deep copy necessary (?) b/c we will remove stackHeapDict later
-        lowerStates = copy.deepcopy(statesSameSubproblem.stateHeap)
-        
-        # recombination  
-        state.addRecombPointers(lowerStates)
-        
-        # add state to final list
-        self.finalStateList.append(state)
-        self.finalStateDict[state] = ''
-        
-        # update total nr. of states in this stack
-        self.nrStatesTotal += len(newStateList)
+      # deep copy necessary (?) b/c we will remove stackHeapDict later
+      lowerStates = copy.deepcopy(statesSameSubproblem.stateHeap)
+      
+      # recombination  
+      state.addRecombPointers(lowerStates)
+      
+      # add state to final list
+      finalStateList.append(state)
+      finalStateDict[state] = ''
+      
+      # update total nr. of states in this stack
+      self.nrStatesTotal += len(finalStateList)
   
-      del stackHeapDict[subproblem] 
     
     return (finalStateList, finalStateDict)
       
@@ -215,47 +260,30 @@ class Stack(object):
     
     nrToRemove = max(0, self.nrStatesTotal - self.histogramPruneLimit)
     
-    # complexity of heapq.nlargest is n*log(k), of nsmallest I assume similar
-    if self.nrStatesTotal*math.log(nrToRemove)*nrToRemove < self.nrStatesTotal*math.log(nrToRemain):
-      # remove smallest
-      toRemoveList = heapq.nsmallest(nrToRemove, finalStateList)
-      for state in toRemoveList:
-        finalStateDict.pop(state, None)
-      self.finalStateHeap = finalStateDict.keys()
-      
-    else: # remain largest
-      self.finalStateHeap = heapq.nlargest(nrToRemain, finalStateList)
-    
-    del finalStateList
-    del finalStateDict 
-    
-    heapq.heapify(self.finalStateHeap)
-    
-    
-    
-      
-# defines a stack dict using during decoding 
-# in class Stack
-#
-# basically, it's a heap-dict of type
-# Subproblem --> StatesSameSubproblem
-class StackHeapDict(pqdict.PQDict):
-  
-  
-  
-  def __init__(self, *args, **kwargs):
-    super(StackHeapDict, self).__init__(*args, **kwargs)
-
-  
+    if nrToRemove > 0:
+      print "editing stack with histogram pruning"
+      # complexity of heapq.nlargest is n*log(k), of nsmallest I assume similar
+      if self.nrStatesTotal*math.log(nrToRemove)*nrToRemove < self.nrStatesTotal*math.log(nrToRemain):
+        print "removing"
+        # remove smallest
+        toRemoveList = heapq.nlargest(nrToRemove, finalStateList)
+        for state in toRemoveList:
+          finalStateDict.pop(state, None)
+        self.finalStateHeap = finalStateDict.keys()
         
-  # maintains heap invariant
-  # also b/c it calls StatesSameSubproblem.assState which does
-  def addState(self, key, state):
-    self.updateitem(key, self[key].addState(state))
+      else: # remain largest
+        print "keeping"
+        self.finalStateList = heapq.nsmallest(nrToRemain, finalStateList)
+      
+      del finalStateDict 
+      
+    else:
+      self.finalStateList = finalStateList
+      
+    
+    
+      
 
-
-
-  
 def test1():
   
   
@@ -269,40 +297,42 @@ def test1():
   
   
   subprobl2 = Subproblem([3,4,5],4,'am playing')
-  s1 = State(subproblem=subprobl2, prob=-8)
-  s2 = State(subproblem=subprobl2, prob=-1)
+  s4 = State(subproblem=subprobl2, prob=-8)
+  s5 = State(subproblem=subprobl2, prob=-1)
   
   
   subprobl2States = StatesSameSubproblem([s1,s2]  )
   
-  print subprobl1States.stateHeap
-  print subprobl1States
-  print subprobl2States.stateHeap
-  print subprobl2States
+  #print subprobl1States.stateHeap
+  #print subprobl1States
+  #print subprobl2States.stateHeap
+  #print subprobl2States
 
   
   
+  stack = Stack()
   
-  pq = StackHeapDict()
-  pq[subprobl1] = subprobl1States
-  pq[subprobl2] = subprobl2States
-
-  print pq
+  stack.addState(s1.subproblem, s1)
+  stack.addState(s2.subproblem, s2)
+  stack.addState(s3.subproblem, s3)
   
-  # idea is that we can easily add states to the right subproblem-heap
-  # by using subproblem-based dictionary keys
-
-  #pq.updateitem(subprobl1, pq[subprobl1].addState(State(-0.5)))
-  pq.addState(subprobl1, State(subproblem=subprobl1, prob=-0.5, futureProb=-0.01))
+  print stack
+  print len(stack.stackHeapDict.keys())
   
-  print pq
+  stack.addState(s5.subproblem, s5)
+  stack.addState(s4.subproblem, s4)
   
-  # returns true b/c same nr. of translated foreign words
-  print subprobl1States.stateHeap[0] == subprobl1States.stateHeap[1]
+  print stack
   
-  # returns false b/c different nr. of translated foreign words
-  print subprobl1States.stateHeap[0] == subprobl2States.stateHeap[0]
+  print len(stack.stackHeapDict)
   
+  (finalStateList, finalStateDict) = stack.thresholdPruneAndRecombine(-1)
+  
+  print finalStateList
+  
+  stack.histogramPrune(finalStateList, finalStateDict)
+  
+  print stack.finalStateList
   
 if __name__ == '__main__': #if this file is called by python
   
