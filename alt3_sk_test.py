@@ -5,7 +5,7 @@ import cPickle as pickle
 import gc
 import itertools
 import copy
-import collections
+from collections import defaultdict
 import argparse
 import heapq
 import math 
@@ -281,8 +281,122 @@ class Stack(object):
       self.finalStateList = finalStateList
       
     
+class Cache(object):
+
+  def TM(self, fPhrase):
+    return [("to go", 0.32), ("avoiding to", 0.1), ("miss", 0.4)]
+  
+  def LMe(self, eSen):
+    return 0.1
     
+  def LMf(self, fSen):
+    return 0.1
+  
+  def LW(self, fPhrase, ePhrase):
+    return 0.1
       
+class Decoder(object):
+  
+  # Limit decoding to using phrases not longer than 3 words (both sides)
+  maxWords = 3
+  
+  wordPenalty = -1
+  phrasePenalty = -1
+  
+  def __init__(self, fSen, cache=None):
+    
+    self.fSen = "<s> " + fSen + " </s>"
+    self.fList = fSen.split()
+    self.nrFWords = len(fList)
+    
+    self.stackList = []
+    for i in range(nrFWords):
+      self.stackList.append(Stack(i))
+      
+    if cache == None:
+      cache = Cache()
+    self.cache = cache
+  
+    self.makeFutureCostModel()
+    
+  # lower = more unlikely
+  # not penalty, but a score to add
+  def calcDistortionPenalty(self, lastPosPrevious, firstPosNow):
+    return (-1) * abs(lastPosPrevious, firstPosNow)
+   
+  
+  # TODO
+  # for self.fSen
+  def makeFutureCostModel() :
+    # from (startpos, endpos) --> prob
+    self.futureCostTable = defaultDict(lambda:0)
+    
+    pass
+    
+  def getFutureCost(covVector):
+    
+    maxSenIndex = self.nrFWords-1
+    
+    unCovered = list(set(range(0, maxSenIndex+1)) - set(covVector))
+    unCovSpans = []
+    
+    unCovSpan = None
+    for i in unCovered:
+      if unCovSpan == None:
+        unCovSpan = [i,i]
+      elif unCovSpan[1] == i-1:
+        unCovSpan[1] = i
+      else:
+        unCovSpans.append(unCovSpan)
+        unCovSpan = [i,i]
+    
+    unCovSpans.append(unCovSpan)
+
+    totalFutureCost = 0
+    for span in unCovSpans:
+      totalFutureCost += self.futureCostTable(span)
+      
+    return totalFutureCost
+    
+  def decodeStack(stackNr):
+    stack = self.stackList[stackNr]
+    stateList = stack.finalStateList
+    nrFWordsTranslated = 0
+    
+    covVectorDict = defaultdict(list)
+    for state in stateList:
+      
+      covVector = state.subproblem.translatedPositionsF
+      
+      for i in range(0, self.nrFWords):
+        if i in covVector:
+          continue
+        for j in range(i, i+Decoder.maxWords):
+          if in covVector:
+            break
+          span = (i,j)
+          fPhraseList = fList[i:j]
+          fPhrase = " ".join(fPhraseList)
+          
+          possibleTranslations = self.cache.TM(fPhrase)
+          
+          for trans in possibleTranslations:
+            enPhrase = trans[0]
+            transProb = trans[1]
+            lexWeight = cache.LW(fPhrase, enPhrase)
+            
+            distPenalty = self.calcDistortionPenalty(state.subproblem.lastTranslatedPositionF, i)
+            wordPenalty = Decoder.wordPenalty * (j-i)
+            phrasePenalty = Decoder.phrasePenalty
+            
+            # the 3 subproblem properties
+            translatedPositionsF = sorted(covVector + range(i,j))
+            lastTranslatedPositionF = j #?
+            lastTwoWordsE = (state.subproblem.lastTwoWordsE + enPhrase)[-2:]
+            
+            
+            
+          
 
 def test1():
   
