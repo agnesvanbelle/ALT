@@ -81,8 +81,8 @@ def buildLM (path, outputpath,delta=0.0001):
     print 'Vocabulary size: ', len(vocabulary)
 
 #path = '/home/cmonz1/alt2013/dutch-english/clean/clean.en'
-path = '/Users/parismavromoustakos/Desktop/nikos/ALT/clean.nl'
-outputpath = 'lm.nl'
+path = '/Users/parismavromoustakos/Desktop/nikos/clean.en'
+outputpath = '../en.lm'
 #path = '/home/cmonz1/alt2013/dutch-english/clean/clean.nl'
 #outputpath = '/home/10406921/lm/clean.en.lm'
 #buildLM(path, outputpath)
@@ -100,24 +100,37 @@ def splitLM(lmpath):
     s = ''
     buf = ''
     for line in f_in:
-        #print line
+
         ngram = line.split('\t')[0]
         start = ngram.split(' ')[0]#line[0:line.index(' ')]
+
         if start != s :
-            if (s != ''):
-                f_out = open(outputdir+'/'+str(java_string_hashcode(start))+'.lm', "w")
-                f_out.write(buf[:-1]) #remove last '\n'
-                f_out.close()
-                buf = ''
+            if (s == ''):
+                s = start
+                #print s
+                buf+=line
+                continue
+            #f_out = open(outputdir+'/'+str(java_string_hashcode(start))+'.lm', "w")
+            if '/' in s:
+                s = s.replace('/', '\\')
+            f_out = open(outputdir+'/\"'+s+'\".lm', "w")
+            f_out.write(buf[:-1]) #remove last '\n'
+            f_out.close()
+
+            buf = line
             s = start
-        buf += line
+        else:
+            buf += line
+        #
+        #s = start
+        #buf += line
     f_in.close()
 
 
-#lmpath = '/Users/parismavromoustakos/Desktop/nikos/lm_en/en.lm'
-lmpath = '/Users/parismavromoustakos/Desktop/nikos/lm_nl/nl.lm'
+lmpath = '/Users/parismavromoustakos/Desktop/nikos/en.lm'
+#lmpath = '/Users/parismavromoustakos/Desktop/nikos/nl.lm'
 
-#outputdir = '/Users/parismavromoustakos/Desktop/nikos/lm_en'
-outputdir = '/Users/parismavromoustakos/Desktop/nikos/lm_nl'
+outputdir = '/Users/parismavromoustakos/Desktop/nikos/lm_en'
+#outputdir = '/Users/parismavromoustakos/Desktop/nikos/lm_nl'
 
 splitLM(lmpath)
