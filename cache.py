@@ -6,13 +6,13 @@ import subprocess
 
 class Cache(object):
     
-    def __init__(self, e_LMdir, f_LMdir, probs_file, fSen, alpha=0.4, ngram_max_length = 3):
+    def __init__(self, e_LMdir, f_LMdir, probs_file, fSen, alpha=0.4, ngram_max_length = 3, topTrans = 20):
         #here we  load only what is needed for translating  fSen
         self.f_LMmodel = defaultdict(float) 
         self.e_LMmodel =  defaultdict(float)       
         self.TMmodel = dict()
         self.LWmodel = defualtdict(float)
-        
+        self.topTrans = topTrans
         loadmodels(probs_file, fSen, e_LMdir) 
 
         self.alpha = alpha
@@ -39,8 +39,12 @@ class Cache(object):
 
         localLWmodel = defaultdict(float)
         
+        trans_num = 0
         #for all possible translations of fPhrase
         for line in result.split('\n'):
+            #only consider the top 'topTrans' phrases
+            if trans_num == self.topTrans:
+                break
             split = line.split (' ||| ')
             if len(split) == 0: #shell response
                 break
@@ -56,6 +60,7 @@ class Cache(object):
             #add lexicalized weighting of this phrase pair in memory
             LWprob = probs[2]           
             localLWmodel[(fPhrase, ePhrase)] = LWprob
+            trans_num += 1
 
 
         #sort by value (prob) and add this phrase sub-table in memory
@@ -100,6 +105,21 @@ class Cache(object):
         f_in.close()
         return model
 
+    #get stupid back off probability
+    #model is the aggregated model loaded from the files. can be either e_LMmodel or f_LMmodel
+    def stupidback_prob(ngram, model):
+        if ngram in model:
+            return model[ngram]
+        split = ngram.split(' ')
+        back_ngram = ''
+        if len(split)==2:
+            back_ngram = ngram[0]
+        else if len(split) == 3:
+            back_ngram = ngram[0] + ' ' + ngram[1]
+        
+        return alpha * stupidback_prob(back_ngram, model)
+
+
     def TM(self, fPhrase):
         #empty list if phrase does not exist
         if fPhrase not in self.TMmodel:
@@ -118,21 +138,4 @@ class Cache(object):
 
     def LW(self, fPhrase, ePhrase):
         #return 0.1
-        return LWmodel[(fPhrase, ePhrase)]
-
-    
-    #get stupid back off probability
-    #model is the aggregated model loaded from the files. can be either e_LMmodel or f_LMmodel
-    def stupidback_prob(ngram, model):
-        if ngram in model:
-            return model[ngram]
-        split = ngram.split(' ')
-        back_ngram = ''
-        if len(split)==2:
-            back_ngram = ngram[0]
-        else if len(split) == 3:
-            back_ngram = ngram[0] + ' ' + ngram[1]
-        
-        return alpha * stupidback_prob(back_ngram, model)
-        
-    
+        return LWmodel[(fPhrase, ePhrase)]    
