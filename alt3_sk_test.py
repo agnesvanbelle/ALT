@@ -338,14 +338,17 @@ class Stack(object):
 class Cache(object):
 
   transDict =  {"ik":[("I", -0.2)], 
-                "<s> ik":[("<s> I", -0.9)],
+                #"<s> ik":[("<s> I", -0.9)],
                 "ben":[("am", -0.1),("are",-0.8)], 
                 "ik ben": [("I am", -0.9), ("I exist", -0.1)], 
                 "ben":[("am", -0.8)],
+                "nu":[("now", -1)],
+                "al":[("yet", -1)],
+                "nu al":[("already",-1.5)],
                 "hier": [("here", -0.6)], 
                 "hier .": [("here .",-0.1)],                
-                "." :[ (".",-1)],
-                ". </s>" :[ (". </s>",-1)]
+                "." :[ (".",-1)]
+                #". </s>" :[ (". </s>",-1)]
                 }
 
   def TM(self, fPhrase):
@@ -377,9 +380,9 @@ class Decoder(object):
     self.fList = self.fSen.split()
     self.nrFWords = len(self.fList)
     
-    
+    self.nrStacks = self.nrFWords # add <s> and </s>
     self.stackList = []
-    for i in range(self.nrFWords):
+    for i in range(0, self.nrStacks):
       self.stackList.append(Stack(i))
       
     if cache == None:
@@ -485,20 +488,31 @@ class Decoder(object):
       covVector = state.subproblem.translatedPositionsF
       
       for i in range(0, self.nrFWords):
+        print "i: %d" % i
         if i in covVector:
           continue
-        for j in range(i+1, min(i+Decoder.maxWords, self.nrFWords)+1):
-          if j in covVector:
+        for j in range(i+1, min(i+Decoder.maxWords+1, self.nrFWords+1)):
+          print "j: %d" % i
+          if j-1 in covVector:
             break
           span = (i,j)
           fPhraseList = self.fList[i:j]
           fPhrase = " ".join(fPhraseList)
           
+          
+          print "span: %s, fPhrase: %s" % ((i,j),fPhrase)
+          """
+          if fPhrase == "</s>" and stackNr == self.nrStacks-1:
+            print "fPhrase is </s>"
+            possibleTranslations = [('</s>',0)]
+            
+          else:
+        """
           possibleTranslations = self.cache.TM(fPhrase)
           
           for trans in possibleTranslations:
             
-            print "trans: %s" % trans[0]
+            print "trans of '%s': '%s'" % (fPhrase, trans[0])
             
             enPhrase = trans[0]
             enList = enPhrase.split()
@@ -557,18 +571,23 @@ class Decoder(object):
     # stack 1 has translations of length 2, stack 2 has translations of length 3, etc.
     # this is because stack 0 has translation of length 1 (</s>)
     
-    subProblemZero = Subproblem( translatedPositionsF=[0], lastTranslatedPositionF=0, lastTwoWordsE=['<s>'])              
+    subProblemZero = Subproblem( translatedPositionsF=[0,self.nrFWords-1], lastTranslatedPositionF=0, lastTwoWordsE=['<s>'])              
     stateZero = State(subproblem=subProblemZero, translationCurrentPhraseE='<s>', prob=0, backpointer=None, 
                                   recombPointers=[], futureProb=0) 
-                                  
-    self.stackList[0].addState(subProblemZero, stateZero)
-    self.stackList[0].postProcess()
     
+    
+    self.stackList[0].addState(subProblemZero, stateZero)
+    print "Postprocessing stack %d" % 0
+    self.stackList[0].postProcess()
+    print "Stack %d after postprocessing:" % 0
+    print self.stackList[0]
+    print "======= decoding from stack %d=============" % 0      
     self.decodeFromStack(0)
   
     stackNr = 1
-    while stackNr < self.nrFWords:
+    while stackNr < self.nrStacks:
       
+      print "=== new next stacks: === " 
       for stackNrTemp in range(stackNr, min(stackNr+Decoder.maxWords, self.nrFWords)):
         print "Stack %d:" % (stackNrTemp) 
         print self.stackList[stackNrTemp]
@@ -585,6 +604,12 @@ class Decoder(object):
       
       stackNr += 1
     
+    print "end"
+    print "nr stacks: %d" % self.nrStacks
+    print "nrFWords: %d" % self.nrFWords
+    #print self.stackList[self.nrStacks-1]
+    
+    # TODO: last stack should have default state for </s>
     
     # TODO: if not find full coverage, replace misisng indices
     # with foreign words (don't edit prob)
