@@ -109,15 +109,16 @@ class Cache(object):
   #      return [("to go", 0.32), ("avoiding to", 0.1), ("miss", 0.4)]
 
     def LMe(self, eSen):
-        #if 
+        #TODO: compute this for a sentence
         return 0.1
 
     def LMf(self, fSen):
+        #TODO: compute this for a sentence
         return 0.1
 
     def LW(self, fPhrase, ePhrase):
-        return 0.1
-
+        #return 0.1
+        return LWmodel[(fPhrase, ePhrase)]
 
     
     #get stupid back off probability
