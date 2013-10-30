@@ -9,6 +9,7 @@ from collections import defaultdict
 import argparse
 import heapq
 import math 
+from operator import itemgetter
 
 from pqdict import PQDict # see https://github.com/nvictus/priority-queue-dictionary
 import pqdict
@@ -27,7 +28,7 @@ import copy
     current cost(s)+future cost(s)
     NOTE: this is simply translation probability + future cost
     since a future "cost" is also in terms of log probs,
-    a future "cost" that is "higher" actually means a lower cost (-1 is lower than -2 for example)
+    a future "cost" that is "higher" actually means a lower cost (-1 is lower cost than -2 for example)
     so I call it a "future Probability" in the code
     
 --  Prune hypotheses that are outside of the beam of the
@@ -41,7 +42,6 @@ import copy
 
 """
 
-beamThreshHold = 2.9
 
 # defines a sub-problem: holds the 3 properties according to which
 # States can be recombined
@@ -237,12 +237,24 @@ class Stack(object):
       #if state.totalProb < bestScore-Stack.beamThreshold : # probability is within beam
           
       # deep copy necessary (?) b/c we will remove stackHeapDict later
-      lowerStates = copy.deepcopy(statesSameSubproblem.stateHeap)
+      lowerStates = []
       
+      while True and len(statesSameSubproblem.stateHeap) > 0:
+        lowerState = heapq.heappop(statesSameSubproblem.stateHeap)
+        #lowerState = copy.deepcopy(lowerState) # necessary?
+        
+        # if outside of beam
+        if lowerState.totalProb < bestScore-Stack.beamThreshold :
+          print "breaking within subproblem"
+          break
+          
+        lowerStates.append(lowerState)
+        
       # recombination  
       state.addRecombPointers(lowerStates)
       
       # add state to final list
+      # this is the highest scoring one -- states will be added from high to low prob!
       finalStateList.append(state)
       finalStateDict[state] = ''
       
@@ -251,7 +263,9 @@ class Stack(object):
   
     
     return (finalStateList, finalStateDict)
-      
+    
+    
+
   # precondition: thresholdPruneAndRecombine has been run
   # postcondition: results in self.finalStateHeap
   def histogramPrune(self, finalStateList, finalStateDict):
@@ -260,6 +274,14 @@ class Stack(object):
     
     nrToRemove = max(0, self.nrStatesTotal - self.histogramPruneLimit)
     
+    if nrToRemove > 0:
+      if nrToRemove < nrToRemain:
+        self.finalStateList = finalStateList[:-nrToRemove] # removes last k
+      else :
+        self.finalStateList = finalStateList[:nrToRemain] # remains first k
+    else:
+      self.finalStateList = finalStateList
+    """
     if nrToRemove > 0:
       print "editing stack with histogram pruning"
       # complexity of heapq.nlargest is n*log(k), of nsmallest I assume similar
@@ -279,7 +301,7 @@ class Stack(object):
       
     else:
       self.finalStateList = finalStateList
-      
+    """  
     
 class Cache(object):
 
@@ -324,16 +346,38 @@ class Decoder(object):
   def calcDistortionPenalty(self, lastPosPrevious, firstPosNow):
     return (-1) * abs(lastPosPrevious, firstPosNow)
    
-  
-  # TODO
-  # for self.fSen
-  def makeFutureCostModel() :
+ 
+  def makeFutureCostModel(self) :
     # from (startpos, endpos) --> prob
-    self.futureCostTable = defaultDict(lambda:0)
+    self.futureCostTable = defaultDict(lambda:(-10000))
     
-    pass
+    for i in range (0, self.nrFWords):
+      for j in range(i+1, min(i+self.maxWords, self.nrFWords)+1):
+        fPhrase = " ".join(self.fList[i:j])
+        possibleTranslations = self.cache.TM(fPhrase)
+        if len(possibleTRanslations) > 0:
+          # TODO: check if sorting on prob. needed for TM
+          translationOptions = sorted(translationOptions, key=itemgetter(1), reverse=True) 
+          bestTrans = translationOptions[0][0]
+          bestTransTMProb = translationOptions[0][1]
+          bestTransLMProb = self.cache.LMe(bestTrans)
+          # lexical weights?
+          bestTransLWProb = self.cache.LW(fPhrase, bestTrans)
+          
+          self.futureCostTable[(i,j)] = bestTransTMProb + bestTransLMProb # + bestTransLWProb
+        elif i == (j+1) : # 1 word
+          fPhraseLMprob = self.cache.LMf(fPhrase)
+          self.futureCostTable[(i,j)] = fPhraseLMprob -10
+      
+        # check for cheaper costs, DP way
+        for k in range(i+1, j):
+          combProb =  self.futureCostTable[(i,k)] + self.futureCostTable[(k+1, j)]
+          if combProb > self.futureCostTable[(i,j)]:
+            self.futureCostTable[(i,j)] = combProb
+        
     
-  def getFutureCost(covVector):
+    
+  def getFutureCost(self, covVector):
     
     maxSenIndex = self.nrFWords-1
     
@@ -364,6 +408,9 @@ class Decoder(object):
     nrFWordsTranslated = 0
     
     covVectorDict = defaultdict(list)
+    
+    currentBestScore = sys.maxint * (-1)
+    
     for state in stateList:
       
       covVector = state.subproblem.translatedPositionsF
@@ -371,7 +418,7 @@ class Decoder(object):
       for i in range(0, self.nrFWords):
         if i in covVector:
           continue
-        for j in range(i, i+Decoder.maxWords):
+        for j in range(i+1, min(i+Decoder.maxWords, self.nrFWords)+1):
           if in covVector:
             break
           span = (i,j)
@@ -382,20 +429,47 @@ class Decoder(object):
           
           for trans in possibleTranslations:
             enPhrase = trans[0]
+            
+            
+            ## calculate (and sum):
+            # trans. prob 
+            # lex. weight
+            # lm prob
+            # distortion cost
+            # phrase penalty
+            # word penalty
+            ## and (add separately)
+            # future cost est.
+            
             transProb = trans[1]
             lexWeight = cache.LW(fPhrase, enPhrase)
+            lmProb = cache.LMe(enPhrase)
             
             distPenalty = self.calcDistortionPenalty(state.subproblem.lastTranslatedPositionF, i)
-            wordPenalty = Decoder.wordPenalty * (j-i)
             phrasePenalty = Decoder.phrasePenalty
-            
-            # the 3 subproblem properties
-            translatedPositionsF = sorted(covVector + range(i,j))
-            lastTranslatedPositionF = j #?
-            lastTwoWordsE = (state.subproblem.lastTwoWordsE + enPhrase)[-2:]
+            wordPenalty = Decoder.wordPenalty * (j-i)
             
             
+                        
+            prob = sum([transProb, lexWeight, lmProb, distPenalty,phrasePenalty, wordPenalty])
+            futureProb = self.getFutureCost(covVector)
             
+            # only add it if it's within beam of *current* best score
+            if (prob+futureProb) >= (currentBestScore - Stack.beamThreshold) :
+            
+              # the 3 subproblem properties
+              translatedPositionsF = sorted(covVector + range(i,j))
+              lastTranslatedPositionF = j-1 #?
+              lastTwoWordsE = (state.subproblem.lastTwoWordsE + enPhrase)[-2:]
+              
+              newSubproblem = Subproblem( translatedPositionsF, lastTranslatedPositionF, lastTwoWordsE)
+              
+              newState = State(subproblem=newSubproblem, translationCurrentPhraseE=enPhrase, prob=prob, backpointer=state, recombPointers=[], futureProb=futureProb)
+              
+              # update current best stack score (prob) if necessary
+              if (prob+futureProb) > currentBestScore:
+                currentBestScore = prob+futureProb
+    
           
 
 def test1():
