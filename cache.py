@@ -145,7 +145,6 @@ class Cache(object):
             return []
         return self.TMmodel[fPhrase]   
         
-  #      return [("to go", 0.32), ("avoiding to", 0.1), ("miss", 0.4)]
 
     def LM(self, sen, LMmodel, lang_words_num):
         prob = 0

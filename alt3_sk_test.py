@@ -92,7 +92,7 @@ class State(object):
     self.translationCurrentPhraseE = translationCurrentPhraseE
     self.prob = prob #translation probability
     self.backpointer = backpointer # one backpointer to previous state
-    self.recombPointers = recombPointers # "back"-pointers to recombined states, should be heap too, b/c n-best 
+    self.recombPointers = recombPointers # "back"-pointers to recombined states 
     
     # for pruning
     self.futureProb= futureProb
@@ -101,13 +101,20 @@ class State(object):
     self.nrFWordsTranslated = self.subproblem.nrFWordsTranslated   # nr. of foreign words translated
   
   
-  def addRecombPointers(self, heapPointers):
-    if self.recombPointers == []:
-      self.recombPointers = heapPointers
-    else :
-      self.recombPointers.extend(heapPointers)
-      heapq.heapify(self.recombPointers)
-      
+  def addRecombPointers(self, listPointers):
+    for pointer in listPointers :
+      self.recombPointers.append((pointer, -(self.totalProb - pointer.totalProb)))
+   
+  # get the n best recombpointers, sorted, these are the recomb pointers
+  # that have the smallest difference in probability with the current state
+  def getNBestRecombPointers(self, n):
+    return heapq.nsmallest(n, self.recombPointers, key=itemgetter(1))
+  
+  # get recomb pointers, sorted as to
+  # having the smallest difference in probability with the current state
+  def getRecombPointersSorted(self):
+    return self.getNBestRecombPointers(len(self.recombPointers))
+    
   # heapify by highest total prob 
   def __lt__(self, other):
     return self.totalProb > other.totalProb
@@ -201,7 +208,7 @@ class StackHeapDict(pqdict.PQDict):
 class Stack(object):
   
   # static attributes
-  beamThreshold = 5
+  beamThreshold = 10
   histogramPruneLimit = 3
   
   def __init__(self, nrFWordsTranslated=None, *args, **kwargs):
@@ -266,14 +273,12 @@ class Stack(object):
       
       state = heapq.heappop(statesSameSubproblem.stateHeap) # return state with largest prob, remove from heap
         
-      #if state.totalProb < bestScore-Stack.beamThreshold : # probability is within beam
           
-      # deep copy necessary (?) b/c we will remove stackHeapDict later
       lowerStates = []
       
       while True and len(statesSameSubproblem.stateHeap) > 0:
         lowerState = heapq.heappop(statesSameSubproblem.stateHeap)
-        #lowerState = copy.deepcopy(lowerState) # necessary?
+        #lowerState = copy.deepcopy(lowerState) # necessary? we remove stackHeapDict but popped it 
         
         # if outside of beam
         if lowerState.totalProb < bestScore-Stack.beamThreshold :
@@ -432,7 +437,7 @@ class Decoder(object):
           # lexical weights?
           bestTransLWProb = self.cache.LW(fPhrase, bestTrans)
           
-          self.futureCostTable[(i,j)] = bestTransTMProb + bestTransLMProb # + bestTransLWProb
+          self.futureCostTable[(i,j)] = bestTransTMProb + bestTransLMProb  + bestTransLWProb
         elif j == (i+1) : # 1 word
           #print "i+1==j"
           fPhraseLMprob = self.cache.LMf(fPhrase)
@@ -488,11 +493,11 @@ class Decoder(object):
       covVector = state.subproblem.translatedPositionsF
       
       for i in range(0, self.nrFWords):
-        print "i: %d" % i
+        #print "i: %d" % i
         if i in covVector:
           continue
         for j in range(i+1, min(i+Decoder.maxWords+1, self.nrFWords+1)):
-          print "j: %d" % i
+          #print "j: %d" % i
           if j-1 in covVector:
             break
           span = (i,j)
@@ -528,8 +533,22 @@ class Decoder(object):
             
             transProb = trans[1]
             lexWeight = self.cache.LW(fPhrase, enPhrase)
-            lmProb = self.cache.LMe(enPhrase)
             
+            # sum lm prob's for all possible trigrams
+            # (like if the enPhrase has length 3 there will be 3)
+            lmProb  = 0
+            #print state.subproblem.lastTwoWordsE
+            lastTwoWordsE = copy.deepcopy(state.subproblem.lastTwoWordsE)   # at least has 1
+            for newEnWord in enList:  
+             # print "newEnWord: %s" % newEnWord
+              enSubList = lastTwoWordsE
+              enSubList.append(newEnWord) # at least length 2
+             # print "enSubList: %s" %enSubList
+              enSubPhrase = " ".join(enSubList)
+              lmProb += self.cache.LMe(enSubPhrase)
+              lastTwoWordsE = enSubList[-2:]
+            
+              
             distPenalty = self.calcDistortionPenalty(i, state.subproblem.lastTranslatedPositionF)
             phrasePenalty = Decoder.phrasePenalty
             wordPenalty = Decoder.wordPenalty * (j-i)
@@ -540,10 +559,20 @@ class Decoder(object):
             futureProb = self.getFutureCost(covVector)
             
            
-            
             # the 1st subproblem property            
             translatedPositionsF = sorted(covVector + range(i,j))
             
+            lastTwoWordsE = (state.subproblem.lastTwoWordsE + enList)[-2:]
+            
+            # if all states are covered (stackNrToAdd will be 7),
+            # also calculate LM prob of last 2 and </s>
+            if (set(translatedPositionsF) == set(range(0,self.nrFWords))):
+              print "---> all covered"
+              lastTwoWordsE.append('</s>')
+              enSubPhrase = " ".join(lastTwoWordsE[-2:])
+              lmFinalProb = self.cache.LMe(enSubPhrase)
+              prob += lmFinalProb
+              
             stackNrToAdd = len(translatedPositionsF)-1
             bestScoreStackToAdd = self.stackList[stackNrToAdd].bestScore()
             
@@ -551,7 +580,7 @@ class Decoder(object):
             if (prob+futureProb) >= (bestScoreStackToAdd - Stack.beamThreshold) :
               
               lastTranslatedPositionF = j-1 #?
-              lastTwoWordsE = (state.subproblem.lastTwoWordsE + enList)[-2:]
+              
               
               # define new state
               newSubproblem = Subproblem( translatedPositionsF, lastTranslatedPositionF, lastTwoWordsE)              
@@ -564,8 +593,8 @@ class Decoder(object):
             else:
               print "was below beam threshold"
               
-            
 
+              
   def decode(self):
     
     # stack 1 has translations of length 2, stack 2 has translations of length 3, etc.
@@ -607,10 +636,8 @@ class Decoder(object):
     print "end"
     print "nr stacks: %d" % self.nrStacks
     print "nrFWords: %d" % self.nrFWords
-    #print self.stackList[self.nrStacks-1]
-    
-    # TODO: last stack should have default state for </s>
-    
+    print self.stackList[self.nrStacks-1]
+  
     # TODO: if not find full coverage, replace misisng indices
     # with foreign words (don't edit prob)
     """
